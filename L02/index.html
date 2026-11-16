@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="資訊老師黃博胤">
+<meta name="robots" content="noindex">
+<title>第 2 節 認識主機與六個零件</title>
+<link rel="stylesheet" href="../assets/course.css?v=7">
+</head>
+<body data-lesson="L02">
+<div class="wrap">
+
+<header class="hero">
+  <div class="in">
+    <div class="hub-slot"></div>
+    <div>
+      <div class="sub"><a href="../index.html">← 課程目錄</a> · 第 2 節</div>
+      <h1>認識主機與六個零件</h1>
+      <p class="goal1">今天結束時：<b>你能說出六個零件各做什麼，並讓電腦和主機連上線。</b></p>
+      <div class="meta"><span>兩隊各一台主機</span><span>用 LEGO 官方 SPIKE App（中文）</span><span>共 <span id="total-min">50</span> 分鐘</span></div>
+    </div>
+  </div>
+  <aside class="t t-head">
+    <h4>這節的一個坎</h4>
+    <p>「電腦和主機說得上話，而且我知道每個零件做什麼、插在哪個接口」。官方六個教學結構一樣（插零件→拖程式→按播放→改一個地方），句型都是「當○○發生，就做△△」，新的概念只有這一個。</p>
+    <h4>語言：官方 App 的中文只有簡體</h4>
+    <p>官方 App 的語言清單只有「中國 中文」（簡體），沒有繁體。<b>語言存在瀏覽器裡，不是網址參數，連結沒辦法指定語言</b>；每台電腦只要設一次（第 1 步有直達語言設定的按鈕），之後開任何官方連結都是中文。所以頁面上的積木圖用 App 的原字（簡體），積木下面用繁體解釋，並附英文名。名詞對照見 <code>官方資料備份/中文版_教學與積木名稱對照.md</code>。<b>上課前一天把每台學生電腦的語言設好。</b></p>
+    <h4>這節怎麼用 LEGO 官方教學（不重複教）</h4>
+    <p>官方入門教學頁 <a href="https://spike.legoeducation.com/prime/start/" target="_blank" rel="noopener">spike.legoeducation.com/prime/start</a> 的 1–6 號就是六個零件。每個零件三頁：<b>說明</b>（本頁補中文與積木導讀）→ <b>官方教學</b>（學生到官方 App 做）→ <b>小測驗</b>（本頁，立刻對答案）。官方每個教學都插 A 口（力感測器那課馬達 A、力 B），我們照做。連線在官方教學 1 畫布左上角黃色「連接」鈕。</p>
+    <h4>上課前一天一定要做</h4>
+    <ul>
+      <li><b>用真主機在教室二的 Chrome 走一遍</b>：連接鈕、藍牙或 USB 哪個能用、連上後畫面哪裡改變、六個教學都能做完。結果寫回「待確認」，並把學生頁對應的句子改成確定的寫法。</li>
+      <li>電源鍵是綠色還是白色？白色要先更新主機系統（官方畫面會問），前一天先更新完。</li>
+      <li>確認每台電腦有聲音、沒有靜音：陀螺儀教學的音效從<b>電腦喇叭</b>出來（官方說明：「開始播放聲音」在設備上播放）；距離教學的警笛聲則是<b>主機</b>發聲。</li>
+      <li>每台電腦先開好官方入門教學頁；紅色與黃色 LEGO 方塊各準備一塊（顏色感測器教學要用）。</li>
+    </ul>
+    <h4>上課前準備</h4>
+    <ul>
+      <li>每隊：主機 1、馬達 1、顏色感測器 1、距離感測器 1、力感測器 1（馬達與感測器的線是連在零件上的，待用實物確認）、USB 線、紅黃 LEGO 方塊各 1。零件放盒子裡，學生不要提早拼車；備用零件放老師桌上。</li>
+      <li>主機電池充飽；兩台主機名稱不同並貼上隊名貼紙；USB 線要是資料線；電腦的藍牙開關與 Chrome 藍牙權限；6 台電腦同時載入官方 App 要多久。</li>
+      <li>老師自己的一台電腦＋主機（示範用，也用來更新白色電源鍵的主機）；耳機或調小音量（警笛、貓叫兩隊同時響）。</li>
+      <li>進度只存在各台電腦的瀏覽器（雲端設定是關的）：用同一個瀏覽器、不要開私密視窗；老師看不到誰過關，要走動看主機。</li>
+      <li>投影用學生模式；老師另開 #teacher（含準備清單與待確認，不要投出去）。老師模式的計時器會提示現在該在第幾項。</li>
+    </ul>
+    <h4>兩隊同時求救時</h4>
+    <p>每個零件的里程碑＝官方教學做完一遍。先顧還沒到的那一隊，一次最多 2 分鐘。連線階段（約第 8–14 分鐘）兩隊容易同時卡：連不上就先去做小測驗，老師輪過來再處理。白色電源鍵要更新，前一天先更新完。</p>
+    <h4>時間不夠時的砍法（照順序）</h4>
+    <p>時間軸（分鐘）：領箱 0–4 → 接口 4–8 → 連線 8–14 → 燈陣 14–20 → 馬達 20–26 → 顏色 26–32 → 距離 32–38 → 力 38–43 → 陀螺儀 43–50。<b>檢查點</b>：第 14 分鐘兩隊都連上線；第 26 分鐘馬達做完；慢了 3 分鐘以上就開始砍。</p><ol><li>力感測器改成老師示範，學生只做小測驗。</li><li>顏色感測器改成老師示範（下一堂開頭用 5 分鐘補做）。</li><li>連線只做 USB（藍牙留給下一節）。<b>不砍</b>距離感測器和陀螺儀：之後的閃避區與轉彎都會用到。</li></ol><p>被砍掉的內容記在這裡，下一堂開頭補：＿＿＿＿。小測驗每題都要答對才解鎖，不能只做兩題。</p>
+    <h4>卡關處理</h4>
+    <ul><li>個人卡在小測驗：先看答錯時的提示；仍卡住，網址加 <code>#teacher/s頁碼</code> 放行（離開老師模式會退回被鎖的頁）。</li><li>不要中途改座號：換身分會換一份存檔，題目要重答。</li><li>巡視順序：先看兩台主機（燈有沒有亮、馬達有沒有轉），再看星星 ★ n／8。小測驗答案在說明頁找得到，所以只信主機上的結果。</li></ul>
+    <h4>待確認（實機驗證後寫回）</h4>
+    <ul>
+      <li>連接鈕的位置與連上後的畫面變化；藍牙與 USB 實際流程。</li>
+      <li>陀螺儀的軸向與正負號；官方教學 6「往右歪」要歪到幾度才會觸發。</li>
+      <li>換零件時（拔馬達插顏色感測器）官方 App 要不要重新連線。</li>
+      <li>用同名分頁「spike」重用同一個官方分頁，連線會不會保留；做完一課後官方畫面是否出現下一課（英文版有，中文版未確認）。</li>
+      <li>馬達與感測器的線是否連在零件上、插接口的手感（頁面只寫「插到底」）。</li>
+    </ul>
+  </aside>
+</header>
+
+<div class="idbar"></div>
+
+<!-- ========== 1 領箱 ========== -->
+<section class="step" data-type="box" data-part="領箱" data-title="領箱、設定中文" data-min="4" data-color="#64748b">
+  <p class="goal">填好身分，把官方 App 設成中文，再找齊六樣東西。</p>
+  <div class="two">
+    <div class="checklist">
+      <label class="chk"><input type="checkbox" data-key="box.id"><span>上面的隊伍、班級、座號填好了</span></label>
+      <label class="chk"><input type="checkbox" data-key="box.lang"><span>官方 App 的語言是「中國　中文」</span></label>
+      <label class="chk"><input type="checkbox" data-key="box.hub"><span>主機、馬達各 1 個</span></label>
+      <label class="chk"><input type="checkbox" data-key="box.sens"><span>顏色、距離、力感測器各 1 個</span></label>
+      <label class="chk"><input type="checkbox" data-key="box.misc"><span>USB 線、紅色與黃色 LEGO 方塊</span></label>
+    </div>
+    <div>
+      <div class="go">
+        <span class="k">語言</span><span><a class="btn pri" href="https://spike.legoeducation.com/prime/settings/language" target="_blank" rel="noopener">打開語言設定</a>　選「中國　中文」，每台電腦只要選一次。</span>
+        <span class="k">教學</span><span><a class="btn" href="https://spike.legoeducation.com/prime/start/" target="spike" rel="noopener">官方入門教學頁</a>　先留著，等一下用。</span>
+      </div>
+      <p class="say">這一節認識六個零件。每個零件換一個人操作主機。</p>
+    </div>
+  </div>
+  <div class="t"><h4>講法</h4><p>「六樣東西找齊，語言選中文，三分鐘內。零件先不要拼。」</p><h4>卡點</h4><ul><li>語言設定在瀏覽器：換電腦要重設一次；選完回到教學頁會變中文。</li><li>學生開始拼零件：請他們放回盒子。少零件：先記下，用備用零件補。</li></ul></div>
+</section>
+
+<!-- ========== 2 接口與開機 ========== -->
+<section class="step" data-type="intro" data-part="接口" data-sub="認識" data-title="認識 6 個接口與開機" data-min="3" data-color="#0369a1">
+  <p class="goal">馬達和感測器的線，都插在主機側邊的接口上。</p>
+  <div class="part">
+    <figure class="pic"><img class="zoom" src="../assets/img/hub.png" alt="主機"><figcaption>主機（App：<span class="app-term">智慧集線器</span>）</figcaption></figure>
+    <div class="say">
+      <p>側邊有 6 個接口，標著 <b>A B C D E F</b>（App 叫「<span class="app-term">連接埠</span>」）。</p>
+      <p>每個接口都一樣，<b>插哪個都可以</b>。</p>
+      <p>一個接口一次只能接一個零件。程式寫 A，零件就要插在 A。</p>
+    </div>
+  </div>
+  <ol class="steps-do">
+    <li><b>長按電源鍵</b>開機，燈陣亮起來。</li>
+    <li>把<b>馬達的線</b>插進 <b>A</b>，插到底。再拔出來。</li>
+  </ol>
+  <div class="checklist">
+    <label class="chk"><input type="checkbox" data-key="port.on"><span>主機開機了，燈陣亮著</span></label>
+    <label class="chk"><input type="checkbox" data-key="port.plug"><span>我會插、也會拔 A 接口的線</span></label>
+  </div>
+  <div class="t"><h4>講法</h4><p>「六個接口長得一樣，插哪個都行。重點是：程式裡寫 A，零件就要在 A。官方教學每次都插 A，換零件先拔掉。」</p><h4>卡點</h4><ul><li>線插不進去：看線頭方向，不要硬塞。</li><li>主機沒亮：再長按一次；還是不亮就換主機。</li></ul></div>
+</section>
+
+<section class="step" data-gate data-type="quiz" data-part="接口" data-sub="小測驗" data-title="接口小測驗" data-min="1" data-color="#0369a1">
+  <p class="goal">答對才能往下走。答錯會告訴你為什麼，可以再選。</p>
+  <div class="quiz">
+    <div class="q" data-key="qa1"><p class="q-t">1. 接口 A 到 F，每個只能接固定的零件嗎？</p><div class="opts">
+      <button type="button" data-fb="接口都一樣，插哪個都可以。">是，A 專門接馬達</button>
+      <button type="button" data-ok="1" data-fb="接口都一樣，馬達、感測器都能插在任何一個。">不是，每個都一樣</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="qa2"><p class="q-t">2. 程式叫的是 A 口，但馬達插在 C 口，會怎樣？</p><div class="opts">
+      <button type="button" data-fb="程式叫的是 A 口，馬達不在那裡。">馬達照樣會轉</button>
+      <button type="button" data-fb="馬達不會自己換接口。">馬達自己換到 A 口</button>
+      <button type="button" data-ok="1" data-fb="程式叫 A 口，馬達在 C 口，沒有反應。積木選的口要和插的口一樣。">馬達不會動</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="qa3"><p class="q-t">3. A 口插著馬達，還想接顏色感測器，怎麼辦？</p><div class="opts">
+      <button type="button" data-fb="一個接口一次只能接一個零件。">兩個一起插進 A</button>
+      <button type="button" data-ok="1" data-fb="一個接口一次只能接一個零件，所以先拔掉馬達，再插顏色感測器。">先拔掉馬達，再插顏色感測器</button>
+      <button type="button" data-fb="感測器的線要插在主機的接口上。">把顏色感測器接在馬達上</button></div><p class="fb" hidden></p></div>
+    <p class="quiz-state"></p>
+  </div>
+  <div class="t"><h4>講法</h4><p>答完看右上角的星星；沒過的來找老師。</p></div>
+</section>
+
+<!-- ========== 3 連線 ========== -->
+<section class="step" data-type="intro" data-part="連線" data-sub="說明" data-title="電腦怎麼連上主機" data-min="1" data-color="#0d9488">
+  <p class="goal">連上線，程式才傳得到主機。有兩種連法。</p>
+  <div class="two">
+    <div class="card"><h3>藍牙（無線）</h3>
+      <ol class="steps-do"><li><b>長按電源鍵</b>開機。</li><li><b>打開藍牙</b>。</li><li>按「<b>打開</b>」，在視窗裡選你們的主機。</li></ol></div>
+    <div class="card"><h3>USB 線</h3>
+      <ol class="steps-do"><li><b>長按電源鍵</b>開機。</li><li>用 <b>USB 線</b>接主機和電腦，點「<b>使用 USB 數据線連接</b>」。</li><li>按「<b>打開</b>」，在視窗裡選你們的主機。</li></ol></div>
+  </div>
+  <p class="say">App 會問<b>電源鍵的顏色</b>：<span class="app-term">綠色</span>直接繼續，<span class="app-term">白色</span>舉手找老師。</p>
+  <div class="t"><h4>講法</h4><p>「兩種連法擇一：藍牙或 USB。今天用 ○○。三步一樣：開機、準備連線、在視窗裡選你們的主機。」（前一天確認教室電腦能用哪種後填好。）</p><h4>卡點</h4><ul><li>視窗裡有很多主機：兩隊的主機先在 App 裡改成隊名（待確認怎麼改），選名字對的那台。</li><li>電源鍵是白色：舉手，老師用自己的電腦先更新。</li></ul></div>
+</section>
+
+<section class="step" data-type="task" data-part="連線" data-sub="官方連線" data-title="在官方 App 連線" data-min="4" data-color="#0d9488">
+  <p class="goal">在官方 App 按下「連接」，連上你們的主機。</p>
+  <div class="go">
+    <span class="k">打開</span><span><a class="btn pri" href="https://spike.legoeducation.com/prime/start/" target="spike" rel="noopener">官方教學頁</a>　點「<b>1　矩陣燈</b>」。</span>
+  </div>
+  <ol class="steps-do">
+    <li>翻到教學 1 的第 2 頁，按黃色的「<b>連接</b>」鈕。</li>
+    <li>電源鍵選「<b>綠色</b>」，再選藍牙或 USB。</li>
+    <li>按「<b>打開</b>」，在視窗裡選你們的主機。</li>
+  </ol>
+  <div class="checklist">
+    <label class="chk"><input type="checkbox" data-key="conn.ok"><span>連上了：App 顯示已連上你們的主機（和老師投影的一樣）</span></label>
+  </div>
+  <div class="t"><h4>講法</h4><p>「這一步在官方網頁裡做。連上以後不要關這個分頁，下一項『燈陣』接著做。」</p><h4>卡點</h4><ul><li>連線視窗找不到主機：主機有沒有亮、線或藍牙有沒有開，再按一次「連接」。</li><li>學生把頁面關掉：重新點教學 1，連線只要再做一次。連不上超過 3 分鐘，先讓另一隊做。</li><li>連上後畫面哪裡改變：待確認，投影老師連上的樣子。</li></ul></div>
+</section>
+
+<section class="step" data-gate data-type="quiz" data-part="連線" data-sub="小測驗" data-title="連線小測驗" data-min="1" data-color="#0d9488">
+  <p class="goal">三題都答對，就可以開始認識零件。</p>
+  <div class="quiz">
+    <div class="q" data-key="qb1"><p class="q-t">1. 連線前，主機要先怎麼做？</p><div class="opts">
+      <button type="button" data-ok="1" data-fb="主機要先長按電源鍵開機，電腦才找得到它。">長按電源鍵開機</button>
+      <button type="button" data-fb="主機沒開機，電腦找不到它。">關機也可以連</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="qb2"><p class="q-t">2. 視窗裡找不到主機，先檢查什麼？</p><div class="opts">
+      <button type="button" data-fb="輸入法和連線沒有關係。">換輸入法</button>
+      <button type="button" data-ok="1" data-fb="先看主機有沒有亮，USB 線有沒有插好，或藍牙有沒有打開。">主機有沒有亮、線或藍牙</button>
+      <button type="button" data-fb="不用重開機，先檢查主機和連線方式。">電腦關機重開</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="qb3"><p class="q-t">3. 電源鍵是白色，代表什麼？</p><div class="opts">
+      <button type="button" data-fb="綠色才是已經更新。">已經更新，直接用</button>
+      <button type="button" data-ok="1" data-fb="白色代表主機要先更新，請舉手找老師。">要先更新，舉手找老師</button></div><p class="fb" hidden></p></div>
+    <p class="quiz-state"></p>
+  </div>
+  <div class="t"><h4>講法</h4><p>答完看右上角的星星；沒過的來找老師。</p></div>
+</section>
+
+<!-- ========== 4 燈陣（主機） ========== -->
+<section class="step" data-type="intro" data-part="燈陣" data-sub="說明" data-title="主機和它的燈陣" data-min="1" data-color="#8b5cf6">
+  <p class="goal">主機是機器人的大腦，程式就在它裡面執行。</p>
+  <div class="part">
+    <figure class="pic"><img class="zoom" src="../assets/img/hub.png" alt="主機"><figcaption>主機</figcaption></figure>
+    <div class="say">
+      <p>正面 25 顆小燈，叫「<b>燈陣</b>」（App：<span class="app-term">矩陣燈</span>）。</p>
+      <p>這一課讓燈陣亮出笑臉。</p>
+    </div>
+  </div>
+  <div class="blkrow">
+    <div class="blkcard"><span class="b hat b-ev">當程式啟動時</span><p class="bk-zh">「開始」積木</p><p>會啟動拼在它下面的所有積木，就像 Scratch 的「當綠旗被點擊」。</p><p class="bk-en">English：when program starts</p></div>
+    <div class="blkcard"><span class="b b-light">點亮 <i class="mx"><s></s></i></span><p class="bk-zh">「點亮」積木</p><p>決定 25 顆小燈哪幾顆亮，拼成圖案。</p><p class="bk-en">English：turn on</p></div>
+  </div>
+  <div class="t"><h4>講法</h4><p>「主機是大腦，燈陣是它的臉，等一下用程式讓它笑。」積木只講兩個：『開始』和『點亮』。積木上的字是 App 的簡體，下面是繁體說法。</p></div>
+</section>
+
+<section class="step" data-type="task" data-part="燈陣" data-sub="官方教學" data-title="做官方教學 1：矩陣燈" data-min="4" data-color="#8b5cf6">
+  <p class="goal">在官方 App 讓燈陣亮出笑臉，再改圖案。</p>
+  <div class="go">
+    <span class="k">打開</span><span>回到官方分頁，做完上一課，畫面會顯示下一課。點「<b>1　矩陣燈</b>」，做第 2 到 6 頁。<br><small>找不到官方分頁？<a class="btn" href="https://spike.legoeducation.com/prime/start/" target="spike" rel="noopener">重新打開官方教學頁</a>（要重新連線）</small></span>
+  </div>
+  <ol class="steps-do">
+    <li>拖出「<b>當程式啟動時</b>」，下面接「<b>點亮</b>」，畫出笑臉。</li>
+    <li>按「<b>運行程式</b>」播放鈕。</li>
+    <li>照官方改圖案，再按一次。</li>
+  </ol>
+  <div class="checklist">
+    <label class="chk"><input type="checkbox" data-key="p1.smile"><span>燈陣亮出笑臉了</span></label>
+    <label class="chk"><input type="checkbox" data-key="p1.change"><span>改圖案後，燈陣亮出新圖案</span></label>
+  </div>
+  <div class="t"><h4>講法</h4><p>「回到官方分頁，照畫面做，做完勾下面的檢核。」</p><h4>卡點</h4><ul><li>按了播放燈陣沒亮：「連接」有沒有連上？積木有沒有接在「當程式啟動時」下面？兩塊要貼緊。</li><li>官方第 4、6 頁是示範影片，看一下就翻頁。</li></ul></div>
+</section>
+
+<section class="step" data-gate data-type="quiz" data-part="燈陣" data-sub="小測驗" data-title="燈陣小測驗" data-min="1" data-color="#8b5cf6">
+  <p class="goal">答對拿一顆星。</p>
+  <div class="quiz">
+    <div class="q" data-key="q1a"><p class="q-t">1. 主機正面那 25 顆小燈，叫什麼？</p><div class="opts">
+      <button type="button" data-fb="感測器是偵測用的零件。">感測器</button>
+      <button type="button" data-ok="1" data-fb="5×5 共 25 顆小燈，叫燈陣。">燈陣</button>
+      <button type="button" data-fb="電源鍵是中間的大按鈕。">電源鍵</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="q1b"><p class="q-t">2.「當程式啟動時」這塊積木做什麼？</p><div class="opts">
+      <button type="button" data-ok="1" data-fb="它啟動拼在下面的所有積木，像 Scratch 的當綠旗被點擊。">啟動下面所有積木</button>
+      <button type="button" data-fb="點亮燈陣要靠下面的「點亮」積木。">直接點亮燈陣</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="q1c"><p class="q-t">3. 想改燈陣的圖案，改哪裡？</p><div class="opts">
+      <button type="button" data-fb="開始積木沒有圖案。">當程式啟動時</button>
+      <button type="button" data-ok="1" data-fb="圖案在「點亮」積木裡，點小方格就能改。">「點亮」裡的小方格</button></div><p class="fb" hidden></p></div>
+    <p class="quiz-state"></p>
+  </div>
+  <div class="t"><h4>講法</h4><p>答完看右上角的星星；沒過的來找老師。</p></div>
+</section>
+
+<!-- ========== 5 馬達 ========== -->
+<section class="step" data-type="intro" data-part="馬達" data-sub="說明" data-title="馬達：會轉的零件" data-min="1" data-color="#2563eb">
+  <p class="goal">馬達會轉，之後車子的輪子靠它帶動。</p>
+  <div class="part">
+    <figure class="pic"><img class="zoom" src="../assets/img/motor.png" alt="馬達"><figcaption>馬達</figcaption></figure>
+    <div class="say">
+      <p>馬達（App：<span class="app-term">電機</span>）用一條線接主機。</p>
+      <p>這一課插在 <b>A</b>。</p>
+    </div>
+  </div>
+  <div class="blkrow">
+    <div class="blkcard"><span class="b b-mot">將速度設置為 <i>20</i> %</span><p class="bk-zh">「設定速度」積木</p><p>數字越大，馬達轉得越快。</p><p class="bk-en">English：set speed to</p></div>
+    <div class="blkcard"><span class="b b-mot"><i class="m">A</i> 運行 <i class="m">↻</i> <i>1</i> 圈</span><p class="bk-zh">「運行幾圈」積木</p><p>讓 A 口的馬達順時針轉 1 圈。</p><p class="bk-en">English：run for rotations</p></div>
+  </div>
+  <div class="t"><h4>講法</h4><p>「馬達是力氣的來源。積木上的 A 是『馬達插在哪個接口』。今天只讓它轉一圈。」</p></div>
+</section>
+
+<section class="step" data-type="task" data-part="馬達" data-sub="官方教學" data-title="做官方教學 2：電機" data-min="4" data-color="#2563eb">
+  <p class="goal">插好馬達，讓它轉起來，再改速度。</p>
+  <div class="go">
+    <span class="k">打開</span><span>回到官方分頁，做完上一課，畫面會顯示下一課。點「<b>2　電機</b>」，做第 2 到 7 頁。<br><small>找不到官方分頁？<a class="btn" href="https://spike.legoeducation.com/prime/start/" target="spike" rel="noopener">重新打開官方教學頁</a>（要重新連線）</small></span>
+  </div>
+  <div class="guess" data-key="g.speed">
+    <p class="guess-q">先猜：速度從 20 改成 75，馬達轉 1 圈會…</p>
+    <div class="guess-opts"><button type="button" data-v="fast">轉得更快</button><button type="button" data-v="same">一樣快</button><button type="button" data-v="slow">轉得更慢</button></div>
+    <div class="guess-after" hidden>做完再回來看。<button class="guess-reveal" type="button">看看為什麼</button></div>
+    <div class="guess-why" hidden>數字越大轉得越快；圈數沒改，還是 1 圈，只是花的時間變短。</div>
+  </div>
+  <ol class="steps-do">
+    <li>馬達插進 <b>A</b> 接口（App：連接埠 A）。</li>
+    <li>排出「當程式啟動時」→「將速度設置為」→「運行 1 圈」，按「運行程式」。</li>
+    <li>把速度改大，再按一次。</li>
+  </ol>
+  <div class="port-fill">我現在把馬達插在接口 <select data-key="port.motor"><option value=""></option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div>
+  <div class="checklist">
+    <label class="chk"><input type="checkbox" data-key="p2.turn"><span>馬達轉了 1 圈</span></label>
+    <label class="chk"><input type="checkbox" data-key="p2.fast"><span>速度改大後，馬達轉得比較快</span></label>
+  </div>
+  <div class="t"><h4>講法</h4><p>「回到官方分頁，照畫面做，做完勾下面的檢核。」</p><h4>卡點</h4><ul><li>馬達不動：線有沒有插到 A、積木上選的是不是 A。</li><li>學生分不出「設置速度」和「運行」：前者是設定，後者才是動。先猜讓他們先選，不要先說答案。</li></ul></div>
+</section>
+
+<section class="step" data-gate data-type="quiz" data-part="馬達" data-sub="小測驗" data-title="馬達小測驗" data-min="1" data-color="#2563eb">
+  <p class="goal">答對拿一顆星。</p>
+  <div class="quiz">
+    <div class="q" data-key="q2a"><p class="q-t">1. 馬達主要做什麼？</p><div class="opts">
+      <button type="button" data-fb="看顏色的是顏色感測器。">看顏色</button>
+      <button type="button" data-ok="1" data-fb="馬達會轉，輪子靠它帶動。">轉動，帶動輪子</button>
+      <button type="button" data-fb="量距離的是距離感測器。">量距離</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="q2b"><p class="q-t">2. 速度從 20 改成 75，馬達會…</p><div class="opts">
+      <button type="button" data-ok="1" data-fb="數字越大轉得越快，圈數沒變。">轉得更快</button>
+      <button type="button" data-fb="數字變大是變快。">轉得更慢</button>
+      <button type="button" data-fb="速度改了，快慢就不一樣。">沒有差別</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="q2c"><p class="q-t">3. 馬達插在 C，積木卻選 A，會怎樣？</p><div class="opts">
+      <button type="button" data-fb="程式叫的是 A 口。">C 口的馬達會轉</button>
+      <button type="button" data-ok="1" data-fb="積木叫 A 口，馬達在 C 口，沒有反應。要把積木改成 C。">不會動，要改成 C</button></div><p class="fb" hidden></p></div>
+    <p class="quiz-state"></p>
+  </div>
+  <div class="t"><h4>講法</h4><p>答完看右上角的星星；沒過的來找老師。</p></div>
+</section>
+
+<!-- ========== 6 顏色感測器 ========== -->
+<section class="step" data-type="intro" data-part="顏色" data-sub="說明" data-title="顏色感測器：會看顏色" data-min="1" data-color="#ca8a04">
+  <p class="goal">顏色感測器像眼睛，認得出面前東西的顏色。</p>
+  <div class="part">
+    <figure class="pic"><img class="zoom" src="../assets/img/color.png" alt="顏色感測器"><figcaption>顏色感測器</figcaption></figure>
+    <div class="say">
+      <p>顏色感測器（App：<span class="app-term">顏色傳感器</span>）也用一條線接主機。</p>
+      <p>先拔掉馬達，再把它插在 <b>A</b>。</p>
+    </div>
+  </div>
+  <div class="blkrow">
+    <div class="blkcard"><span class="b hat b-ev"><i class="m">A</i> 當顏色為 <i class="x">紅</i></span><p class="bk-zh">「看到某個顏色」積木</p><p>看到紅色，才執行下面的積木。</p><p class="bk-en">English：when color is</p></div>
+    <div class="blkcard"><span class="b b-light">點亮 <i class="mx"><s></s></i></span><p class="bk-zh">「點亮」積木</p><p>剛才燈陣用過，讓燈陣亮起來。</p></div>
+  </div>
+  <div class="t"><h4>講法</h4><p>「顏色感測器是眼睛。這個積木長得像『開始』積木，但它是在等：看到紅色才開始。」</p></div>
+</section>
+
+<section class="step" data-type="task" data-part="顏色" data-sub="官方教學" data-title="做官方教學 3：顏色" data-min="4" data-color="#ca8a04">
+  <p class="goal">看到紅色就亮燈，再改成認黃色。</p>
+  <div class="go">
+    <span class="k">打開</span><span>回到官方分頁，做完上一課，畫面會顯示下一課。點「<b>3　顏色傳感器</b>」，做第 2 到 7 頁。<br><small>找不到官方分頁？<a class="btn" href="https://spike.legoeducation.com/prime/start/" target="spike" rel="noopener">重新打開官方教學頁</a>（要重新連線）</small></span>
+  </div>
+  <ol class="steps-do">
+    <li>拔掉馬達，把顏色感測器插進 <b>A</b>。</li>
+    <li>按「運行程式」，拿<b>紅色 LEGO 方塊</b>放在感測器前面。</li>
+    <li>把「紅」改成「黃」，換<b>黃色 LEGO 方塊</b>試試。</li>
+  </ol>
+  <div class="port-fill">我現在把顏色感測器插在接口 <select data-key="port.color"><option value=""></option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div>
+  <div class="checklist">
+    <label class="chk"><input type="checkbox" data-key="p3.red"><span>紅色 LEGO 方塊靠近時，燈陣亮</span></label>
+    <label class="chk"><input type="checkbox" data-key="p3.yellow"><span>改成黃色後，黃色 LEGO 方塊靠近時燈陣亮</span></label>
+  </div>
+  <div class="t"><h4>講法</h4><p>「回到官方分頁，照畫面做，做完勾下面的檢核。」</p><h4>卡點</h4><ul><li>沒反應：感測器鏡頭要對著積木、離近一點；線有沒有插到 A。</li><li>學生忘了拔馬達：一個接口一次只能接一個。時間不夠時，這一課改成老師示範。</li></ul></div>
+</section>
+
+<section class="step" data-gate data-type="quiz" data-part="顏色" data-sub="小測驗" data-title="顏色小測驗" data-min="1" data-color="#ca8a04">
+  <p class="goal">答對拿一顆星。</p>
+  <div class="quiz">
+    <div class="q" data-key="q3a"><p class="q-t">1. 想讓機器人認出紅色，用哪個零件？</p><div class="opts">
+      <button type="button" data-ok="1" data-fb="顏色感測器會看顏色。">顏色感測器</button>
+      <button type="button" data-fb="馬達是用來轉的。">馬達</button>
+      <button type="button" data-fb="距離感測器量距離。">距離感測器</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="q3b"><p class="q-t">2. 程式設定看「紅」，拿黃色 LEGO 方塊靠近，會怎樣？</p><div class="opts">
+      <button type="button" data-ok="1" data-fb="積木在等紅色，黃色不是它等的，所以不會亮。">不會亮，它在等紅色</button>
+      <button type="button" data-fb="只有積木上設定的顏色才有反應。">會亮，什麼顏色都行</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="q3c"><p class="q-t">3. 想改成認黃色，改哪裡？</p><div class="opts">
+      <button type="button" data-ok="1" data-fb="顏色在「當顏色為」積木上，點顏色那格就能改。">「當顏色為」上的顏色</button>
+      <button type="button" data-fb="燈陣圖案不決定看哪個顏色。">燈陣的圖案</button></div><p class="fb" hidden></p></div>
+    <p class="quiz-state"></p>
+  </div>
+  <div class="t"><h4>講法</h4><p>答完看右上角的星星；沒過的來找老師。</p></div>
+</section>
+
+<!-- ========== 7 距離感測器 ========== -->
+<section class="step" data-type="intro" data-part="距離" data-sub="說明" data-title="距離感測器：量遠近" data-min="1" data-color="#16a34a">
+  <p class="goal">距離感測器知道前面的東西有多遠。</p>
+  <div class="part">
+    <figure class="pic"><img class="zoom" src="../assets/img/distance.png" alt="距離感測器"><figcaption>距離感測器</figcaption></figure>
+    <div class="say">
+      <p>距離感測器（App：<span class="app-term">距离傳感器</span>），先拔掉上一個零件，插在 <b>A</b>。</p>
+      <p>官方說明：它看得到約 200 公分。積木上的數字，是把這 200 公分<b>切成 100 份</b>，取幾份。</p>
+      <p>1 份約 2 公分，所以 8 份約 16 公分。</p>
+    </div>
+  </div>
+  <div class="blkrow">
+    <div class="blkcard"><span class="b hat b-ev"><i class="m">A</i> 當 近于 <i>8</i> %</span><p class="bk-zh">「東西靠近」積木</p><p>東西離感測器比「8 份」更近（約 16 公分，官方說明），才執行下面的積木。</p><p class="bk-en">English：when closer than</p></div>
+    <div class="blkcard"><span class="b b-sound">播放警笛聲 <i>60</i> <i>0.2</i> 秒</span><p class="bk-zh">「警笛聲」積木</p><p>主機發出 0.2 秒的警笛聲。</p><p class="bk-en">English：play beep for seconds</p></div>
+  </div>
+  <div class="t"><h4>講法</h4><p>「距離感測器量遠近。8% 是範圍的比例，官方寫範圍約 200 公分，所以約 16 公分。之後的閃避區會用到它。」</p><h4>待確認</h4><p>實際偵測距離與誤差要實測，頁面只寫官方文件的數字。</p></div>
+</section>
+
+<section class="step" data-type="task" data-part="距離" data-sub="官方教學" data-title="做官方教學 4：距離" data-min="4" data-color="#16a34a">
+  <p class="goal">手靠近就聽到警笛聲，再改成更遠就響。</p>
+  <div class="go">
+    <span class="k">打開</span><span>回到官方分頁，做完上一課，畫面會顯示下一課。點「<b>4　距离傳感器</b>」，做第 2 到 7 頁。<br><small>找不到官方分頁？<a class="btn" href="https://spike.legoeducation.com/prime/start/" target="spike" rel="noopener">重新打開官方教學頁</a>（要重新連線）</small></span>
+  </div>
+  <div class="guess" data-key="g.dist">
+    <p class="guess-q">先猜：把 8 改成 20，手離感測器更近還是更遠就會響？</p>
+    <div class="guess-opts"><button type="button" data-v="far">更遠就會響</button><button type="button" data-v="near">要更近才會響</button><button type="button" data-v="same">沒有差別</button></div>
+    <div class="guess-after" hidden>做完再回來看。<button class="guess-reveal" type="button">看看為什麼</button></div>
+    <div class="guess-why" hidden>20 份約 40 公分，比 8 份的 16 公分更遠，所以手在更遠的地方就會觸發（官方說明的算法）。</div>
+  </div>
+  <ol class="steps-do">
+    <li>拔掉上一個零件，把距離感測器插進 <b>A</b>。</li>
+    <li>按「運行程式」，手慢慢靠近感測器，聽主機的警笛聲。</li>
+    <li>把 8 改大，再試一次。要再聽一次，手先拿遠，再慢慢靠近。</li>
+  </ol>
+  <div class="port-fill">我現在把距離感測器插在接口 <select data-key="port.dist"><option value=""></option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div>
+  <div class="checklist">
+    <label class="chk"><input type="checkbox" data-key="p4.beep"><span>手靠近時，主機響一聲警笛</span></label>
+    <label class="chk"><input type="checkbox" data-key="p4.far"><span>數字改大後，手在更遠的地方也會響</span></label>
+  </div>
+  <div class="t"><h4>講法</h4><p>「回到官方分頁，照畫面做，做完勾下面的檢核。」</p><h4>卡點</h4><ul><li>沒聲音：官方說明警笛聲是主機發出的；先看積木有沒有接好、手有沒有對著感測器正面。</li><li>學生亂揮手：請他們慢慢靠近。</li></ul></div>
+</section>
+
+<section class="step" data-gate data-type="quiz" data-part="距離" data-sub="小測驗" data-title="距離小測驗" data-min="1" data-color="#16a34a">
+  <p class="goal">答對拿一顆星。</p>
+  <div class="quiz">
+    <div class="q" data-key="q4a"><p class="q-t">1. 想知道前面的東西多遠，用哪個零件？</p><div class="opts">
+      <button type="button" data-fb="顏色感測器看顏色。">顏色感測器</button>
+      <button type="button" data-ok="1" data-fb="距離感測器量的就是前面物體的遠近。">距離感測器</button>
+      <button type="button" data-fb="力感測器知道有沒有被按。">力感測器</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="q4b"><p class="q-t">2.「近于」的數字從 8 改成 20，會怎樣？</p><div class="opts">
+      <button type="button" data-ok="1" data-fb="20 份比 8 份更遠，東西在更遠的地方就會觸發。">更遠的東西就會觸發</button>
+      <button type="button" data-fb="數字變大，範圍變大，不是變小。">要更近才會觸發</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="q4c"><p class="q-t">3. 1 份約 2 公分。設成 20（20 份），約幾公分以內？</p><div class="opts">
+      <button type="button" data-fb="20 份不是 20 公分，每份約 2 公分。">20 公分</button>
+      <button type="button" data-ok="1" data-fb="20 份 × 2 公分 ＝ 約 40 公分以內。">約 40 公分</button>
+      <button type="button" data-fb="200 公分是整個範圍，20 份只是其中一段。">200 公分</button></div><p class="fb" hidden></p></div>
+    <p class="quiz-state"></p>
+  </div>
+  <div class="t"><h4>講法</h4><p>答完看右上角的星星；沒過的來找老師。</p></div>
+</section>
+
+<!-- ========== 8 力感測器 ========== -->
+<section class="step" data-type="intro" data-part="力" data-sub="說明" data-title="力感測器：按下去" data-min="1" data-color="#db2777">
+  <p class="goal">力感測器知道有沒有被按下。</p>
+  <div class="part">
+    <figure class="pic"><img class="zoom" src="../assets/img/force.png" alt="力感測器"><figcaption>力感測器</figcaption></figure>
+    <div class="say">
+      <p>力感測器（App：<span class="app-term">力傳感器</span>）。這一課兩個零件一起接：<b>馬達 A、力感測器 B</b>。</p>
+      <p>做一個「按下去就轉，放開就停」的開關。</p>
+    </div>
+  </div>
+  <div class="blkrow">
+    <div class="blkcard"><span class="b hat b-ev"><i class="m">B</i> 當 <i class="m">被按壓</i></span><p class="bk-zh">「被按下」積木</p><p>B 口的力感測器被按下，才執行下面的積木。</p><p class="bk-en">English：when pressed</p></div>
+    <div class="blkcard"><span class="b b-mot"><i class="m">A</i> 啟動電機 <i class="m">↻</i></span><p class="bk-zh">「啟動馬達」積木</p><p>讓 A 口的馬達一直轉。</p><p class="bk-en">English：start motor</p></div>
+
+  </div>
+  <div class="t"><h4>講法</h4><p>「力感測器就像按鈕：按下去一個動作，放開一個動作。兩個『當』積木，各管一件事。」</p><h4>卡點</h4><ul><li>這一課要兩個零件同時插：A 馬達、B 力感測器。</li><li>官方積木下拉選單：「被按壓」「被鬆開」（官方說明寫法）。</li></ul></div>
+</section>
+
+<section class="step" data-type="task" data-part="力" data-sub="官方教學" data-title="做官方教學 5：力" data-min="3" data-color="#db2777">
+  <p class="goal">按下力感測器馬達轉，放開就停。</p>
+  <div class="go">
+    <span class="k">打開</span><span>回到官方分頁，做完上一課，畫面會顯示下一課。點「<b>5　力傳感器</b>」，做第 2 到 5 頁。<br><small>找不到官方分頁？<a class="btn" href="https://spike.legoeducation.com/prime/start/" target="spike" rel="noopener">重新打開官方教學頁</a>（要重新連線）</small></span>
+  </div>
+  <p class="say">再加「放開」那一組，官方畫面上也有：</p>
+  <div class="blkrow">
+    <div class="blkcard"><span class="b hat b-ev"><i class="m">B</i> 當 <i class="m">被鬆開</i></span><p class="bk-zh">「被放開」積木</p><p>力感測器被放開，才執行下面的積木。</p><p class="bk-en">English：when released</p></div>
+    <div class="blkcard"><span class="b b-mot"><i class="m">A</i> 關閉電機</span><p class="bk-zh">「關閉馬達」積木</p><p>讓 A 口的馬達停下來。</p><p class="bk-en">English：stop motor</p></div>
+  </div>
+  <ol class="steps-do">
+    <li>先拔掉距離感測器。<b>馬達</b>插 A，<b>力感測器</b>插 B。</li>
+    <li>照畫面排好按下、放開兩組程式，按「運行程式」。</li>
+    <li>用手按住力感測器，再放開。</li>
+  </ol>
+  <div class="port-fill">馬達插在接口 <select data-key="port.fmotor"><option value=""></option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select>，力感測器插在接口 <select data-key="port.force"><option value=""></option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div>
+  <div class="checklist">
+    <label class="chk"><input type="checkbox" data-key="p5.press"><span>按住時，馬達轉</span></label>
+    <label class="chk"><input type="checkbox" data-key="p5.release"><span>放開後，馬達停下來</span></label>
+  </div>
+  <div class="t"><h4>講法</h4><p>「回到官方分頁，照畫面做，做完勾下面的檢核。」</p><h4>卡點</h4><ul><li>馬達不轉：A 是馬達、B 是力感測器嗎？積木上的字母對不對？</li><li>時間不夠時，這一課改成老師示範。</li></ul></div>
+</section>
+
+<section class="step" data-gate data-type="quiz" data-part="力" data-sub="小測驗" data-title="力感測器小測驗" data-min="1" data-color="#db2777">
+  <p class="goal">答對拿一顆星。</p>
+  <div class="quiz">
+    <div class="q" data-key="q5a"><p class="q-t">1. 力感測器可以知道什麼？</p><div class="opts">
+      <button type="button" data-fb="看顏色是顏色感測器。">前面是什麼顏色</button>
+      <button type="button" data-ok="1" data-fb="力感測器知道有沒有被按下。">有沒有被按下</button>
+      <button type="button" data-fb="歪不歪是陀螺儀的工作。">主機歪不歪</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="q5b"><p class="q-t">2. 按下去馬達轉，放開以後馬達會…</p><div class="opts">
+      <button type="button" data-fb="放開時有「關閉電機」，會叫馬達停。">繼續轉</button>
+      <button type="button" data-ok="1" data-fb="「被鬆開」下面接「關閉電機」，所以馬達停下來。">停下來</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="q5c"><p class="q-t">3. 馬達和力感測器為什麼不插同一個接口？</p><div class="opts">
+      <button type="button" data-ok="1" data-fb="一個接口一次只能接一個零件，所以分別插 A 和 B。">一個接口只能接一個</button>
+      <button type="button" data-fb="想一想：接口有分專門給誰用嗎？">B 專門給力感測器</button></div><p class="fb" hidden></p></div>
+    <p class="quiz-state"></p>
+  </div>
+  <div class="t"><h4>講法</h4><p>答完看右上角的星星；沒過的來找老師。</p></div>
+</section>
+
+<!-- ========== 9 陀螺儀 ========== -->
+<section class="step" data-type="intro" data-part="陀螺儀" data-sub="說明" data-title="陀螺儀：藏在主機裡" data-min="2" data-color="#ea580c">
+  <p class="goal">第六個零件沒有自己的線，它藏在主機裡。</p>
+  <div class="part">
+    <figure class="pic"><img class="zoom" src="../assets/img/gyro.png" alt="拿著主機歪一歪"><figcaption>陀螺儀</figcaption></figure>
+    <div class="say">
+      <p>陀螺儀（App：<span class="app-term">陀螺儀傳感器</span>）<b>內建在主機裡</b>，不用接線。</p>
+      <p>它知道主機<b>動了、歪了、轉了</b>。拖一拖虛擬主機，看哪個數字在變：</p>
+    </div>
+  </div>
+  <div class="guess" data-key="g.gyro">
+    <p class="guess-q">先猜：主機平放桌上，像開車一樣向左轉，哪個數字會變？</p>
+    <div class="guess-opts"><button type="button" data-v="pitch">俯仰</button><button type="button" data-v="roll">翻滾</button><button type="button" data-v="yaw">轉向</button></div>
+    <div class="guess-after" hidden>按「向左轉 15°」試試。<button class="guess-reveal" type="button">看看為什麼</button></div>
+    <div class="guess-why" hidden>主機平放轉圈就是「轉向」在變；之後車子轉彎，就是用它量轉了幾度。</div>
+  </div>
+  <div class="gyro">
+    <div class="stage3d" id="g-stage" aria-label="可以拖曳的虛擬主機">
+      <div class="scene"><div class="hub3" id="g-hub">
+        <div class="fc f-top"><div class="front">前方 ↑</div><div class="ring"></div><div class="led"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="pw"></div></div>
+        <div class="fc f-bot"></div><div class="fc f-l"></div><div class="fc f-r"></div><div class="fc f-f"></div><div class="fc f-b"></div>
+      </div></div>
+    </div>
+    <div class="nums">
+      <div class="nm"><b id="g-pitch">0°</b><span>俯仰（前後歪）</span><em id="g-pitch-w">放平</em></div>
+      <div class="nm"><b id="g-roll">0°</b><span>翻滾（左右歪）</span><em id="g-roll-w">放平</em></div>
+      <div class="nm"><b id="g-yaw">0°</b><span>轉向（平放轉圈）</span><em id="g-yaw-w">沒轉</em></div>
+      <div class="ctl"><button type="button" id="g-left">向左轉 15°</button><button type="button" id="g-right">向右轉 15°</button><button type="button" id="g-flat">放平</button><button type="button" id="g-zero">轉向歸零</button></div>
+      <p class="hint">在黑色舞台上拖曳：左右拖是左右歪，上下拖是前後歪。</p>
+    </div>
+  </div>
+  <div class="t"><h4>講法</h4><p>「第六個零件不用插線，在主機肚子裡。它量三種角度：前後歪、左右歪、平放轉圈。車子轉彎用的是第三種。」</p><h4>待確認</h4><p>虛擬陀螺的方向與正負號要用真主機對照；頁面只顯示「向左／向右」等文字。官方教學 6 往右歪要歪多少才觸發要實測。</p></div>
+</section>
+
+<section class="step" data-type="task" data-part="陀螺儀" data-sub="官方教學" data-title="做官方教學 6：陀螺儀" data-min="4" data-color="#ea580c">
+  <p class="goal">主機往右歪就播放音效，再改成往左歪。</p>
+  <div class="go">
+    <span class="k">打開</span><span>回到官方分頁，做完上一課，畫面會顯示下一課。點「<b>6　陀螺儀傳感器</b>」，做第 2 到 7 頁。這一課不用插零件。<br><small>找不到官方分頁？<a class="btn" href="https://spike.legoeducation.com/prime/start/" target="spike" rel="noopener">重新打開官方教學頁</a>（要重新連線）</small></span>
+  </div>
+  <div class="blkrow">
+    <div class="blkcard"><span class="b hat b-ev">當智慧集線器傾斜 <i class="m">→</i> 時</span><p class="bk-zh">「主機歪了」積木</p><p>主機往右歪，才執行下面的積木（箭頭可改方向）。</p><p class="bk-en">English：when tilted</p></div>
+    <div class="blkcard"><span class="b b-sound">開始播放聲音 <i class="m">Cat Meow 1</i></span><p class="bk-zh">「播放聲音」積木</p><p>播放貓叫音效，聲音從<b>電腦喇叭</b>出來，電腦不要靜音。</p><p class="bk-en">English：start sound</p></div>
+  </div>
+  <ol class="steps-do">
+    <li>排出「當智慧集線器傾斜」→「開始播放聲音」，按「運行程式」。</li>
+    <li>拿起主機（燈陣面向你）往你的<b>右手邊</b>歪，聽電腦喇叭。USB 線不要拉扯。</li>
+    <li>把方向改成<b>左</b>，再試一次。</li>
+  </ol>
+  <div class="checklist">
+    <label class="chk"><input type="checkbox" data-key="p6.right"><span>往右歪時，電腦發出音效</span></label>
+    <label class="chk"><input type="checkbox" data-key="p6.left"><span>改成左以後，往左歪才發出音效</span></label>
+  </div>
+  <div class="t"><h4>講法</h4><p>「回到官方分頁，照畫面做，做完勾下面的檢核。」</p><h4>卡點</h4><ul><li>沒聲音：電腦有沒有靜音？主機要歪得明顯一點。</li><li>學生拿著連接線的主機亂甩：提醒線不要拉扯；USB 連線時可改用藍牙或把線放鬆。</li></ul></div>
+</section>
+
+<section class="step" data-gate data-type="quiz" data-part="陀螺儀" data-sub="小測驗" data-title="陀螺儀小測驗" data-min="1" data-color="#ea580c">
+  <p class="goal">最後一個零件，答對拿最後一顆星。</p>
+  <div class="quiz">
+    <div class="q" data-key="q6a"><p class="q-t">1. 陀螺儀在哪裡？</p><div class="opts">
+      <button type="button" data-fb="它沒有自己的線，不用插接口。">插在 F 接口</button>
+      <button type="button" data-ok="1" data-fb="陀螺儀內建在主機裡面，所以不用接線。">藏在主機裡面</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="q6b"><p class="q-t">2. 官方教學 6 的音效，從哪裡發出來？</p><div class="opts">
+      <button type="button" data-fb="官方說明寫的是你的電腦的喇叭。">主機</button>
+      <button type="button" data-ok="1" data-fb="音效從電腦的喇叭出來，所以電腦不要靜音。">電腦的喇叭</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="q6c"><p class="q-t">3. 車子在地上轉彎，主要是哪個角度在變？</p><div class="opts">
+      <button type="button" data-fb="俯仰是前後歪。">俯仰</button>
+      <button type="button" data-fb="翻滾是左右歪。">翻滾</button>
+      <button type="button" data-ok="1" data-fb="平放轉圈是轉向，車子轉彎用它量轉了幾度。">轉向</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="q6d"><p class="q-t">4. 想讓主機「往左歪」才發出音效，改哪裡？</p><div class="opts">
+      <button type="button" data-ok="1" data-fb="方向在「當智慧集線器傾斜」積木上，把箭頭改成左邊。">「傾斜」積木上的方向</button>
+      <button type="button" data-fb="音效只決定發出什麼聲音，不決定往哪邊歪。">「開始播放聲音」的音效</button></div><p class="fb" hidden></p></div>
+    <p class="quiz-state"></p>
+  </div>
+  <div class="unlock" hidden>
+    <b>今天認識了六個零件，下一節繼續用它們。</b>做太快的話：打開 <a href="https://spike.legoeducation.com/prime/unit-plans/blt4b49bd6ee0bde119" target="_blank" rel="noopener">官方 Competition Ready</a>（App 裡的單元）→ Training Camp 1，看第 2 頁的組裝說明。
+  </div>
+  <div class="t"><h4>講法</h4><p>「星星都拿到的人，可以先看官方的組裝說明，不用先動手。」</p></div>
+</section>
+
+</div>
+
+<script src="../assets/firebase-config.js"></script>
+<script src="../assets/course.js?v=7"></script>
+<script>
+/* 虛擬陀螺：拖曳改變俯仰／翻滾，按鈕改變轉向。只用文字說明方向。 */
+(function () {
+  var hub = document.getElementById('g-hub'), stage = document.getElementById('g-stage');
+  if (!hub || !stage) return;
+  var st = { pitch: 0, roll: 0, yaw: 0 };
+  function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+  function word(v, pos, neg, zero) { var a = Math.abs(Math.round(v)); return a < 3 ? zero : (v > 0 ? pos : neg); }
+  function draw() {
+    hub.style.transform = 'rotateZ(' + st.yaw + 'deg) rotateX(' + (-st.pitch) + 'deg) rotateY(' + st.roll + 'deg)';
+    document.getElementById('g-pitch').textContent = Math.round(Math.abs(st.pitch)) + '°';
+    document.getElementById('g-roll').textContent = Math.round(Math.abs(st.roll)) + '°';
+    document.getElementById('g-yaw').textContent = Math.round(Math.abs(st.yaw)) + '°';
+    document.getElementById('g-pitch-w').textContent = word(st.pitch, '前端翹起', '前端低下', '放平');
+    document.getElementById('g-roll-w').textContent = word(st.roll, '向右歪', '向左歪', '放平');
+    document.getElementById('g-yaw-w').textContent = word(st.yaw, '向右轉', '向左轉', '沒轉');
+  }
+  var drag = null;
+  stage.addEventListener('pointerdown', function (e) { drag = { x: e.clientX, y: e.clientY, p: st.pitch, r: st.roll }; stage.setPointerCapture(e.pointerId); });
+  stage.addEventListener('pointermove', function (e) { if (!drag) return; st.roll = clamp(drag.r + (e.clientX - drag.x) * 0.5, -75, 75); st.pitch = clamp(drag.p + (drag.y - e.clientY) * 0.5, -75, 75); draw(); });
+  function end() { drag = null; } stage.addEventListener('pointerup', end); stage.addEventListener('pointercancel', end);
+  function yaw(d) { st.yaw = ((st.yaw + d + 540) % 360) - 180; draw(); }
+  document.getElementById('g-left').onclick = function () { yaw(-15); };
+  document.getElementById('g-right').onclick = function () { yaw(15); };
+  document.getElementById('g-flat').onclick = function () { st.pitch = 0; st.roll = 0; draw(); };
+  document.getElementById('g-zero').onclick = function () { st.yaw = 0; draw(); };
+  draw();
+})();
+</script>
+</body>
+</html>
