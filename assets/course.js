@@ -274,7 +274,13 @@
     if (!state['v' + cur]) { state['v' + cur] = 1; saveLocal(); }   // 純閱讀頁走過就記下來，重新整理後 ✓ 還在
     steps.forEach(function (s, k) { s.hidden = k !== cur; });
     writeHash(cur + 1); refreshDone();
-    if (!noScroll) window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+    if (!noScroll) {
+      var top = 0;
+      if (body.classList.contains('teacher') && steps[cur]) {   // 老師模式：停在這一頁的頁首，不要跳回最上面的老師說明
+        top = Math.max(0, steps[cur].getBoundingClientRect().top + window.pageYOffset - (nav ? nav.offsetHeight : 0) - 10);
+      }
+      window.scrollTo({ top: top, behavior: 'instant' in window ? 'instant' : 'auto' });
+    }
     try { document.dispatchEvent(new CustomEvent('lc:stepchange', { detail: { index: cur } })); } catch (e) { }
   }
   function buildSteps() {

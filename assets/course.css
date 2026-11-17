@@ -384,3 +384,6 @@ body.mode-py [data-mode="block"]{display:none!important}
 .mxfig{margin:8px 0;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}
 .mxfig-svg{width:340px;max-width:100%;height:auto;flex:none}
 .mxfig figcaption{flex:1;min-width:14em}
+
+.t-head details>summary{cursor:pointer;font-weight:700;color:#9f1239;padding:2px 0;list-style:revert}
+.t-head details[open]>summary{margin-bottom:8px}
