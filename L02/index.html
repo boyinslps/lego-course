@@ -6,7 +6,7 @@
 <meta name="author" content="資訊老師黃博胤">
 <meta name="robots" content="noindex">
 <title>第 2 節 認識主機與六個零件</title>
-<link rel="stylesheet" href="../assets/course.css?v=26">
+<link rel="stylesheet" href="../assets/course.css?v=27">
 </head>
 <body data-lesson="L02">
 <div class="wrap">
@@ -46,7 +46,7 @@
     <h4>兩隊同時求救時</h4>
     <p>每個零件的里程碑＝官方教學做完一遍。先顧還沒到的那一隊，一次最多 2 分鐘。連線階段（約第 8–14 分鐘）兩隊容易同時卡：連不上就先去做小測驗，老師輪過來再處理。白色電源鍵要更新，前一天先更新完。</p>
     <h4>時間不夠時的砍法（照順序）</h4>
-    <p>時間軸（分鐘）：領箱 0–4 → 接口 4–8 → 連線 8–14 → 燈陣 14–20 → 馬達 20–26 → 顏色 26–32 → 距離 32–38 → 力 38–43 → 陀螺儀 43–50。<b>檢查點</b>：第 14 分鐘兩隊都連上線；第 26 分鐘馬達做完；慢了 3 分鐘以上就開始砍。</p><ol><li>力感測器改成老師示範，學生只做小測驗。</li><li>顏色感測器改成老師示範（下一堂開頭用 5 分鐘補做）。</li><li>連線只做 USB（藍牙留給下一節）。<b>不砍</b>距離感測器和陀螺儀：之後的閃避區與轉彎都會用到。</li></ol><p>被砍掉的內容記在這裡，下一堂開頭補：＿＿＿＿。小測驗每題都要答對才解鎖，不能只做兩題。</p>
+    <p>時間軸（分鐘）：領箱 0–4 → 接口 4–8 → 連線 8–14 → 燈陣 14–20 → 馬達 20–26 → 顏色 26–32 → 距離 32–37 → 力 37–42 → 陀螺儀 42–48 → 收拾 48–50。<b>檢查點</b>：第 14 分鐘兩隊都連上線；第 26 分鐘馬達做完；慢了 3 分鐘以上就開始砍。</p><ol><li>力感測器改成老師示範，學生只做小測驗。</li><li>顏色感測器改成老師示範（下一堂開頭用 5 分鐘補做）。</li><li>連線只做 USB（藍牙留給下一節）。<b>不砍</b>距離感測器和陀螺儀：之後的閃避區與轉彎都會用到。</li></ol><p>被砍掉的內容記在這裡，下一堂開頭補：＿＿＿＿。小測驗每題都要答對才解鎖，不能只做兩題。</p>
     <h4>卡關處理</h4>
     <ul><li>個人卡在小測驗：先看答錯時的提示；仍卡住，網址加 <code>#teacher/s頁碼</code> 放行（離開老師模式會退回被鎖的頁）。</li><li>不要中途改座號：換身分會換一份存檔，題目要重答。</li><li>巡視順序：先看兩台主機（燈有沒有亮、馬達有沒有轉），再看星星 ★ n／8。小測驗答案在說明頁找得到，所以只信主機上的結果。</li></ul>
     <h4>Python 版（右上角「Python」開關）</h4>
@@ -422,7 +422,7 @@ if 0 &lt; d &lt; 160:
   <div class="t"><h4>講法</h4><p>「距離感測器量遠近。8% 是範圍的比例，官方寫範圍約 200 公分，所以約 16 公分。之後的閃避區會用到它。」</p><h4>待確認</h4><p>實際偵測距離與誤差要實測，頁面只寫官方文件的數字。</p></div>
 </section>
 
-<section class="step" data-type="task" data-part="距離" data-sub="官方教學" data-title="做官方教學 4：距離" data-min="4" data-color="#16a34a" data-title-py="用 Python 量距離" data-sub-py="寫 Python" data-min-py="4">
+<section class="step" data-type="task" data-part="距離" data-sub="官方教學" data-title="做官方教學 4：距離" data-min="3" data-color="#16a34a" data-title-py="用 Python 量距離" data-sub-py="寫 Python" data-min-py="3">
   <p class="goal">手靠近就亮燈，再改成更遠就亮。</p>
 <div class="go" data-mode="py"><span class="k">打開</span><span>回到 SPIKE App 的 <b>Python 專案</b>（和上一課同一個就好），把裡面的程式<b>全部換成</b>下面這段。</span></div>
   <div class="guess" data-mode="py" data-key="g.dist.py"><p class="guess-q">先猜：把 160 改成 400，手離感測器更近還是更遠就會亮？</p><div class="guess-opts"><button type="button" data-v="far">更遠就會亮</button><button type="button" data-v="near">要更近才會亮</button><button type="button" data-v="same">沒有差別</button></div><div class="guess-after" hidden>做完再回來看。<button class="guess-reveal" type="button">看看為什麼</button></div><div class="guess-why" hidden>400 毫米是 40 公分，比 160 毫米（16 公分）更遠，所以手在更遠的地方就會觸發。</div></div>
@@ -598,7 +598,7 @@ while True:
   <div class="t"><h4>講法</h4><p>「第六個零件不用插線，在主機肚子裡。它量三種角度：前後歪、左右歪、平放轉圈。車子轉彎用的是第三種。」</p><h4>待確認</h4><p>虛擬陀螺的方向與正負號要用真主機對照；頁面只顯示「向左／向右」等文字。官方教學 6 往右歪要歪多少才觸發要實測。</p></div>
 </section>
 
-<section class="step" data-type="task" data-part="陀螺儀" data-sub="官方教學" data-title="做官方教學 6：陀螺儀" data-min="4" data-color="#ea580c" data-title-py="用 Python 讀陀螺儀" data-sub-py="寫 Python" data-min-py="3">
+<section class="step" data-type="task" data-part="陀螺儀" data-sub="官方教學" data-title="做官方教學 6：陀螺儀" data-min="3" data-color="#ea580c" data-title-py="用 Python 讀陀螺儀" data-sub-py="寫 Python" data-min-py="2">
   <p class="goal">主機往右歪就亮燈，再改成往左歪。</p>
 <div class="go" data-mode="py"><span class="k">打開</span><span>回到 SPIKE App 的 <b>Python 專案</b>，把程式<b>全部換成</b>下面這段。這一課不用插零件。</span></div>
   <ol class="steps-do" data-mode="py"><li>貼上程式，按播放。</li><li>拿起主機（燈陣面向你），慢慢往<b>前後</b>歪，看 Console 的數字（現在印的是 <code>pitch</code>）有沒有在變。</li><li><b>練習：</b>想看往你<b>右手邊</b>歪的數字，<code>print</code> 的括號裡要改成什麼？（可以選：俯仰 <code>pitch</code>、翻滾 <code>roll</code>、轉向 <code>yaw</code>）改改看，再往右歪一次主機。</li><li>找出往右歪時，哪個數字會變、往哪邊變大。</li></ol>
@@ -658,10 +658,22 @@ while True:
   <div class="t"><h4>講法</h4><p>「星星都拿到的人，可以先看官方的組裝說明，不用先動手。」</p></div>
 </section>
 
+<!-- ========== 10 收拾 ========== -->
+<section class="step" data-type="box" data-part="收拾" data-title="收拾" data-min="2" data-color="#64748b">
+  <p class="goal">把東西收好，下一組才能接著用。</p>
+  <div class="checklist">
+    <label class="chk"><input type="checkbox" data-key="tidy.parts"><span>零件都收齊了：主機、馬達、顏色／距離／力感測器、USB 線、紅黃 LEGO 方塊</span></label>
+    <label class="chk"><input type="checkbox" data-key="tidy.cable"><span>線材摺好、捆好</span></label>
+    <label class="chk"><input type="checkbox" data-key="tidy.off"><span>SPIKE 主機關機了（長按電源鍵）</span></label>
+    <label class="chk"><input type="checkbox" data-key="tidy.box"><span>整齊放進箱子，蓋好</span></label>
+  </div>
+  <div class="t"><h4>講法</h4><p>「最後兩分鐘全隊一起收：一個人唸清單，其他人檢查。少了什麼現在就說。」</p><h4>卡點</h4><ul><li>少零件：記下少哪一樣、哪一組，下課前找。</li><li>主機還亮著：長按電源鍵直到燈熄滅，再收。</li></ul></div>
+</section>
+
 </div>
 
 <script src="../assets/firebase-config.js"></script>
-<script src="../assets/course.js?v=26"></script>
+<script src="../assets/course.js?v=27"></script>
 <script>
 /* 虛擬陀螺：拖曳改變俯仰／翻滾，按鈕改變轉向。只用文字說明方向。 */
 (function () {
