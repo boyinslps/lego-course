@@ -295,7 +295,7 @@
       b.innerHTML = '<i>' + (gi + 1) + '</i><span>' + esc(g.label) + '</span>';
       b.title = g.label + '（約 ' + g.min + ' 分鐘）';
       b.setAttribute('aria-label', '第 ' + (gi + 1) + ' 項：' + g.label);
-      b.onclick = function () { var first = g.idx.filter(function (i) { return !stepDone(i); })[0]; go(first != null ? first : g.idx[0]); };
+      b.onclick = function () { var first = body.classList.contains('teacher') ? g.idx[0] : g.idx.filter(function (i) { return !stepDone(i); })[0]; go(first != null ? first : g.idx[0]); };
       g.btn = b; li.appendChild(b); ol.appendChild(li);
     });
     steps.forEach(function (s, i) {
@@ -385,7 +385,7 @@
     $('#btn-teacher').onclick = function () {
       var h = parseHash();
       if (h.teacher) { location.hash = h.step ? '#s' + h.step : ''; }
-      else { var pw = prompt('老師模式密碼（只是避免學生誤按，不是保密）'); if (pw === (window.LC_TEACHER_PW || '1234')) location.hash = '#teacher' + (h.step ? '/s' + h.step : ''); }
+      else { var pw = prompt('老師模式密碼（只是避免學生誤按，不是保密）'); if (pw === (window.LC_TEACHER_PW || 'teacher')) location.hash = '#teacher' + (h.step ? '/s' + h.step : ''); }
     };
     // 計時器（老師模式才顯示）
     var t0 = null, tick;

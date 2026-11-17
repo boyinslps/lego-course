@@ -9,7 +9,7 @@ SPIKE Prime 校隊的新課程系列：用 LEGO 官方 SPIKE App 當主體，這
 - `官方資料備份/`：官方六個入門教學的原文與中文、程式卡圖（本機參考，不放進學生頁）。
 - `L02_規劃.md`：第 2 節的規劃與設計決定。
 - 身分 ＝ 隊伍（隊伍一／二）＋班級＋座號；沒有姓名。
-- 老師模式：網址加 `#teacher`（或按「老師模式」，密碼 `1234`，改 `window.LC_TEACHER_PW`）。
+- 老師模式：網址加 `#teacher`（或按「老師模式」，密碼 `teacher`，改 `window.LC_TEACHER_PW`）。
 - 本機預覽：`python -m http.server 8793 -d lego-course`，開 <http://localhost:8793/>。
 
 made by 資訊老師黃博胤
