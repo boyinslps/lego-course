@@ -6,7 +6,7 @@
 <meta name="author" content="資訊老師黃博胤">
 <meta name="robots" content="noindex">
 <title>第 2 節 認識主機與六個零件</title>
-<link rel="stylesheet" href="../assets/course.css?v=10">
+<link rel="stylesheet" href="../assets/course.css?v=11">
 </head>
 <body data-lesson="L02">
 <div class="wrap">
@@ -283,6 +283,7 @@ motor.run_for_degrees(port.A, 360, 720)</code></pre></div>
     <li>把速度改大，再按一次。</li>
   </ol>
   <div class="port-fill">我現在把馬達插在接口 <select data-key="port.motor"><option value=""></option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div>
+  <p class="say" data-mode="py">程式裡的 <code>port.A</code> 要跟你插的接口一樣。插在別的接口，這個字母也要改（例如插在 C，就寫 <code>port.C</code>）。</p>
   <div class="checklist">
     <label class="chk"><input type="checkbox" data-key="p2.turn"><span>馬達轉了 1 圈</span></label>
     <label class="chk"><input type="checkbox" data-key="p2.fast"><span>速度改大後，馬達轉得比較快</span></label>
@@ -355,6 +356,7 @@ while True:
     <li>把「紅」改成「黃」，換<b>黃色 LEGO 方塊</b>試試。</li>
   </ol>
   <div class="port-fill">我現在把顏色感測器插在接口 <select data-key="port.color"><option value=""></option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div>
+  <p class="say" data-mode="py">程式裡的 <code>port.A</code> 要跟你插的接口一樣。插在別的接口，這個字母也要改（例如插在 C，就寫 <code>port.C</code>）。</p>
   <div class="checklist">
     <label class="chk"><input type="checkbox" data-key="p3.red"><span>紅色 LEGO 方塊靠近時，燈陣亮</span></label>
     <label class="chk"><input type="checkbox" data-key="p3.yellow"><span>改成黃色後，黃色 LEGO 方塊靠近時燈陣亮</span></label>
@@ -434,6 +436,7 @@ while True:
     <li>把 8 改大，再試一次。要再聽一次，手先拿遠，再慢慢靠近。</li>
   </ol>
   <div class="port-fill">我現在把距離感測器插在接口 <select data-key="port.dist"><option value=""></option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div>
+  <p class="say" data-mode="py">程式裡的 <code>port.A</code> 要跟你插的接口一樣。插在別的接口，這個字母也要改（例如插在 C，就寫 <code>port.C</code>）。</p>
   <div class="checklist">
     <label class="chk"><input type="checkbox" data-key="p4.beep"><span>手靠近時，主機響一聲警笛</span></label>
     <label class="chk"><input type="checkbox" data-key="p4.far"><span>數字改大後，手在更遠的地方也會響</span></label>
@@ -512,6 +515,7 @@ while True:
     <li>用手按住力感測器，再放開。</li>
   </ol>
   <div class="port-fill">馬達插在接口 <select data-key="port.fmotor"><option value=""></option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select>，力感測器插在接口 <select data-key="port.force"><option value=""></option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div>
+  <p class="say" data-mode="py">程式裡的 <code>port.A</code>、<code>port.B</code> 要跟你插的接口一樣。插在別的接口，程式裡的字母也要改。</p>
   <div class="checklist">
     <label class="chk"><input type="checkbox" data-key="p5.press"><span>按住時，馬達轉</span></label>
     <label class="chk"><input type="checkbox" data-key="p5.release"><span>放開後，馬達停下來</span></label>
@@ -634,7 +638,7 @@ while True:
 </div>
 
 <script src="../assets/firebase-config.js"></script>
-<script src="../assets/course.js?v=10"></script>
+<script src="../assets/course.js?v=11"></script>
 <script>
 /* 虛擬陀螺：拖曳改變俯仰／翻滾，按鈕改變轉向。只用文字說明方向。 */
 (function () {
