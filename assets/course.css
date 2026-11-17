@@ -378,3 +378,5 @@ body.mode-py [data-mode="block"]{display:none!important}
 .fb code{background:rgba(255,255,255,.7);color:inherit;border-radius:6px;padding:1px 6px;font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:.95em}
 .adv{background:#f5f3ff;border:2px dashed #a78bfa;border-radius:12px;padding:10px 14px;margin:12px 0}
 .adv h3{margin:0 0 6px;color:#6d28d9;font-size:1.1rem}
+
+.guess-opts button code{background:#e2e8f0;color:#1e293b;border-radius:6px;padding:1px 6px}

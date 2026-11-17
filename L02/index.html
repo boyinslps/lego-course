@@ -6,7 +6,7 @@
 <meta name="author" content="資訊老師黃博胤">
 <meta name="robots" content="noindex">
 <title>第 2 節 認識主機與六個零件</title>
-<link rel="stylesheet" href="../assets/course.css?v=12">
+<link rel="stylesheet" href="../assets/course.css?v=13">
 </head>
 <body data-lesson="L02">
 <div class="wrap">
@@ -583,15 +583,16 @@ while True:
 <section class="step" data-type="task" data-part="陀螺儀" data-sub="官方教學" data-title="做官方教學 6：陀螺儀" data-min="4" data-color="#ea580c" data-title-py="用 Python 讀陀螺儀" data-sub-py="寫 Python" data-min-py="3">
   <p class="goal">主機往右歪就亮燈，再改成往左歪。</p>
 <div class="go" data-mode="py"><span class="k">打開</span><span>回到 SPIKE App 的 <b>Python 專案</b>，把程式<b>全部換成</b>下面這段。這一課不用插零件。</span></div>
-  <ol class="steps-do" data-mode="py"><li>貼上程式，按播放。</li><li>拿起主機（燈陣面向你），慢慢往你的<b>右手邊</b>歪，看 Console 哪個數字在變。</li><li>往左歪，再看一次。</li></ol>
+  <ol class="steps-do" data-mode="py"><li>貼上程式，按播放。</li><li>拿起主機（燈陣面向你），慢慢往你的<b>右手邊</b>歪，看 Console 的數字（現在印的是 <code>pitch</code>）有沒有在變。</li><li><b>練習：</b>想改成印別的數字（翻滾 <code>roll</code>、轉向 <code>yaw</code>），<code>print</code> 的括號裡要改成什麼？改改看，再歪一次主機。</li><li>找出往右歪時，哪個數字會變、往哪邊變大。</li></ol>
+  <div class="guess" data-mode="py" data-key="g.gyro.py"><p class="guess-q">想一想：想看「翻滾」的數字，<code>print(pitch)</code> 要改成？</p><div class="guess-opts"><button type="button" data-v="roll"><code>print(roll)</code></button><button type="button" data-v="yaw"><code>print(yaw)</code></button><button type="button" data-v="same"><code>print(pitch)</code>，不用改</button></div><div class="guess-after" hidden>改改看再回來對答案。<button class="guess-reveal" type="button">看看為什麼</button></div><div class="guess-why" hidden>括號裡放哪個名字，就印哪個數字：<code>pitch</code> 俯仰、<code>roll</code> 翻滾、<code>yaw</code> 轉向。想看翻滾就寫 <code>print(roll)</code>。</div></div>
   <div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>from hub import motion_sensor
 import time
 
 while True:
     yaw, pitch, roll = motion_sensor.tilt_angles()
-    print(pitch, roll)
-    time.sleep_ms(200)</code></pre></div><ul class="pyexp"><li><code>print(pitch, roll)</code>：把兩個數字印在 Console，每 200 毫秒一次。</li><li>USB 線不要拉扯。</li></ul>
-  <div class="checklist" data-mode="py"><label class="chk"><input type="checkbox" data-key="p6.py1"><span>Console 的數字，會跟著主機歪而改變</span></label><label class="chk"><input type="checkbox" data-key="p6.py2"><span>我知道往右歪時，哪個數字會變、往哪邊變大</span></label></div>
+    print(pitch)
+    time.sleep_ms(200)</code></pre></div><ul class="pyexp"><li><code>print(pitch)</code>：把 <code>pitch</code>（俯仰）這個數字印在 Console，每 200 毫秒一次。一次只印一個。</li><li>USB 線不要拉扯。</li></ul>
+  <div class="checklist" data-mode="py"><label class="chk"><input type="checkbox" data-key="p6.py1"><span>Console 的數字，會跟著主機歪而改變</span></label><label class="chk"><input type="checkbox" data-key="p6.py2"><span>我會改 print 的括號，印出 pitch、roll、yaw 其中一個，並找到往右歪時變的是哪個</span></label></div>
   <div class="t" data-mode="py"><h4>卡點</h4><ul><li>數字很多看不清：主機放平先看一下起始值，再慢慢歪。</li><li>待確認：軸向與正負號（往右歪是 roll 變大還是變小）；Console 顯示速度。</li></ul></div>
   <div class="go" data-mode="block">
     <span class="k">打開</span><span>回到官方分頁，做完上一課，畫面會顯示下一課。點「<b>6　陀螺儀傳感器</b>」，做第 2 到 7 頁。這一課不用插零件。<br><small>找不到官方分頁？<a class="btn" href="https://spike.legoeducation.com/prime/start/" target="spike" rel="noopener">重新打開官方教學頁</a>（要重新連線）</small></span>
@@ -641,7 +642,7 @@ while True:
 </div>
 
 <script src="../assets/firebase-config.js"></script>
-<script src="../assets/course.js?v=12"></script>
+<script src="../assets/course.js?v=13"></script>
 <script>
 /* 虛擬陀螺：拖曳改變俯仰／翻滾，按鈕改變轉向。只用文字說明方向。 */
 (function () {
