@@ -387,3 +387,16 @@ body.mode-py [data-mode="block"]{display:none!important}
 
 .t-head details>summary{cursor:pointer;font-weight:700;color:#9f1239;padding:2px 0;list-style:revert}
 .t-head details[open]>summary{margin-bottom:8px}
+
+/* 俯仰／翻滾／轉向 動態示意圖 */
+.gy3{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0}
+.gy3 figure{margin:0;flex:1 1 200px;max-width:270px;background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:8px 10px;text-align:center}
+.gy3 svg{width:100%;height:auto}
+.gy3 figcaption{line-height:1.5}
+.gy3 b{font-size:1.2em;color:#c2410c}
+.gy3 .en{font-family:Consolas,"Cascadia Mono",Menlo,monospace;background:#e2e8f0;border-radius:6px;padding:1px 8px;margin-left:6px;color:#1e293b;font-size:.95em}
+.gy3 .mv{transform-box:fill-box;transform-origin:center;animation:gy-tilt 2.4s ease-in-out infinite}
+.gy3 .mv.yaw{animation-name:gy-turn;animation-duration:3.2s}
+@keyframes gy-tilt{0%,100%{transform:rotate(-16deg)}50%{transform:rotate(16deg)}}
+@keyframes gy-turn{0%,100%{transform:rotate(-38deg)}50%{transform:rotate(38deg)}}
+@media (prefers-reduced-motion:reduce){.gy3 .mv{animation:none}}
