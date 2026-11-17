@@ -10,6 +10,14 @@
   var $$ = function (s, r) { return [].slice.call((r || document).querySelectorAll(s)); };
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
 
+  /* ---------- 積木／Python 模式：data-mode="block|py" 的內容只在對應模式顯示 ---------- */
+  var MODE = 'block';
+  try { var qm = /[?&]mode=(py|block)/.exec(location.search); MODE = qm ? qm[1] : (localStorage.getItem('lc.mode') === 'py' ? 'py' : 'block'); if (qm) localStorage.setItem('lc.mode', MODE); } catch (e) { }
+  body.classList.toggle('mode-py', MODE === 'py');
+  function inMode(el) { var m = el.closest('[data-mode]'); return !m || m.dataset.mode === MODE; }
+  function attr(s, name) { var v = MODE === 'py' ? s.dataset[name + 'Py'] : null; return v != null ? v : s.dataset[name]; }
+  function qsOf(s) { return $$('.q', s).filter(inMode); }
+
   /* ---------- SVG 圖示 ---------- */
   var ICONS = {
     box: '<svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v10l-9 4-9-4z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 7l9 4 9-4M12 11v10" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>',
@@ -100,7 +108,7 @@
   /* ---------- Firebase（assets/firebase-config.js 設定了才載入） ---------- */
   var fb = { db: null, uid: null, status: 'off' };
   var cloudChip;
-  function setCloud(st, txt) { fb.status = st; if (!cloudChip) return; cloudChip.className = 'chip ' + (st === 'ok' ? 'ok' : st === 'err' ? 'err' : 'warn'); cloudChip.textContent = txt; }
+  function setCloud(st, txt) { fb.status = st; if (!cloudChip) return; if (!window.LC_FIREBASE) { cloudChip.style.display = 'none'; return; } cloudChip.className = 'chip ' + (st === 'ok' ? 'ok' : st === 'err' ? 'err' : 'warn'); cloudChip.textContent = txt; }
   function loadScript(src) { return new Promise(function (res, rej) { var s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = rej; document.head.appendChild(s); }); }
   function initFirebase() {
     var cfg = window.LC_FIREBASE;
@@ -199,10 +207,10 @@
     }
     if (state[k]) showSolved(); else if (reapply) reset();
   }
-  function quizSolved(s) { var qs = $$('.q', s); return qs.every(function (q) { return !!state[q.dataset.key]; }); }
+  function quizSolved(s) { var qs = qsOf(s); return qs.every(function (q) { return !!state[q.dataset.key]; }); }
   function updateQuizState() {
     $$('.quiz-state').forEach(function (el) {
-      var s = el.closest('.step'), qs = $$('.q', s), n = qs.filter(function (q) { return !!state[q.dataset.key]; }).length;
+      var s = el.closest('.step'), qs = qsOf(s), n = qs.filter(function (q) { return !!state[q.dataset.key]; }).length;
       el.textContent = n === qs.length ? '✔ 這一關全部過了' : '已答對 ' + n + ' / ' + qs.length + ' 題';
       el.classList.toggle('ok', n === qs.length);
     });
@@ -213,8 +221,8 @@
   var steps = $$('.step'), cur = 0, nav, visited = {};
   /* 完成＝檢核全勾、測驗全對，而且（有填寫格時）至少一半有內容；純閱讀步走過就算 */
   function stepDone(i) {
-    var s = steps[i], boxes = $$('input[type=checkbox][data-key]', s), qs = $$('.q', s);
-    var ins = $$('input[data-key]:not([type=checkbox]):not([type=hidden]):not([data-optional]),textarea[data-key]:not([data-optional]),select[data-key]:not([data-optional])', s);
+    var s = steps[i], boxes = $$('input[type=checkbox][data-key]', s).filter(inMode), qs = qsOf(s);
+    var ins = $$('input[data-key]:not([type=checkbox]):not([type=hidden]):not([data-optional]),textarea[data-key]:not([data-optional]),select[data-key]:not([data-optional])', s).filter(inMode);
     if (!boxes.length && !ins.length && !qs.length) return !!(visited[i] || state['v' + i]);
     var okBox = boxes.every(function (b) { return b.checked; });
     var okIn = !ins.length || ins.filter(function (x) { return (x.value || '').trim(); }).length >= Math.ceil(ins.length / 2);
@@ -231,7 +239,7 @@
      圓點不縮小、名稱 ≤ 4 字。環節裡的幾頁用頁內的小分頁切換。 */
   var groups = [], starCount = 0, booted = false, toastTimer = null;
   function groupOf(i) { return groups.filter(function (g) { return g.idx.indexOf(i) >= 0; })[0]; }
-  function quizGroups() { return groups.filter(function (g) { return g.idx.some(function (i) { return $$('.q', steps[i]).length; }); }); }
+  function quizGroups() { return groups.filter(function (g) { return g.idx.some(function (i) { return qsOf(steps[i]).length; }); }); }
   function groupStarred(g) { return g.idx.every(function (i) { return quizSolved(steps[i]); }); }
   function toast(msg) {
     var t = $('#lc-toast'); if (!t) { t = document.createElement('div'); t.id = 'lc-toast'; t.setAttribute('role', 'status'); body.appendChild(t); }
@@ -274,7 +282,7 @@
     var ol = document.createElement('ol');
     var total = 0, byKey = {};
     steps.forEach(function (s, i) {
-      var key = s.dataset.part || ('s' + i), min = +s.dataset.min || 0;
+      var key = s.dataset.part || ('s' + i), min = +attr(s, 'min') || 0;
       total += min;
       if (!byKey[key]) { byKey[key] = { key: key, idx: [], min: 0, type: s.dataset.type || 'task', color: s.dataset.color || '', label: s.dataset.part || s.dataset.title || ('第 ' + (i + 1) + ' 步') }; groups.push(byKey[key]); }
       byKey[key].idx.push(i); byKey[key].min += min;
@@ -290,7 +298,7 @@
       g.btn = b; li.appendChild(b); ol.appendChild(li);
     });
     steps.forEach(function (s, i) {
-      var type = s.dataset.type || 'task', title = s.dataset.title || ('第 ' + (i + 1) + ' 步'), g = groupOf(i);
+      var type = s.dataset.type || 'task', title = attr(s, 'title') || ('第 ' + (i + 1) + ' 步'), g = groupOf(i);
       var h = document.createElement('div'); h.className = 'step-h';
       h.innerHTML = '<span class="tag">' + (ICONS[type] || '') + ' ' + esc(TYPE_NAME[type] || type) + '</span><h2>' + esc(title) + '</h2>';
       s.insertBefore(h, s.firstChild);
@@ -298,7 +306,7 @@
         var sn = document.createElement('div'); sn.className = 'subnav'; sn.setAttribute('aria-label', g.label + '的頁面');
         g.idx.forEach(function (j, k) {
           var c = document.createElement('button'); c.type = 'button'; c.dataset.i = j;
-          c.innerHTML = '<i>' + (k + 1) + '</i>' + esc(steps[j].dataset.sub || ('第 ' + (k + 1) + ' 頁'));
+          c.innerHTML = '<i>' + (k + 1) + '</i>' + esc(attr(steps[j], 'sub') || ('第 ' + (k + 1) + ' 頁'));
           c.onclick = function () { go(j); }; sn.appendChild(c);
         });
         s.insertBefore(sn, h.nextSibling);
@@ -306,7 +314,7 @@
       var f = document.createElement('div'); f.className = 'stepfoot';
       var prev = document.createElement('button'); prev.type = 'button'; prev.textContent = '← 上一步'; prev.disabled = i === 0; prev.onclick = function () { go(i - 1); };
       var next = document.createElement('button'); next.type = 'button'; next.className = 'next';
-      if (i < steps.length - 1) { next.textContent = '下一步：' + (steps[i + 1].dataset.title || '') + ' →'; next.onclick = function () { go(i + 1); }; }
+      if (i < steps.length - 1) { next.textContent = '下一步：' + (attr(steps[i + 1], 'title') || '') + ' →'; next.onclick = function () { go(i + 1); }; }
       else { next.textContent = '回到課程目錄'; next.onclick = function () { location.href = '../index.html'; }; }
       f.appendChild(prev); f.appendChild(next); s.appendChild(f);
     });
@@ -314,7 +322,24 @@
     var stars = document.createElement('span'); stars.id = 'stars'; stars.className = 'stars'; stars.title = '每個小測驗全對，拿一顆星'; nav.appendChild(stars);
     var first = steps[0]; first.parentNode.insertBefore(nav, first);
     var hh = parseHash(); go(hh.step ? hh.step - 1 : 0, true);
+    recalcMin();
+  }
+  function recalcMin() {
+    var total = 0;
+    groups.forEach(function (g) { g.min = 0; g.idx.forEach(function (i) { g.min += +attr(steps[i], 'min') || 0; }); total += g.min; if (g.btn) g.btn.title = g.label + '（約 ' + g.min + ' 分鐘）'; });
     var tt = $('#total-min'); if (tt) tt.textContent = total;
+  }
+  /* 切換積木／Python：換標題、小分頁名稱、下一步文字、分鐘數，再重算鎖定 */
+  function setMode(m) {
+    MODE = m; try { localStorage.setItem('lc.mode', m); } catch (e) { }
+    body.classList.toggle('mode-py', m === 'py');
+    $$('.modesw button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.m === m ? 'true' : 'false'); b.classList.toggle('on', b.dataset.m === m); });
+    steps.forEach(function (s, i) {
+      var h = $('.step-h h2', s); if (h) h.textContent = attr(s, 'title') || ('第 ' + (i + 1) + ' 步');
+      var nx = $('.stepfoot .next', s); if (nx && i < steps.length - 1) nx.textContent = '下一步：' + (attr(steps[i + 1], 'title') || '') + ' →';
+    });
+    $$('.subnav button').forEach(function (b) { var j = +b.dataset.i, k = $('i', b); b.innerHTML = '<i>' + (k ? k.textContent : '') + '</i>' + esc(attr(steps[j], 'sub') || ''); });
+    recalcMin(); refreshDone(); go(cur, true);
   }
 
   /* ---------- 圖片點開放大（Esc 關閉） ---------- */
@@ -336,6 +361,7 @@
       '<label>座號 <input id="id-seat" class="n" inputmode="numeric" maxlength="3"></label>' +
       '<span class="chip" id="cloud-chip">…</span>' +
       '<span class="timer"><button class="sm" id="tm-btn" type="button">開始計時</button><b id="tm-txt">00:00</b><span id="tm-hint"></span></span>' +
+      '<span class="modesw" role="group" aria-label="用積木或 Python"><button type="button" data-m="block">積木</button><button type="button" data-m="py">Python</button></span>' +
       '<span class="btns"><button class="sm" id="btn-print" type="button">列印學習單</button><button class="sm" id="btn-teacher" type="button">老師模式</button></span>';
     cloudChip = $('#cloud-chip');
     var ti = $('#id-team'), ci = $('#id-cls'), si = $('#id-seat');
@@ -353,6 +379,7 @@
     }
     [ti, ci, si].forEach(function (x) { x.addEventListener('change', changed); });
     [ci, si].forEach(function (x) { x.addEventListener('input', function () { x.value = x.value.replace(/\D/g, ''); }); });
+    $$('.modesw button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.m === MODE ? 'true' : 'false'); b.classList.toggle('on', b.dataset.m === MODE); b.onclick = function () { if (b.dataset.m !== MODE) setMode(b.dataset.m); }; });
     $('#btn-print').onclick = function () { window.print(); };
     $('#btn-teacher').onclick = function () {
       var h = parseHash();
@@ -368,7 +395,7 @@
         var s = Math.floor((Date.now() - t0) / 1000), m = Math.floor(s / 60);
         $('#tm-txt').textContent = (m < 10 ? '0' : '') + m + ':' + ((s % 60) < 10 ? '0' : '') + (s % 60);
         var acc = 0, idx = steps.length - 1;
-        for (var i = 0; i < steps.length; i++) { acc += +(steps[i].dataset.min || 0); if (m < acc) { idx = i; break; } }
+        for (var i = 0; i < steps.length; i++) { acc += +attr(steps[i], 'min') || 0; if (m < acc) { idx = i; break; } }
         var g = groupOf(idx); $('#tm-hint').textContent = '建議進度：第 ' + (groups.indexOf(g) + 1) + ' 項「' + (g ? g.label : '') + '」';
       }, 1000);
     };
@@ -382,13 +409,24 @@
     if (h.step && h.step - 1 !== cur) go(h.step - 1); else go(cur, true);   // 離開老師模式時，停在被鎖的頁就退回
   }
 
+  /* ---------- 程式卡的「複製」按鈕 ---------- */
+  function bindCopy() {
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest && e.target.closest('.copybtn'); if (!b) return;
+      var code = $('code', b.closest('.codewrap')), txt = code ? code.textContent : '';
+      function ok() { b.textContent = '已複製'; setTimeout(function () { b.textContent = '複製'; }, 1500); }
+      function fallback() { var ta = document.createElement('textarea'); ta.value = txt; ta.style.position = 'fixed'; ta.style.opacity = '0'; body.appendChild(ta); ta.select(); try { document.execCommand('copy'); ok(); } catch (x) { } body.removeChild(ta); }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(ok, fallback); else fallback();
+    });
+  }
+
   /* ---------- 署名 ---------- */
   function sig() { $$('.hub-slot').forEach(function (s) { if (!s.innerHTML.trim()) s.innerHTML = HUB; }); if (!$('.sig')) { var d = document.createElement('div'); d.className = 'sig'; d.textContent = 'made by 資訊老師黃博胤'; body.appendChild(d); } }
 
   /* ---------- 啟動 ---------- */
   function boot() {
     body.classList.toggle('teacher', parseHash().teacher);   // 老師模式要在建步驟前就生效，才不會被測驗鎖住
-    loadLocal(); buildIdBar(); buildSteps(); bindAll(); fillFrom(); mirror(); applyTeacher(); sig(); bindZoom(); refreshDone(); booted = true;
+    loadLocal(); buildIdBar(); buildSteps(); bindAll(); fillFrom(); mirror(); applyTeacher(); sig(); bindZoom(); bindCopy(); setMode(MODE); refreshDone(); booted = true;
     window.addEventListener('hashchange', applyTeacher);
     initFirebase();
   }

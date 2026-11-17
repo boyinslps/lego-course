@@ -353,3 +353,23 @@ html{font-size:21px}
   .printonly{display:block}
   textarea{min-height:2.5em}
 }
+
+/* ===== 積木／Python 切換 ===== */
+body:not(.mode-py) [data-mode="py"]{display:none!important}
+body.mode-py [data-mode="block"]{display:none!important}
+.modesw{display:inline-flex;border:2px solid #1e40af;border-radius:10px;overflow:hidden}
+.modesw button{font:inherit;font-size:.95rem;font-weight:700;padding:5px 16px;border:0;background:#fff;color:#1e40af;cursor:pointer}
+.modesw button.on{background:#1e40af;color:#fff}
+.modesw button:not(.on):hover{background:#eff6ff}
+.pyrow{display:flex;flex-direction:column;gap:14px;margin:8px 0}
+.codewrap{position:relative;background:#0f172a;color:#e2e8f0;border-radius:12px;padding:14px 16px 14px;margin:6px 0}
+.codewrap pre{margin:0;overflow-x:auto}
+.codewrap code{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:1.05rem;line-height:1.6;white-space:pre}
+.codewrap .copybtn{position:absolute;top:8px;right:8px;font:inherit;font-size:.85rem;padding:3px 10px;border-radius:8px;border:1px solid #475569;background:#1e293b;color:#e2e8f0;cursor:pointer}
+.codewrap .copybtn:hover{background:#334155}
+.codewrap .cm{color:#86efac}
+.pyexp{margin:4px 0 8px;padding-left:1.2em}
+.pyexp li{margin:4px 0}
+.pyexp code,.say code,.steps-do code,.guess code,.q code{background:#e2e8f0;border-radius:6px;padding:1px 6px;font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:.95em}
+.unit{background:#fef9c3;border:2px solid #fde047;border-radius:12px;padding:8px 14px;margin:8px 0}
+@media print{.modesw{display:none!important}}

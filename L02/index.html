@@ -6,7 +6,7 @@
 <meta name="author" content="資訊老師黃博胤">
 <meta name="robots" content="noindex">
 <title>第 2 節 認識主機與六個零件</title>
-<link rel="stylesheet" href="../assets/course.css?v=8">
+<link rel="stylesheet" href="../assets/course.css?v=9">
 </head>
 <body data-lesson="L02">
 <div class="wrap">
@@ -49,9 +49,12 @@
     <p>時間軸（分鐘）：領箱 0–4 → 接口 4–8 → 連線 8–14 → 燈陣 14–20 → 馬達 20–26 → 顏色 26–32 → 距離 32–38 → 力 38–43 → 陀螺儀 43–50。<b>檢查點</b>：第 14 分鐘兩隊都連上線；第 26 分鐘馬達做完；慢了 3 分鐘以上就開始砍。</p><ol><li>力感測器改成老師示範，學生只做小測驗。</li><li>顏色感測器改成老師示範（下一堂開頭用 5 分鐘補做）。</li><li>連線只做 USB（藍牙留給下一節）。<b>不砍</b>距離感測器和陀螺儀：之後的閃避區與轉彎都會用到。</li></ol><p>被砍掉的內容記在這裡，下一堂開頭補：＿＿＿＿。小測驗每題都要答對才解鎖，不能只做兩題。</p>
     <h4>卡關處理</h4>
     <ul><li>個人卡在小測驗：先看答錯時的提示；仍卡住，網址加 <code>#teacher/s頁碼</code> 放行（離開老師模式會退回被鎖的頁）。</li><li>不要中途改座號：換身分會換一份存檔，題目要重答。</li><li>巡視順序：先看兩台主機（燈有沒有亮、馬達有沒有轉），再看星星 ★ n／8。小測驗答案在說明頁找得到，所以只信主機上的結果。</li></ul>
+    <h4>Python 版（右上角「Python」開關）</h4>
+    <p>同一份教材，按「積木｜Python」可隨時切換，進度不重來。Python 版：說明頁是程式卡，官方教學頁改成「貼程式、播放、改一個數字」（官方教學只有積木版）。程式寫法照官方 Python 入門頁（lls-help-python）：由上往下執行、用 <code>time.sleep_ms</code>，不用 async／runloop。小測驗換成對應的 Python 題。整堂分鐘數維持 50（燈陣 +2，力 −1，陀螺儀 −1）。網址加 <code>?mode=py</code> 可直接開 Python 版。</p>
     <h4>待確認（實機驗證後寫回）</h4>
     <ul>
       <li>連接鈕的位置與連上後的畫面變化；藍牙與 USB 實際流程。</li>
+      <li>Python：新增專案選 Python 的畫面、預設內容、Console 位置；每支程式碼實際能不能跑；速度 360 度／秒的快慢；陀螺儀軸向與正負號。</li>
       <li>陀螺儀的軸向與正負號；官方教學 6「往右歪」要歪到幾度才會觸發。</li>
       <li>換零件時（拔馬達插顏色感測器）官方 App 要不要重新連線。</li>
       <li>用同名分頁「spike」重用同一個官方分頁，連線會不會保留；做完一課後官方畫面是否出現下一課（英文版有，中文版未確認）。</li>
@@ -116,7 +119,7 @@
     <div class="q" data-key="qa2"><p class="q-t">2. 程式叫的是 A 口，但馬達插在 C 口，會怎樣？</p><div class="opts">
       <button type="button" data-fb="程式叫的是 A 口，馬達不在那裡。">馬達照樣會轉</button>
       <button type="button" data-fb="馬達不會自己換接口。">馬達自己換到 A 口</button>
-      <button type="button" data-ok="1" data-fb="程式叫 A 口，馬達在 C 口，沒有反應。積木選的口要和插的口一樣。">馬達不會動</button></div><p class="fb" hidden></p></div>
+      <button type="button" data-ok="1" data-fb="程式叫 A 口，馬達在 C 口，沒有反應。程式裡選的口要和插的口一樣。">馬達不會動</button></div><p class="fb" hidden></p></div>
     <div class="q" data-key="qa3"><p class="q-t">3. A 口插著馬達，還想接顏色感測器，怎麼辦？</p><div class="opts">
       <button type="button" data-fb="一個接口一次只能接一個零件。">兩個一起插進 A</button>
       <button type="button" data-ok="1" data-fb="一個接口一次只能接一個零件，所以先拔掉馬達，再插顏色感測器。">先拔掉馬達，再插顏色感測器</button>
@@ -133,7 +136,7 @@
     <div class="card"><h3>藍牙（無線）</h3>
       <ol class="steps-do"><li><b>長按電源鍵</b>開機。</li><li><b>打開藍牙</b>。</li><li>按「<b>打開</b>」，在視窗裡選你們的主機。</li></ol></div>
     <div class="card"><h3>USB 線</h3>
-      <ol class="steps-do"><li><b>長按電源鍵</b>開機。</li><li>用 <b>USB 線</b>接主機和電腦，點「<b>使用 USB 數据線連接</b>」。</li><li>按「<b>打開</b>」，在視窗裡選你們的主機。</li></ol></div>
+      <ol class="steps-do"><li><b>長按電源鍵</b>開機。</li><li>用 <b>USB 線</b>接主機和電腦，點「<b>使用 USB 數據線連接</b>」。</li><li>按「<b>打開</b>」，在視窗裡選你們的主機。</li></ol></div>
   </div>
   <p class="say">App 會問<b>電源鍵的顏色</b>：<span class="app-term">綠色</span>直接繼續，<span class="app-term">白色</span>舉手找老師。</p>
   <div class="t"><h4>講法</h4><p>「兩種連法擇一：藍牙或 USB。今天用 ○○。三步一樣：開機、準備連線、在視窗裡選你們的主機。」（前一天確認教室電腦能用哪種後填好。）</p><h4>卡點</h4><ul><li>視窗裡有很多主機：兩隊的主機先在 App 裡改成隊名（待確認怎麼改），選名字對的那台。</li><li>電源鍵是白色：舉手，老師用自己的電腦先更新。</li></ul></div>
@@ -144,6 +147,7 @@
   <div class="go">
     <span class="k">打開</span><span><a class="btn pri" href="https://spike.legoeducation.com/prime/start/" target="spike" rel="noopener">官方教學頁</a>　點「<b>1　矩陣燈</b>」。</span>
   </div>
+  <p class="say" data-mode="py">連上線以後，下一項要新增 Python 專案。</p>
   <ol class="steps-do">
     <li>翻到教學 1 的第 2 頁，按黃色的「<b>連接</b>」鈕。</li>
     <li>電源鍵選「<b>綠色</b>」，再選藍牙或 USB。</li>
@@ -180,19 +184,28 @@
       <p>這一課讓燈陣亮出笑臉。</p>
     </div>
   </div>
-  <div class="blkrow">
+  <div class="blkrow" data-mode="block">
     <div class="blkcard"><span class="b hat b-ev">當程式啟動時</span><p class="bk-zh">「開始」積木</p><p>會啟動拼在它下面的所有積木，就像 Scratch 的「當綠旗被點擊」。</p><p class="bk-en">English：when program starts</p></div>
     <div class="blkcard"><span class="b b-light">點亮 <i class="mx"><s></s></i></span><p class="bk-zh">「點亮」積木</p><p>決定 25 顆小燈哪幾顆亮，拼成圖案。</p><p class="bk-en">English：turn on</p></div>
   </div>
+  <div class="pyrow" data-mode="py"><div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>from hub import light_matrix
+
+light_matrix.show_image(light_matrix.IMAGE_HAPPY)</code></pre></div><ul class="pyexp"><li><code>import</code> 是借工具箱：這行借來「燈陣」的工具。</li><li><code>show_image</code> 顯示一張內建圖案，<code>IMAGE_HAPPY</code> 是笑臉。</li></ul><div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>light_matrix.set_pixel(0, 0, 100)</code></pre></div><ul class="pyexp"><li>只亮一顆小燈：前兩個數字是位置（都是 0 到 4，從 0 開始數），<code>100</code> 是最亮。</li></ul></div>
   <div class="t"><h4>講法</h4><p>「主機是大腦，燈陣是它的臉，等一下用程式讓它笑。」積木只講兩個：『開始』和『點亮』。積木上的字是 App 的簡體，下面是繁體說法。</p></div>
 </section>
 
-<section class="step" data-type="task" data-part="燈陣" data-sub="官方教學" data-title="做官方教學 1：矩陣燈" data-min="4" data-color="#8b5cf6">
+<section class="step" data-type="task" data-part="燈陣" data-sub="官方教學" data-title="做官方教學 1：矩陣燈" data-min="4" data-color="#8b5cf6" data-title-py="用 Python 寫第一支程式" data-sub-py="寫 Python" data-min-py="6">
   <p class="goal">在官方 App 讓燈陣亮出笑臉，再改圖案。</p>
-  <div class="go">
+<div class="go" data-mode="py"><span class="k">專案</span><span>在官方 App 按「新增專案」，選 <b>Python</b>（不是文字積木）。</span></div>
+  <ol class="steps-do" data-mode="py"><li>編輯器裡原本有程式，<b>全部刪掉</b>，貼上下面這段（按「複製」，點編輯器，按 Ctrl+V）。</li><li>按播放鈕，燈陣出現笑臉。</li><li>把 <code>IMAGE_HAPPY</code> 改成 <code>IMAGE_SAD</code>，再按一次播放。</li></ol>
+  <div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>from hub import light_matrix
+
+light_matrix.show_image(light_matrix.IMAGE_HAPPY)</code></pre></div><ul class="pyexp"><li>第一行 <code>from hub import light_matrix</code>：借來燈陣的工具。每支程式開頭都要先借要用的工具。</li><li>程式從上往下，一行一行執行。</li><li>編輯器下面的 <b>Console</b> 會顯示錯誤訊息，出錯先看它說第幾行。Python 靠<b>縮排</b>分段，編輯器會自動用 4 個空白。</li></ul>
+  <div class="t" data-mode="py"><h4>講法</h4><p>「每支程式開頭都要先借工具（import），再寫要做的事。先照貼，看懂最後一行就好。」</p><h4>卡點</h4><ul><li>沒清掉原本的程式，兩份程式混在一起會報錯：全部刪掉再貼。</li><li>縮排不是 4 個空白（後面的課才會出現）：再按 Tab 或空白鍵補齊。</li><li>待確認：新增專案選 Python 的畫面與預設內容；Console 的位置。</li></ul></div>
+  <div class="go" data-mode="block">
     <span class="k">打開</span><span>回到官方分頁，做完上一課，畫面會顯示下一課。點「<b>1　矩陣燈</b>」，做第 2 到 6 頁。<br><small>找不到官方分頁？<a class="btn" href="https://spike.legoeducation.com/prime/start/" target="spike" rel="noopener">重新打開官方教學頁</a>（要重新連線）</small></span>
   </div>
-  <ol class="steps-do">
+  <ol class="steps-do" data-mode="block">
     <li>拖出「<b>當程式啟動時</b>」，下面接「<b>點亮</b>」，畫出笑臉。</li>
     <li>按「<b>運行程式</b>」播放鈕。</li>
     <li>照官方改圖案，再按一次。</li>
@@ -201,7 +214,7 @@
     <label class="chk"><input type="checkbox" data-key="p1.smile"><span>燈陣亮出笑臉了</span></label>
     <label class="chk"><input type="checkbox" data-key="p1.change"><span>改圖案後，燈陣亮出新圖案</span></label>
   </div>
-  <div class="t"><h4>講法</h4><p>「回到官方分頁，照畫面做，做完勾下面的檢核。」</p><h4>卡點</h4><ul><li>按了播放燈陣沒亮：「連接」有沒有連上？積木有沒有接在「當程式啟動時」下面？兩塊要貼緊。</li><li>官方第 4、6 頁是示範影片，看一下就翻頁。</li></ul></div>
+  <div class="t" data-mode="block"><h4>講法</h4><p>「回到官方分頁，照畫面做，做完勾下面的檢核。」</p><h4>卡點</h4><ul><li>按了播放燈陣沒亮：「連接」有沒有連上？積木有沒有接在「當程式啟動時」下面？兩塊要貼緊。</li><li>官方第 4、6 頁是示範影片，看一下就翻頁。</li></ul></div>
 </section>
 
 <section class="step" data-gate data-type="quiz" data-part="燈陣" data-sub="小測驗" data-title="燈陣小測驗" data-min="1" data-color="#8b5cf6">
@@ -211,12 +224,14 @@
       <button type="button" data-fb="感測器是偵測用的零件。">感測器</button>
       <button type="button" data-ok="1" data-fb="5×5 共 25 顆小燈，叫燈陣。">燈陣</button>
       <button type="button" data-fb="電源鍵是中間的大按鈕。">電源鍵</button></div><p class="fb" hidden></p></div>
-    <div class="q" data-key="q1b"><p class="q-t">2.「當程式啟動時」這塊積木做什麼？</p><div class="opts">
+    <div class="q" data-mode="block" data-key="q1b"><p class="q-t">2.「當程式啟動時」這塊積木做什麼？</p><div class="opts">
       <button type="button" data-ok="1" data-fb="它啟動拼在下面的所有積木，像 Scratch 的當綠旗被點擊。">啟動下面所有積木</button>
       <button type="button" data-fb="點亮燈陣要靠下面的「點亮」積木。">直接點亮燈陣</button></div><p class="fb" hidden></p></div>
-    <div class="q" data-key="q1c"><p class="q-t">3. 想改燈陣的圖案，改哪裡？</p><div class="opts">
+    <div class="q" data-mode="py" data-key="p1b"><p class="q-t">2. <code>light_matrix.show_image(light_matrix.IMAGE_HAPPY)</code> 這一行做什麼？</p><div class="opts"><button type="button" data-ok="1" data-fb="<code>show_image</code> 顯示內建圖案，<code>IMAGE_HAPPY</code> 是笑臉。">在燈陣顯示笑臉圖案</button><button type="button" data-fb="馬達要用 <code>motor</code>，這行是燈陣。">讓馬達轉一圈</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-mode="block" data-key="q1c"><p class="q-t">3. 想改燈陣的圖案，改哪裡？</p><div class="opts">
       <button type="button" data-fb="開始積木沒有圖案。">當程式啟動時</button>
       <button type="button" data-ok="1" data-fb="圖案在「點亮」積木裡，點小方格就能改。">「點亮」裡的小方格</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-mode="py" data-key="p1c"><p class="q-t">3. 想把笑臉換成哭臉，改哪裡？</p><div class="opts"><button type="button" data-ok="1" data-fb="圖案的名字在 <code>IMAGE_</code> 後面，改成 <code>IMAGE_SAD</code> 就是哭臉。"><code>IMAGE_HAPPY</code> 改成 <code>IMAGE_SAD</code></button><button type="button" data-fb="import 只是借工具，不決定顯示哪張圖。"><code>import</code> 那一行</button></div><p class="fb" hidden></p></div>
     <p class="quiz-state"></p>
   </div>
   <div class="t"><h4>講法</h4><p>答完看右上角的星星；沒過的來找老師。</p></div>
@@ -232,25 +247,34 @@
       <p>這一課插在 <b>A</b>。</p>
     </div>
   </div>
-  <div class="blkrow">
+  <div class="blkrow" data-mode="block">
     <div class="blkcard"><span class="b b-mot">將速度設置為 <i>20</i> %</span><p class="bk-zh">「設定速度」積木</p><p>數字越大，馬達轉得越快。</p><p class="bk-en">English：set speed to</p></div>
     <div class="blkcard"><span class="b b-mot"><i class="m">A</i> 運行 <i class="m">↻</i> <i>1</i> 圈</span><p class="bk-zh">「運行幾圈」積木</p><p>讓 A 口的馬達順時針轉 1 圈。</p><p class="bk-en">English：run for rotations</p></div>
   </div>
+  <div class="pyrow" data-mode="py"><div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>motor.run_for_degrees(port.A, 360, 720)</code></pre></div><ul class="pyexp"><li><code>port.A</code>：馬達插在 A 口。</li><li><code>360</code>：轉 360 度，就是 1 圈。</li><li><code>720</code>：速度，是「每秒轉幾度」，數字越大轉得越快。</li><li>程式開頭要先寫 <code>import motor</code> 和 <code>from hub import port</code>，借來馬達和接口的工具。</li></ul><p class="unit">積木的速度是「%」，Python 的速度是「每秒幾度」，數字不能直接搬過來。</p></div>
   <div class="t"><h4>講法</h4><p>「馬達是力氣的來源。積木上的 A 是『馬達插在哪個接口』。今天只讓它轉一圈。」</p></div>
 </section>
 
-<section class="step" data-type="task" data-part="馬達" data-sub="官方教學" data-title="做官方教學 2：電機" data-min="4" data-color="#2563eb">
+<section class="step" data-type="task" data-part="馬達" data-sub="官方教學" data-title="做官方教學 2：電機" data-min="4" data-color="#2563eb" data-title-py="用 Python 讓馬達轉" data-sub-py="寫 Python" data-min-py="4">
   <p class="goal">插好馬達，讓它轉起來，再改速度。</p>
-  <div class="go">
+<div class="go" data-mode="py"><span class="k">打開</span><span>回到 SPIKE App 的 <b>Python 專案</b>（和上一課同一個就好），把裡面的程式<b>全部換成</b>下面這段。</span></div>
+  <div class="guess" data-mode="py" data-key="g.speed.py"><p class="guess-q">先猜：速度從 720 改成 360，馬達轉 1 圈會…</p><div class="guess-opts"><button type="button" data-v="fast">轉得更快</button><button type="button" data-v="same">一樣快</button><button type="button" data-v="slow">轉得更慢</button></div><div class="guess-after" hidden>做完再回來看。<button class="guess-reveal" type="button">看看為什麼</button></div><div class="guess-why" hidden>速度是每秒轉幾度，360 比 720 慢。度數沒改，還是 1 圈，只是花的時間變長。</div></div>
+  <ol class="steps-do" data-mode="py"><li>馬達插進 <b>A</b> 接口（程式裡寫 <code>port.A</code>）。</li><li>貼上程式，按播放，馬達轉 1 圈。</li><li>把 <code>720</code>（速度）改成 <code>360</code>，再按一次播放。</li></ol>
+  <div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>import motor
+from hub import port
+
+motor.run_for_degrees(port.A, 360, 720)</code></pre></div>
+  <div class="t" data-mode="py"><h4>卡點</h4><ul><li>馬達不動：線有沒有插到 A、程式裡是不是 <code>port.A</code>；Console 有沒有報錯。</li><li>貼上後出現重複的 <code>import</code>：前一段沒刪乾淨。</li></ul></div>
+  <div class="go" data-mode="block">
     <span class="k">打開</span><span>回到官方分頁，做完上一課，畫面會顯示下一課。點「<b>2　電機</b>」，做第 2 到 7 頁。<br><small>找不到官方分頁？<a class="btn" href="https://spike.legoeducation.com/prime/start/" target="spike" rel="noopener">重新打開官方教學頁</a>（要重新連線）</small></span>
   </div>
-  <div class="guess" data-key="g.speed">
+  <div class="guess" data-mode="block" data-key="g.speed">
     <p class="guess-q">先猜：速度從 20 改成 75，馬達轉 1 圈會…</p>
     <div class="guess-opts"><button type="button" data-v="fast">轉得更快</button><button type="button" data-v="same">一樣快</button><button type="button" data-v="slow">轉得更慢</button></div>
     <div class="guess-after" hidden>做完再回來看。<button class="guess-reveal" type="button">看看為什麼</button></div>
     <div class="guess-why" hidden>數字越大轉得越快；圈數沒改，還是 1 圈，只是花的時間變短。</div>
   </div>
-  <ol class="steps-do">
+  <ol class="steps-do" data-mode="block">
     <li>馬達插進 <b>A</b> 接口（App：連接埠 A）。</li>
     <li>排出「當程式啟動時」→「將速度設置為」→「運行 1 圈」，按「運行程式」。</li>
     <li>把速度改大，再按一次。</li>
@@ -260,7 +284,7 @@
     <label class="chk"><input type="checkbox" data-key="p2.turn"><span>馬達轉了 1 圈</span></label>
     <label class="chk"><input type="checkbox" data-key="p2.fast"><span>速度改大後，馬達轉得比較快</span></label>
   </div>
-  <div class="t"><h4>講法</h4><p>「回到官方分頁，照畫面做，做完勾下面的檢核。」</p><h4>卡點</h4><ul><li>馬達不動：線有沒有插到 A、積木上選的是不是 A。</li><li>學生分不出「設置速度」和「運行」：前者是設定，後者才是動。先猜讓他們先選，不要先說答案。</li></ul></div>
+  <div class="t" data-mode="block"><h4>講法</h4><p>「回到官方分頁，照畫面做，做完勾下面的檢核。」</p><h4>卡點</h4><ul><li>馬達不動：線有沒有插到 A、積木上選的是不是 A。</li><li>學生分不出「設置速度」和「運行」：前者是設定，後者才是動。先猜讓他們先選，不要先說答案。</li></ul></div>
 </section>
 
 <section class="step" data-gate data-type="quiz" data-part="馬達" data-sub="小測驗" data-title="馬達小測驗" data-min="1" data-color="#2563eb">
@@ -270,13 +294,15 @@
       <button type="button" data-fb="看顏色的是顏色感測器。">看顏色</button>
       <button type="button" data-ok="1" data-fb="馬達會轉，輪子靠它帶動。">轉動，帶動輪子</button>
       <button type="button" data-fb="量距離的是距離感測器。">量距離</button></div><p class="fb" hidden></p></div>
-    <div class="q" data-key="q2b"><p class="q-t">2. 速度從 20 改成 75，馬達會…</p><div class="opts">
+    <div class="q" data-mode="block" data-key="q2b"><p class="q-t">2. 速度從 20 改成 75，馬達會…</p><div class="opts">
       <button type="button" data-ok="1" data-fb="數字越大轉得越快，圈數沒變。">轉得更快</button>
       <button type="button" data-fb="數字變大是變快。">轉得更慢</button>
       <button type="button" data-fb="速度改了，快慢就不一樣。">沒有差別</button></div><p class="fb" hidden></p></div>
-    <div class="q" data-key="q2c"><p class="q-t">3. 馬達插在 C，積木卻選 A，會怎樣？</p><div class="opts">
+    <div class="q" data-mode="py" data-key="p2b"><p class="q-t">2. 想讓馬達只轉半圈，度數（第二個數字）要寫多少？</p><div class="opts"><button type="button" data-ok="1" data-fb="1 圈是 360 度，半圈就是 180 度。">180</button><button type="button" data-fb="360 度是 1 圈，半圈要再少一半。">360</button><button type="button" data-fb="720 度是 2 圈。">720</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-mode="block" data-key="q2c"><p class="q-t">3. 馬達插在 C，積木卻選 A，會怎樣？</p><div class="opts">
       <button type="button" data-fb="程式叫的是 A 口。">C 口的馬達會轉</button>
       <button type="button" data-ok="1" data-fb="積木叫 A 口，馬達在 C 口，沒有反應。要把積木改成 C。">不會動，要改成 C</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-mode="py" data-key="p2c"><p class="q-t">3. 馬達插在 C，程式卻寫 <code>port.A</code>，會怎樣？</p><div class="opts"><button type="button" data-fb="程式叫的是 A 口。">C 口的馬達會轉</button><button type="button" data-ok="1" data-fb="程式叫 A 口，馬達在 C 口，沒有反應。要改成 <code>port.C</code>。">不會動，要改成 <code>port.C</code></button></div><p class="fb" hidden></p></div>
     <p class="quiz-state"></p>
   </div>
   <div class="t"><h4>講法</h4><p>答完看右上角的星星；沒過的來找老師。</p></div>
@@ -292,19 +318,35 @@
       <p>先拔掉馬達，再把它插在 <b>A</b>。</p>
     </div>
   </div>
-  <div class="blkrow">
+  <div class="blkrow" data-mode="block">
     <div class="blkcard"><span class="b hat b-ev"><i class="m">A</i> 當顏色為 <i class="x">紅</i></span><p class="bk-zh">「看到某個顏色」積木</p><p>看到紅色，才執行下面的積木。</p><p class="bk-en">English：when color is</p></div>
     <div class="blkcard"><span class="b b-light">點亮 <i class="mx"><s></s></i></span><p class="bk-zh">「點亮」積木</p><p>剛才燈陣用過，讓燈陣亮起來。</p></div>
   </div>
+  <div class="pyrow" data-mode="py"><div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>if color_sensor.color(port.A) == color.RED:
+    light_matrix.show_image(light_matrix.IMAGE_HAPPY)</code></pre></div><ul class="pyexp"><li><code>color_sensor.color(port.A)</code>：問 A 口的感測器「現在看到什麼顏色」。</li><li><code>color.RED</code>：紅色的名字。</li><li><code>==</code>（兩個等號）：問「是不是一樣」。一個 <code>=</code> 是「放進去」，不一樣。</li><li><code>if</code>：條件成立，才做底下縮排的那一行。</li></ul></div>
   <div class="t"><h4>講法</h4><p>「顏色感測器是眼睛。這個積木長得像『開始』積木，但它是在等：看到紅色才開始。」</p></div>
 </section>
 
-<section class="step" data-type="task" data-part="顏色" data-sub="官方教學" data-title="做官方教學 3：顏色" data-min="4" data-color="#ca8a04">
+<section class="step" data-type="task" data-part="顏色" data-sub="官方教學" data-title="做官方教學 3：顏色" data-min="4" data-color="#ca8a04" data-title-py="用 Python 看顏色" data-sub-py="寫 Python" data-min-py="4">
   <p class="goal">看到紅色就亮燈，再改成認黃色。</p>
-  <div class="go">
+<div class="go" data-mode="py"><span class="k">打開</span><span>回到 SPIKE App 的 <b>Python 專案</b>（和上一課同一個就好），把裡面的程式<b>全部換成</b>下面這段。</span></div>
+  <ol class="steps-do" data-mode="py"><li>拔掉馬達，把顏色感測器插進 <b>A</b>。</li><li>貼上程式，按播放，拿<b>紅色 LEGO 方塊</b>放在感測器前面。</li><li>把 <code>color.RED</code> 改成 <code>color.YELLOW</code>，換<b>黃色 LEGO 方塊</b>試試。</li></ol>
+  <div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>from hub import port, light_matrix
+import color_sensor
+import color
+import time
+
+while True:
+    if color_sensor.color(port.A) == color.RED:
+        light_matrix.show_image(light_matrix.IMAGE_HAPPY)
+    else:
+        light_matrix.clear()
+    time.sleep_ms(50)</code></pre></div><ul class="pyexp"><li><code>while True:</code>：一直重複，所以感測器會一直看。</li><li><code>else:</code>：不是紅色的時候做這一行，把燈陣關掉。</li><li><code>time.sleep_ms(50)</code>：每次歇 50 毫秒（1000 毫秒是 1 秒）。</li></ul>
+  <div class="t" data-mode="py"><h4>卡點</h4><ul><li>燈一直亮或一直不亮：感測器要離方塊近一點；<code>==</code> 有沒有寫成一個 <code>=</code>。</li><li>忘了拔馬達：一個接口一次只能接一個。</li></ul></div>
+  <div class="go" data-mode="block">
     <span class="k">打開</span><span>回到官方分頁，做完上一課，畫面會顯示下一課。點「<b>3　顏色傳感器</b>」，做第 2 到 7 頁。<br><small>找不到官方分頁？<a class="btn" href="https://spike.legoeducation.com/prime/start/" target="spike" rel="noopener">重新打開官方教學頁</a>（要重新連線）</small></span>
   </div>
-  <ol class="steps-do">
+  <ol class="steps-do" data-mode="block">
     <li>拔掉馬達，把顏色感測器插進 <b>A</b>。</li>
     <li>按「運行程式」，拿<b>紅色 LEGO 方塊</b>放在感測器前面。</li>
     <li>把「紅」改成「黃」，換<b>黃色 LEGO 方塊</b>試試。</li>
@@ -314,7 +356,7 @@
     <label class="chk"><input type="checkbox" data-key="p3.red"><span>紅色 LEGO 方塊靠近時，燈陣亮</span></label>
     <label class="chk"><input type="checkbox" data-key="p3.yellow"><span>改成黃色後，黃色 LEGO 方塊靠近時燈陣亮</span></label>
   </div>
-  <div class="t"><h4>講法</h4><p>「回到官方分頁，照畫面做，做完勾下面的檢核。」</p><h4>卡點</h4><ul><li>沒反應：感測器鏡頭要對著積木、離近一點；線有沒有插到 A。</li><li>學生忘了拔馬達：一個接口一次只能接一個。時間不夠時，這一課改成老師示範。</li></ul></div>
+  <div class="t" data-mode="block"><h4>講法</h4><p>「回到官方分頁，照畫面做，做完勾下面的檢核。」</p><h4>卡點</h4><ul><li>沒反應：感測器鏡頭要對著積木、離近一點；線有沒有插到 A。</li><li>學生忘了拔馬達：一個接口一次只能接一個。時間不夠時，這一課改成老師示範。</li></ul></div>
 </section>
 
 <section class="step" data-gate data-type="quiz" data-part="顏色" data-sub="小測驗" data-title="顏色小測驗" data-min="1" data-color="#ca8a04">
@@ -324,12 +366,14 @@
       <button type="button" data-ok="1" data-fb="顏色感測器會看顏色。">顏色感測器</button>
       <button type="button" data-fb="馬達是用來轉的。">馬達</button>
       <button type="button" data-fb="距離感測器量距離。">距離感測器</button></div><p class="fb" hidden></p></div>
-    <div class="q" data-key="q3b"><p class="q-t">2. 程式設定看「紅」，拿黃色 LEGO 方塊靠近，會怎樣？</p><div class="opts">
+    <div class="q" data-mode="block" data-key="q3b"><p class="q-t">2. 程式設定看「紅」，拿黃色 LEGO 方塊靠近，會怎樣？</p><div class="opts">
       <button type="button" data-ok="1" data-fb="積木在等紅色，黃色不是它等的，所以不會亮。">不會亮，它在等紅色</button>
       <button type="button" data-fb="只有積木上設定的顏色才有反應。">會亮，什麼顏色都行</button></div><p class="fb" hidden></p></div>
-    <div class="q" data-key="q3c"><p class="q-t">3. 想改成認黃色，改哪裡？</p><div class="opts">
+    <div class="q" data-mode="py" data-key="p3b"><p class="q-t">2. <code>color_sensor.color(port.A) == color.RED</code> 裡的 <code>==</code> 是什麼意思？</p><div class="opts"><button type="button" data-ok="1" data-fb="<code>==</code> 是比較，看到的顏色是不是紅色。">問「是不是一樣」</button><button type="button" data-fb="存起來用一個 <code>=</code>，<code>==</code> 是比較。">把紅色存起來</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-mode="block" data-key="q3c"><p class="q-t">3. 想改成認黃色，改哪裡？</p><div class="opts">
       <button type="button" data-ok="1" data-fb="顏色在「當顏色為」積木上，點顏色那格就能改。">「當顏色為」上的顏色</button>
       <button type="button" data-fb="燈陣圖案不決定看哪個顏色。">燈陣的圖案</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-mode="py" data-key="p3c"><p class="q-t">3. 想改成認黃色，改哪裡？</p><div class="opts"><button type="button" data-ok="1" data-fb="顏色的名字寫在 <code>color.</code> 後面。"><code>color.RED</code> 改成 <code>color.YELLOW</code></button><button type="button" data-fb="燈陣圖案不決定看哪個顏色。">燈陣的圖案</button></div><p class="fb" hidden></p></div>
     <p class="quiz-state"></p>
   </div>
   <div class="t"><h4>講法</h4><p>答完看右上角的星星；沒過的來找老師。</p></div>
@@ -342,29 +386,46 @@
     <figure class="pic"><img class="zoom" src="../assets/img/distance.png" alt="距離感測器"><figcaption>距離感測器</figcaption></figure>
     <div class="say">
       <p>距離感測器（App：<span class="app-term">距离傳感器</span>），先拔掉上一個零件，插在 <b>A</b>。</p>
-      <p>官方說明：它看得到約 200 公分。積木上的數字，是把這 200 公分<b>切成 100 份</b>，取幾份。</p>
-      <p>1 份約 2 公分，所以 8 份約 16 公分。</p>
+      <p data-mode="block">官方說明：它看得到約 200 公分。積木上的數字，是把這 200 公分<b>切成 100 份</b>，取幾份。</p>
+      <p data-mode="block">1 份約 2 公分，所以 8 份約 16 公分。</p>
+      <p data-mode="py">Python 量出來的數字單位是<b>毫米</b>，10 毫米是 1 公分。</p>
     </div>
   </div>
-  <div class="blkrow">
+  <div class="blkrow" data-mode="block">
     <div class="blkcard"><span class="b hat b-ev"><i class="m">A</i> 當 近于 <i>8</i> %</span><p class="bk-zh">「東西靠近」積木</p><p>東西離感測器比「8 份」更近（約 16 公分，官方說明），才執行下面的積木。</p><p class="bk-en">English：when closer than</p></div>
     <div class="blkcard"><span class="b b-sound">播放警笛聲 <i>60</i> <i>0.2</i> 秒</span><p class="bk-zh">「警笛聲」積木</p><p>主機發出 0.2 秒的警笛聲。</p><p class="bk-en">English：play beep for seconds</p></div>
   </div>
+  <div class="pyrow" data-mode="py"><div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>d = distance_sensor.distance(port.A)
+if 0 &lt; d &lt; 160:
+    sound.beep(440, 200, 100)</code></pre></div><ul class="pyexp"><li><code>d = ...</code>：把量到的數字存在 <code>d</code> 裡。</li><li>沒偵測到東西時，會回傳 <b>-1</b>，所以要寫 <code>0 < d</code>，不然 -1 也算「小於 160」。</li><li><code>160</code> 毫米就是 16 公分，約等於積木的「8 份」。</li><li><code>sound.beep</code>：主機發出 200 毫秒的 440 赫茲嗶聲。</li></ul></div>
   <div class="t"><h4>講法</h4><p>「距離感測器量遠近。8% 是範圍的比例，官方寫範圍約 200 公分，所以約 16 公分。之後的閃避區會用到它。」</p><h4>待確認</h4><p>實際偵測距離與誤差要實測，頁面只寫官方文件的數字。</p></div>
 </section>
 
-<section class="step" data-type="task" data-part="距離" data-sub="官方教學" data-title="做官方教學 4：距離" data-min="4" data-color="#16a34a">
+<section class="step" data-type="task" data-part="距離" data-sub="官方教學" data-title="做官方教學 4：距離" data-min="4" data-color="#16a34a" data-title-py="用 Python 量距離" data-sub-py="寫 Python" data-min-py="4">
   <p class="goal">手靠近就聽到警笛聲，再改成更遠就響。</p>
-  <div class="go">
+<div class="go" data-mode="py"><span class="k">打開</span><span>回到 SPIKE App 的 <b>Python 專案</b>（和上一課同一個就好），把裡面的程式<b>全部換成</b>下面這段。</span></div>
+  <div class="guess" data-mode="py" data-key="g.dist.py"><p class="guess-q">先猜：把 160 改成 400，手離感測器更近還是更遠就會響？</p><div class="guess-opts"><button type="button" data-v="far">更遠就會響</button><button type="button" data-v="near">要更近才會響</button><button type="button" data-v="same">沒有差別</button></div><div class="guess-after" hidden>做完再回來看。<button class="guess-reveal" type="button">看看為什麼</button></div><div class="guess-why" hidden>400 毫米是 40 公分，比 160 毫米（16 公分）更遠，所以手在更遠的地方就會觸發。</div></div>
+  <ol class="steps-do" data-mode="py"><li>拔掉上一個零件，把距離感測器插進 <b>A</b>。</li><li>貼上程式，按播放，手慢慢靠近感測器，聽主機的嗶聲。</li><li>把 <code>160</code> 改成 <code>400</code>，再試一次。要再聽一次，手先拿遠，再慢慢靠近。</li></ol>
+  <div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>from hub import port, sound
+import distance_sensor
+import time
+
+while True:
+    d = distance_sensor.distance(port.A)
+    if 0 &lt; d &lt; 160:
+        sound.beep(440, 200, 100)
+    time.sleep_ms(50)</code></pre></div>
+  <div class="t" data-mode="py"><h4>卡點</h4><ul><li>沒聲音：手要對著感測器正面；<code>0 < d</code> 有沒有漏寫；Console 有沒有報錯。</li><li>待確認：嗶聲是否從主機發出，音量是否夠。</li></ul></div>
+  <div class="go" data-mode="block">
     <span class="k">打開</span><span>回到官方分頁，做完上一課，畫面會顯示下一課。點「<b>4　距离傳感器</b>」，做第 2 到 7 頁。<br><small>找不到官方分頁？<a class="btn" href="https://spike.legoeducation.com/prime/start/" target="spike" rel="noopener">重新打開官方教學頁</a>（要重新連線）</small></span>
   </div>
-  <div class="guess" data-key="g.dist">
+  <div class="guess" data-mode="block" data-key="g.dist">
     <p class="guess-q">先猜：把 8 改成 20，手離感測器更近還是更遠就會響？</p>
     <div class="guess-opts"><button type="button" data-v="far">更遠就會響</button><button type="button" data-v="near">要更近才會響</button><button type="button" data-v="same">沒有差別</button></div>
     <div class="guess-after" hidden>做完再回來看。<button class="guess-reveal" type="button">看看為什麼</button></div>
     <div class="guess-why" hidden>20 份約 40 公分，比 8 份的 16 公分更遠，所以手在更遠的地方就會觸發（官方說明的算法）。</div>
   </div>
-  <ol class="steps-do">
+  <ol class="steps-do" data-mode="block">
     <li>拔掉上一個零件，把距離感測器插進 <b>A</b>。</li>
     <li>按「運行程式」，手慢慢靠近感測器，聽主機的警笛聲。</li>
     <li>把 8 改大，再試一次。要再聽一次，手先拿遠，再慢慢靠近。</li>
@@ -374,7 +435,7 @@
     <label class="chk"><input type="checkbox" data-key="p4.beep"><span>手靠近時，主機響一聲警笛</span></label>
     <label class="chk"><input type="checkbox" data-key="p4.far"><span>數字改大後，手在更遠的地方也會響</span></label>
   </div>
-  <div class="t"><h4>講法</h4><p>「回到官方分頁，照畫面做，做完勾下面的檢核。」</p><h4>卡點</h4><ul><li>沒聲音：官方說明警笛聲是主機發出的；先看積木有沒有接好、手有沒有對著感測器正面。</li><li>學生亂揮手：請他們慢慢靠近。</li></ul></div>
+  <div class="t" data-mode="block"><h4>講法</h4><p>「回到官方分頁，照畫面做，做完勾下面的檢核。」</p><h4>卡點</h4><ul><li>沒聲音：官方說明警笛聲是主機發出的；先看積木有沒有接好、手有沒有對著感測器正面。</li><li>學生亂揮手：請他們慢慢靠近。</li></ul></div>
 </section>
 
 <section class="step" data-gate data-type="quiz" data-part="距離" data-sub="小測驗" data-title="距離小測驗" data-min="1" data-color="#16a34a">
@@ -384,13 +445,15 @@
       <button type="button" data-fb="顏色感測器看顏色。">顏色感測器</button>
       <button type="button" data-ok="1" data-fb="距離感測器量的就是前面物體的遠近。">距離感測器</button>
       <button type="button" data-fb="力感測器知道有沒有被按。">力感測器</button></div><p class="fb" hidden></p></div>
-    <div class="q" data-key="q4b"><p class="q-t">2.「近于」的數字從 8 改成 20，會怎樣？</p><div class="opts">
+    <div class="q" data-mode="block" data-key="q4b"><p class="q-t">2.「近于」的數字從 8 改成 20，會怎樣？</p><div class="opts">
       <button type="button" data-ok="1" data-fb="20 份比 8 份更遠，東西在更遠的地方就會觸發。">更遠的東西就會觸發</button>
       <button type="button" data-fb="數字變大，範圍變大，不是變小。">要更近才會觸發</button></div><p class="fb" hidden></p></div>
-    <div class="q" data-key="q4c"><p class="q-t">3. 1 份約 2 公分。設成 20（20 份），約幾公分以內？</p><div class="opts">
+    <div class="q" data-mode="py" data-key="p4b"><p class="q-t">2. <code>distance_sensor.distance(port.A)</code> 回傳 -1，代表什麼？</p><div class="opts"><button type="button" data-ok="1" data-fb="量不到有效的距離時回傳 -1，所以條件要寫 <code>0 < d</code>。">沒偵測到東西</button><button type="button" data-fb="距離不會是負的，-1 是「量不到」的記號。">距離是負 1 公分</button><button type="button" data-fb="這和馬達無關，是距離感測器量不到東西。">馬達壞了</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-mode="block" data-key="q4c"><p class="q-t">3. 1 份約 2 公分。設成 20（20 份），約幾公分以內？</p><div class="opts">
       <button type="button" data-fb="20 份不是 20 公分，每份約 2 公分。">20 公分</button>
       <button type="button" data-ok="1" data-fb="20 份 × 2 公分 ＝ 約 40 公分以內。">約 40 公分</button>
       <button type="button" data-fb="200 公分是整個範圍，20 份只是其中一段。">200 公分</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-mode="py" data-key="p4c"><p class="q-t">3. 160 毫米是幾公分？</p><div class="opts"><button type="button" data-fb="10 毫米是 1 公分，160 毫米是 16 公分。">1.6 公分</button><button type="button" data-ok="1" data-fb="10 毫米＝1 公分，160 ÷ 10 ＝ 16。">16 公分</button><button type="button" data-fb="毫米比公分小，160 毫米只有 16 公分。">160 公分</button></div><p class="fb" hidden></p></div>
     <p class="quiz-state"></p>
   </div>
   <div class="t"><h4>講法</h4><p>答完看右上角的星星；沒過的來找老師。</p></div>
@@ -406,25 +469,41 @@
       <p>做一個「按下去就轉，放開就停」的開關。</p>
     </div>
   </div>
-  <div class="blkrow">
+  <div class="blkrow" data-mode="block">
     <div class="blkcard"><span class="b hat b-ev"><i class="m">B</i> 當 <i class="m">被按壓</i></span><p class="bk-zh">「被按下」積木</p><p>B 口的力感測器被按下，才執行下面的積木。</p><p class="bk-en">English：when pressed</p></div>
     <div class="blkcard"><span class="b b-mot"><i class="m">A</i> 啟動電機 <i class="m">↻</i></span><p class="bk-zh">「啟動馬達」積木</p><p>讓 A 口的馬達一直轉。</p><p class="bk-en">English：start motor</p></div>
 
   </div>
+  <div class="pyrow" data-mode="py"><div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>if force_sensor.pressed(port.B):
+    motor.run(port.A, 720)
+else:
+    motor.stop(port.A)</code></pre></div><ul class="pyexp"><li><code>force_sensor.pressed(port.B)</code>：B 口的力感測器被按下去是 <code>True</code>，放開是 <code>False</code>。</li><li><code>motor.run</code>：讓馬達一直轉，不用等它轉完。</li><li><code>else:</code>：沒被按下時做這一行，<code>motor.stop</code> 讓馬達停。</li><li>想知道按多大力，用 <code>force_sensor.force(port.B)</code>，數字從 0 到 100（單位是十分之一牛頓）。</li></ul></div>
   <div class="t"><h4>講法</h4><p>「力感測器就像按鈕：按下去一個動作，放開一個動作。兩個『當』積木，各管一件事。」</p><h4>卡點</h4><ul><li>這一課要兩個零件同時插：A 馬達、B 力感測器。</li><li>官方積木下拉選單：「被按壓」「被鬆開」（官方說明寫法）。</li></ul></div>
 </section>
 
-<section class="step" data-type="task" data-part="力" data-sub="官方教學" data-title="做官方教學 5：力" data-min="3" data-color="#db2777">
+<section class="step" data-type="task" data-part="力" data-sub="官方教學" data-title="做官方教學 5：力" data-min="3" data-color="#db2777" data-title-py="用 Python 做開關" data-sub-py="寫 Python" data-min-py="2">
   <p class="goal">按下力感測器馬達轉，放開就停。</p>
-  <div class="go">
+<div class="go" data-mode="py"><span class="k">打開</span><span>回到 SPIKE App 的 <b>Python 專案</b>（和上一課同一個就好），把裡面的程式<b>全部換成</b>下面這段。</span></div>
+  <ol class="steps-do" data-mode="py"><li>先拔掉距離感測器。<b>馬達</b>插 A，<b>力感測器</b>插 B。</li><li>貼上程式，按播放。</li><li>用手按住力感測器，再放開。</li></ol>
+  <div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>from hub import port
+import force_sensor
+import motor
+
+while True:
+    if force_sensor.pressed(port.B):
+        motor.run(port.A, 720)
+    else:
+        motor.stop(port.A)</code></pre></div>
+  <div class="t" data-mode="py"><h4>卡點</h4><ul><li>馬達不轉：A 是馬達、B 是力感測器嗎？程式裡是 <code>port.A</code>、<code>port.B</code> 嗎？</li><li>時間不夠時，這一課改成老師示範。</li></ul></div>
+  <div class="go" data-mode="block">
     <span class="k">打開</span><span>回到官方分頁，做完上一課，畫面會顯示下一課。點「<b>5　力傳感器</b>」，做第 2 到 5 頁。<br><small>找不到官方分頁？<a class="btn" href="https://spike.legoeducation.com/prime/start/" target="spike" rel="noopener">重新打開官方教學頁</a>（要重新連線）</small></span>
   </div>
-  <p class="say">再加「放開」那一組，官方畫面上也有：</p>
-  <div class="blkrow">
+  <p class="say" data-mode="block">再加「放開」那一組，官方畫面上也有：</p>
+  <div class="blkrow" data-mode="block">
     <div class="blkcard"><span class="b hat b-ev"><i class="m">B</i> 當 <i class="m">被鬆開</i></span><p class="bk-zh">「被放開」積木</p><p>力感測器被放開，才執行下面的積木。</p><p class="bk-en">English：when released</p></div>
     <div class="blkcard"><span class="b b-mot"><i class="m">A</i> 關閉電機</span><p class="bk-zh">「關閉馬達」積木</p><p>讓 A 口的馬達停下來。</p><p class="bk-en">English：stop motor</p></div>
   </div>
-  <ol class="steps-do">
+  <ol class="steps-do" data-mode="block">
     <li>先拔掉距離感測器。<b>馬達</b>插 A，<b>力感測器</b>插 B。</li>
     <li>照畫面排好按下、放開兩組程式，按「運行程式」。</li>
     <li>用手按住力感測器，再放開。</li>
@@ -434,7 +513,7 @@
     <label class="chk"><input type="checkbox" data-key="p5.press"><span>按住時，馬達轉</span></label>
     <label class="chk"><input type="checkbox" data-key="p5.release"><span>放開後，馬達停下來</span></label>
   </div>
-  <div class="t"><h4>講法</h4><p>「回到官方分頁，照畫面做，做完勾下面的檢核。」</p><h4>卡點</h4><ul><li>馬達不轉：A 是馬達、B 是力感測器嗎？積木上的字母對不對？</li><li>時間不夠時，這一課改成老師示範。</li></ul></div>
+  <div class="t" data-mode="block"><h4>講法</h4><p>「回到官方分頁，照畫面做，做完勾下面的檢核。」</p><h4>卡點</h4><ul><li>馬達不轉：A 是馬達、B 是力感測器嗎？積木上的字母對不對？</li><li>時間不夠時，這一課改成老師示範。</li></ul></div>
 </section>
 
 <section class="step" data-gate data-type="quiz" data-part="力" data-sub="小測驗" data-title="力感測器小測驗" data-min="1" data-color="#db2777">
@@ -444,9 +523,10 @@
       <button type="button" data-fb="看顏色是顏色感測器。">前面是什麼顏色</button>
       <button type="button" data-ok="1" data-fb="力感測器知道有沒有被按下。">有沒有被按下</button>
       <button type="button" data-fb="歪不歪是陀螺儀的工作。">主機歪不歪</button></div><p class="fb" hidden></p></div>
-    <div class="q" data-key="q5b"><p class="q-t">2. 按下去馬達轉，放開以後馬達會…</p><div class="opts">
+    <div class="q" data-mode="block" data-key="q5b"><p class="q-t">2. 按下去馬達轉，放開以後馬達會…</p><div class="opts">
       <button type="button" data-fb="放開時有「關閉電機」，會叫馬達停。">繼續轉</button>
       <button type="button" data-ok="1" data-fb="「被鬆開」下面接「關閉電機」，所以馬達停下來。">停下來</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-mode="py" data-key="p5b"><p class="q-t">2. 按下力感測器時，<code>force_sensor.pressed(port.B)</code> 回傳什麼？</p><div class="opts"><button type="button" data-ok="1" data-fb="按下去是 True，所以 <code>if</code> 底下的 <code>motor.run</code> 會執行。"><code>True</code></button><button type="button" data-fb="False 是沒按的時候，那時會做 <code>else</code> 底下的 <code>motor.stop</code>。"><code>False</code></button></div><p class="fb" hidden></p></div>
     <div class="q" data-key="q5c"><p class="q-t">3. 馬達和力感測器為什麼不插同一個接口？</p><div class="opts">
       <button type="button" data-ok="1" data-fb="一個接口一次只能接一個零件，所以分別插 A 和 B。">一個接口只能接一個</button>
       <button type="button" data-fb="想一想：接口有分專門給誰用嗎？">B 專門給力感測器</button></div><p class="fb" hidden></p></div>
@@ -486,28 +566,40 @@
       <p class="hint">在黑色舞台上拖曳：左右拖是左右歪，上下拖是前後歪。</p>
     </div>
   </div>
+  <div class="pyrow" data-mode="py"><div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>yaw, pitch, roll = motion_sensor.tilt_angles()</code></pre></div><ul class="pyexp"><li>一次回傳三個數字：轉向 <code>yaw</code>、俯仰 <code>pitch</code>、翻滾 <code>roll</code>，和上面虛擬主機的三個數字一樣。</li><li>單位是<b>十分之一度</b>，所以 <code>450</code> 是 45 度。</li></ul></div>
   <div class="t"><h4>講法</h4><p>「第六個零件不用插線，在主機肚子裡。它量三種角度：前後歪、左右歪、平放轉圈。車子轉彎用的是第三種。」</p><h4>待確認</h4><p>虛擬陀螺的方向與正負號要用真主機對照；頁面只顯示「向左／向右」等文字。官方教學 6 往右歪要歪多少才觸發要實測。</p></div>
 </section>
 
-<section class="step" data-type="task" data-part="陀螺儀" data-sub="官方教學" data-title="做官方教學 6：陀螺儀" data-min="4" data-color="#ea580c">
+<section class="step" data-type="task" data-part="陀螺儀" data-sub="官方教學" data-title="做官方教學 6：陀螺儀" data-min="4" data-color="#ea580c" data-title-py="用 Python 讀陀螺儀" data-sub-py="寫 Python" data-min-py="3">
   <p class="goal">主機往右歪就播放音效，再改成往左歪。</p>
-  <div class="go">
+<div class="go" data-mode="py"><span class="k">打開</span><span>回到 SPIKE App 的 <b>Python 專案</b>，把程式<b>全部換成</b>下面這段。這一課不用插零件。</span></div>
+  <ol class="steps-do" data-mode="py"><li>貼上程式，按播放。</li><li>拿起主機（燈陣面向你），慢慢往你的<b>右手邊</b>歪，看 Console 哪個數字在變。</li><li>往左歪，再看一次。</li></ol>
+  <div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>from hub import motion_sensor
+import time
+
+while True:
+    yaw, pitch, roll = motion_sensor.tilt_angles()
+    print(pitch, roll)
+    time.sleep_ms(200)</code></pre></div><ul class="pyexp"><li><code>print(pitch, roll)</code>：把兩個數字印在 Console，每 200 毫秒一次。</li><li>USB 線不要拉扯。</li></ul>
+  <div class="checklist" data-mode="py"><label class="chk"><input type="checkbox" data-key="p6.py1"><span>Console 的數字，會跟著主機歪而改變</span></label><label class="chk"><input type="checkbox" data-key="p6.py2"><span>我知道往右歪時，哪個數字會變、往哪邊變大</span></label></div>
+  <div class="t" data-mode="py"><h4>卡點</h4><ul><li>數字很多看不清：主機放平先看一下起始值，再慢慢歪。</li><li>待確認：軸向與正負號（往右歪是 roll 變大還是變小）；Console 顯示速度。</li></ul></div>
+  <div class="go" data-mode="block">
     <span class="k">打開</span><span>回到官方分頁，做完上一課，畫面會顯示下一課。點「<b>6　陀螺儀傳感器</b>」，做第 2 到 7 頁。這一課不用插零件。<br><small>找不到官方分頁？<a class="btn" href="https://spike.legoeducation.com/prime/start/" target="spike" rel="noopener">重新打開官方教學頁</a>（要重新連線）</small></span>
   </div>
-  <div class="blkrow">
+  <div class="blkrow" data-mode="block">
     <div class="blkcard"><span class="b hat b-ev">當智慧集線器傾斜 <i class="m">→</i> 時</span><p class="bk-zh">「主機歪了」積木</p><p>主機往右歪，才執行下面的積木（箭頭可改方向）。</p><p class="bk-en">English：when tilted</p></div>
     <div class="blkcard"><span class="b b-sound">開始播放聲音 <i class="m">Cat Meow 1</i></span><p class="bk-zh">「播放聲音」積木</p><p>播放貓叫音效，聲音從<b>電腦喇叭</b>出來，電腦不要靜音。</p><p class="bk-en">English：start sound</p></div>
   </div>
-  <ol class="steps-do">
+  <ol class="steps-do" data-mode="block">
     <li>排出「當智慧集線器傾斜」→「開始播放聲音」，按「運行程式」。</li>
     <li>拿起主機（燈陣面向你）往你的<b>右手邊</b>歪，聽電腦喇叭。USB 線不要拉扯。</li>
     <li>把方向改成<b>左</b>，再試一次。</li>
   </ol>
-  <div class="checklist">
+  <div class="checklist" data-mode="block">
     <label class="chk"><input type="checkbox" data-key="p6.right"><span>往右歪時，電腦發出音效</span></label>
     <label class="chk"><input type="checkbox" data-key="p6.left"><span>改成左以後，往左歪才發出音效</span></label>
   </div>
-  <div class="t"><h4>講法</h4><p>「回到官方分頁，照畫面做，做完勾下面的檢核。」</p><h4>卡點</h4><ul><li>沒聲音：電腦有沒有靜音？主機要歪得明顯一點。</li><li>學生拿著連接線的主機亂甩：提醒線不要拉扯；USB 連線時可改用藍牙或把線放鬆。</li></ul></div>
+  <div class="t" data-mode="block"><h4>講法</h4><p>「回到官方分頁，照畫面做，做完勾下面的檢核。」</p><h4>卡點</h4><ul><li>沒聲音：電腦有沒有靜音？主機要歪得明顯一點。</li><li>學生拿著連接線的主機亂甩：提醒線不要拉扯；USB 連線時可改用藍牙或把線放鬆。</li></ul></div>
 </section>
 
 <section class="step" data-gate data-type="quiz" data-part="陀螺儀" data-sub="小測驗" data-title="陀螺儀小測驗" data-min="1" data-color="#ea580c">
@@ -516,16 +608,18 @@
     <div class="q" data-key="q6a"><p class="q-t">1. 陀螺儀在哪裡？</p><div class="opts">
       <button type="button" data-fb="它沒有自己的線，不用插接口。">插在 F 接口</button>
       <button type="button" data-ok="1" data-fb="陀螺儀內建在主機裡面，所以不用接線。">藏在主機裡面</button></div><p class="fb" hidden></p></div>
-    <div class="q" data-key="q6b"><p class="q-t">2. 官方教學 6 的音效，從哪裡發出來？</p><div class="opts">
+    <div class="q" data-mode="block" data-key="q6b"><p class="q-t">2. 官方教學 6 的音效，從哪裡發出來？</p><div class="opts">
       <button type="button" data-fb="官方說明寫的是你的電腦的喇叭。">主機</button>
       <button type="button" data-ok="1" data-fb="音效從電腦的喇叭出來，所以電腦不要靜音。">電腦的喇叭</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-mode="py" data-key="p6b"><p class="q-t">2. <code>tilt_angles()</code> 回傳 <code>450</code>，是幾度？</p><div class="opts"><button type="button" data-ok="1" data-fb="單位是十分之一度，450 是 45 度。">45 度</button><button type="button" data-fb="單位是十分之一度，要除以 10。">450 度</button></div><p class="fb" hidden></p></div>
     <div class="q" data-key="q6c"><p class="q-t">3. 車子在地上轉彎，主要是哪個角度在變？</p><div class="opts">
       <button type="button" data-fb="俯仰是前後歪。">俯仰</button>
       <button type="button" data-fb="翻滾是左右歪。">翻滾</button>
       <button type="button" data-ok="1" data-fb="平放轉圈是轉向，車子轉彎用它量轉了幾度。">轉向</button></div><p class="fb" hidden></p></div>
-    <div class="q" data-key="q6d"><p class="q-t">4. 想讓主機「往左歪」才發出音效，改哪裡？</p><div class="opts">
+    <div class="q" data-mode="block" data-key="q6d"><p class="q-t">4. 想讓主機「往左歪」才發出音效，改哪裡？</p><div class="opts">
       <button type="button" data-ok="1" data-fb="方向在「當智慧集線器傾斜」積木上，把箭頭改成左邊。">「傾斜」積木上的方向</button>
       <button type="button" data-fb="音效只決定發出什麼聲音，不決定往哪邊歪。">「開始播放聲音」的音效</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-mode="py" data-key="p6d"><p class="q-t">4. 想讓主機「往右歪」才有反應，第一步先做什麼？</p><div class="opts"><button type="button" data-ok="1" data-fb="先看數字怎麼變，才知道條件要怎麼寫。">用 <code>print</code> 看往右歪時，哪個數字怎麼變</button><button type="button" data-fb="猜的數字容易錯，先用 Console 看實際的數字。">隨便猜一個數字寫進去</button></div><p class="fb" hidden></p></div>
     <p class="quiz-state"></p>
   </div>
   <div class="unlock" hidden>
@@ -537,7 +631,7 @@
 </div>
 
 <script src="../assets/firebase-config.js"></script>
-<script src="../assets/course.js?v=8"></script>
+<script src="../assets/course.js?v=9"></script>
 <script>
 /* 虛擬陀螺：拖曳改變俯仰／翻滾，按鈕改變轉向。只用文字說明方向。 */
 (function () {
