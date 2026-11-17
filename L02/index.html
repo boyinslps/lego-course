@@ -6,7 +6,7 @@
 <meta name="author" content="資訊老師黃博胤">
 <meta name="robots" content="noindex">
 <title>第 2 節 認識主機與六個零件</title>
-<link rel="stylesheet" href="../assets/course.css?v=19">
+<link rel="stylesheet" href="../assets/course.css?v=21">
 </head>
 <body data-lesson="L02">
 <div class="wrap">
@@ -60,6 +60,7 @@
       <li>模擬器陀螺儀：往右歪 roll 變正、yaw 逆時針為正、pitch 往後為正（模擬器自己註明未經真機驗證）。</li>
     </ul>
     <h4>待確認（實機驗證後寫回）</h4>
+    <ul><li>燈陣座標圖：<code>set_pixel(0, 0, 100)</code> 在真機是不是左上角、x 往右 y 往下（模擬器是；官方文件只寫 0 到 4）。</li></ul>
     <ul>
       <li>連接鈕的位置與連上後的畫面變化；藍牙與 USB 實際流程。</li>
       <li>Python：新增專案選 Python 的畫面、預設內容、Console 位置；每支程式碼實際能不能跑；速度 360 度／秒的快慢；陀螺儀軸向與正負號。</li>
@@ -199,7 +200,7 @@
   </div>
   <div class="pyrow" data-mode="py"><div class="codewrap" data-mode="py"><button type="button" class="copybtn">複製</button><pre><code>from hub import light_matrix
 
-light_matrix.show_image(light_matrix.IMAGE_HAPPY)</code></pre></div><ul class="pyexp" data-mode="py"><li><code>import</code> 是借工具箱：這行借來「燈陣」的工具。</li><li><code>show_image</code> 顯示一張內建圖案，<code>IMAGE_HAPPY</code> 是笑臉。</li></ul><div class="codewrap" data-mode="py"><button type="button" class="copybtn">複製</button><pre><code>light_matrix.set_pixel(0, 0, 100)</code></pre></div><ul class="pyexp" data-mode="py"><li>只亮一顆小燈：前兩個數字是位置（都是 0 到 4，從 0 開始數），<code>100</code> 是最亮。</li></ul></div>
+light_matrix.show_image(light_matrix.IMAGE_HAPPY)</code></pre></div><ul class="pyexp" data-mode="py"><li><code>import</code> 是借工具箱：這行借來「燈陣」的工具。</li><li><code>show_image</code> 顯示一張內建圖案，<code>IMAGE_HAPPY</code> 是笑臉。</li></ul><div class="codewrap" data-mode="py"><button type="button" class="copybtn">複製</button><pre><code>light_matrix.set_pixel(0, 0, 100)</code></pre></div><figure class="mxfig" data-mode="py"><svg class="mxfig-svg" viewBox="0 0 260 260" role="img" aria-label="5×5 燈陣的座標：x 從左往右 0 到 4，y 從上往下 0 到 4，左上角是 (0,0)"><text x="3" y="14" font-size="12" fill="#475569">x→</text><text x="3" y="28" font-size="12" fill="#475569">y↓</text><text x="56" y="22" font-size="16" font-weight="700" text-anchor="middle" fill="#1d4ed8">0</text><text x="22" y="62" font-size="16" font-weight="700" text-anchor="middle" fill="#b91c1c">0</text><text x="100" y="22" font-size="16" font-weight="700" text-anchor="middle" fill="#1d4ed8">1</text><text x="22" y="106" font-size="16" font-weight="700" text-anchor="middle" fill="#b91c1c">1</text><text x="144" y="22" font-size="16" font-weight="700" text-anchor="middle" fill="#1d4ed8">2</text><text x="22" y="150" font-size="16" font-weight="700" text-anchor="middle" fill="#b91c1c">2</text><text x="188" y="22" font-size="16" font-weight="700" text-anchor="middle" fill="#1d4ed8">3</text><text x="22" y="194" font-size="16" font-weight="700" text-anchor="middle" fill="#b91c1c">3</text><text x="232" y="22" font-size="16" font-weight="700" text-anchor="middle" fill="#1d4ed8">4</text><text x="22" y="238" font-size="16" font-weight="700" text-anchor="middle" fill="#b91c1c">4</text><rect x="36" y="36" width="40" height="40" rx="5" fill="#facc15" stroke="#a16207" stroke-width="2"/><rect x="80" y="36" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="124" y="36" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="168" y="36" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="212" y="36" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="36" y="80" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="80" y="80" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="124" y="80" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="168" y="80" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="212" y="80" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="36" y="124" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="80" y="124" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="124" y="124" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="168" y="124" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="212" y="124" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="36" y="168" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="80" y="168" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="124" y="168" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="168" y="168" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="212" y="168" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="36" y="212" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="80" y="212" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="124" y="212" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="168" y="212" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><rect x="212" y="212" width="40" height="40" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/><text x="56" y="60" font-size="12" font-weight="700" text-anchor="middle" fill="#713f12">(0,0)</text></svg><figcaption>每一格的位置是 (x, y)：<b>x</b> 從左往右數，<b>y</b> 從上往下數。黃色那一顆就是 <code>set_pixel(0, 0, 100)</code>。</figcaption></figure><ul class="pyexp" data-mode="py"><li>只亮一顆小燈：<code>set_pixel(x, y, 亮度)</code>。x 從左往右數、y 從上往下數，都是 0 到 4（從 0 開始數）。<code>(0, 0)</code> 是左上角那一顆，<code>100</code> 是最亮。</li><li>想亮右下角那一顆，就寫 <code>set_pixel(4, 4, 100)</code>。</li></ul></div>
   <div class="t"><h4>講法</h4><p>「主機是大腦，燈陣是它的臉，等一下用程式讓它笑。」積木只講兩個：『開始』和『點亮』。積木上的字是 App 的簡體，下面是繁體說法。</p></div>
 </section>
 
@@ -652,7 +653,7 @@ while True:
 </div>
 
 <script src="../assets/firebase-config.js"></script>
-<script src="../assets/course.js?v=19"></script>
+<script src="../assets/course.js?v=21"></script>
 <script>
 /* 虛擬陀螺：拖曳改變俯仰／翻滾，按鈕改變轉向。只用文字說明方向。 */
 (function () {
