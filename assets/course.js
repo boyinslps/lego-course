@@ -184,12 +184,13 @@
        <p class="fb" hidden></p></div>
      選完立刻顯示：答對 → 綠色＋原因，鎖住；答錯 → 橘色＋提示，可以再選，不扣分。
      step 上寫 data-gate：這一步所有 .q 都答對，才能進下一步。 */
+  function fbHtml(s) { return esc(s || '').replace(/&lt;(\/?)code&gt;/g, '<$1code>'); }
   function bindQuiz(q, reapply) {
     var k = q.dataset.key, opts = $$('.opts button', q), fbEl = $('.fb', q);
     function showSolved() {
       var ok = opts.filter(function (b) { return b.dataset.ok; })[0];
       opts.forEach(function (b) { b.classList.remove('bad'); b.classList.toggle('good', b === ok); b.disabled = true; });
-      fbEl.hidden = false; fbEl.className = 'fb good'; fbEl.innerHTML = '✔ 答對了：' + (ok ? esc(ok.dataset.fb || '') : '');
+      fbEl.hidden = false; fbEl.className = 'fb good'; fbEl.innerHTML = '✔ 答對了：' + (ok ? fbHtml(ok.dataset.fb) : '');
       q.classList.add('solved');
     }
     function reset() { opts.forEach(function (b) { b.classList.remove('good', 'bad'); b.disabled = false; }); fbEl.hidden = true; q.classList.remove('solved'); }
@@ -200,7 +201,7 @@
           if (q.classList.contains('solved')) return;
           var n = (+state[k + '.n'] || 0) + 1; state[k + '.n'] = n;
           if (b.dataset.ok) { setVal(k, 1); showSolved(); }
-          else { b.classList.add('bad'); b.disabled = true; fbEl.hidden = false; fbEl.className = 'fb bad'; fbEl.innerHTML = '✘ 再想想：' + esc(b.dataset.fb || ''); setVal(k + '.n', n); }
+          else { b.classList.add('bad'); b.disabled = true; fbEl.hidden = false; fbEl.className = 'fb bad'; fbEl.innerHTML = '✘ 再想想：' + fbHtml(b.dataset.fb); setVal(k + '.n', n); }
           updateQuizState();
         });
       });

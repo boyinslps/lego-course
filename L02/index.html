@@ -6,7 +6,7 @@
 <meta name="author" content="資訊老師黃博胤">
 <meta name="robots" content="noindex">
 <title>第 2 節 認識主機與六個零件</title>
-<link rel="stylesheet" href="../assets/course.css?v=9">
+<link rel="stylesheet" href="../assets/course.css?v=10">
 </head>
 <body data-lesson="L02">
 <div class="wrap">
@@ -201,6 +201,9 @@ light_matrix.show_image(light_matrix.IMAGE_HAPPY)</code></pre></div><ul class="p
   <div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>from hub import light_matrix
 
 light_matrix.show_image(light_matrix.IMAGE_HAPPY)</code></pre></div><ul class="pyexp"><li>第一行 <code>from hub import light_matrix</code>：借來燈陣的工具。每支程式開頭都要先借要用的工具。</li><li>程式從上往下，一行一行執行。</li><li>編輯器下面的 <b>Console</b> 會顯示錯誤訊息，出錯先看它說第幾行。Python 靠<b>縮排</b>分段，編輯器會自動用 4 個空白。</li></ul>
+  <div class="adv" data-mode="py"><h3>進階：讓燈陣顯示 Hello, World!</h3><div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>from hub import light_matrix
+
+light_matrix.write('Hello, World!')</code></pre></div><ul class="pyexp"><li><code>write</code> 會讓文字從右邊一個字一個字跑過燈陣。</li><li>把 <code>'Hello, World!'</code> 裡面的字，換成你的名字再播放。引號要留著，兩邊用同一種。</li></ul></div>
   <div class="t" data-mode="py"><h4>講法</h4><p>「每支程式開頭都要先借工具（import），再寫要做的事。先照貼，看懂最後一行就好。」</p><h4>卡點</h4><ul><li>沒清掉原本的程式，兩份程式混在一起會報錯：全部刪掉再貼。</li><li>縮排不是 4 個空白（後面的課才會出現）：再按 Tab 或空白鍵補齊。</li><li>待確認：新增專案選 Python 的畫面與預設內容；Console 的位置。</li></ul></div>
   <div class="go" data-mode="block">
     <span class="k">打開</span><span>回到官方分頁，做完上一課，畫面會顯示下一課。點「<b>1　矩陣燈</b>」，做第 2 到 6 頁。<br><small>找不到官方分頁？<a class="btn" href="https://spike.legoeducation.com/prime/start/" target="spike" rel="noopener">重新打開官方教學頁</a>（要重新連線）</small></span>
@@ -631,7 +634,7 @@ while True:
 </div>
 
 <script src="../assets/firebase-config.js"></script>
-<script src="../assets/course.js?v=9"></script>
+<script src="../assets/course.js?v=10"></script>
 <script>
 /* 虛擬陀螺：拖曳改變俯仰／翻滾，按鈕改變轉向。只用文字說明方向。 */
 (function () {
