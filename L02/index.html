@@ -6,7 +6,7 @@
 <meta name="author" content="資訊老師黃博胤">
 <meta name="robots" content="noindex">
 <title>第 2 節 認識主機與六個零件</title>
-<link rel="stylesheet" href="../assets/course.css?v=14">
+<link rel="stylesheet" href="../assets/course.css?v=15">
 </head>
 <body data-lesson="L02">
 <div class="wrap">
@@ -188,9 +188,9 @@
     <div class="blkcard"><span class="b hat b-ev">當程式啟動時</span><p class="bk-zh">「開始」積木</p><p>會啟動拼在它下面的所有積木，就像 Scratch 的「當綠旗被點擊」。</p><p class="bk-en">English：when program starts</p></div>
     <div class="blkcard"><span class="b b-light">點亮 <i class="mx"><s></s></i></span><p class="bk-zh">「點亮」積木</p><p>決定 25 顆小燈哪幾顆亮，拼成圖案。</p><p class="bk-en">English：turn on</p></div>
   </div>
-  <div class="pyrow" data-mode="py"><div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>from hub import light_matrix
+  <div class="pyrow" data-mode="py"><div class="codewrap" data-mode="py"><button type="button" class="copybtn">複製</button><pre><code>from hub import light_matrix
 
-light_matrix.show_image(light_matrix.IMAGE_HAPPY)</code></pre></div><ul class="pyexp"><li><code>import</code> 是借工具箱：這行借來「燈陣」的工具。</li><li><code>show_image</code> 顯示一張內建圖案，<code>IMAGE_HAPPY</code> 是笑臉。</li></ul><div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>light_matrix.set_pixel(0, 0, 100)</code></pre></div><ul class="pyexp"><li>只亮一顆小燈：前兩個數字是位置（都是 0 到 4，從 0 開始數），<code>100</code> 是最亮。</li></ul></div>
+light_matrix.show_image(light_matrix.IMAGE_HAPPY)</code></pre></div><ul class="pyexp" data-mode="py"><li><code>import</code> 是借工具箱：這行借來「燈陣」的工具。</li><li><code>show_image</code> 顯示一張內建圖案，<code>IMAGE_HAPPY</code> 是笑臉。</li></ul><div class="codewrap" data-mode="py"><button type="button" class="copybtn">複製</button><pre><code>light_matrix.set_pixel(0, 0, 100)</code></pre></div><ul class="pyexp" data-mode="py"><li>只亮一顆小燈：前兩個數字是位置（都是 0 到 4，從 0 開始數），<code>100</code> 是最亮。</li></ul></div>
   <div class="t"><h4>講法</h4><p>「主機是大腦，燈陣是它的臉，等一下用程式讓它笑。」積木只講兩個：『開始』和『點亮』。積木上的字是 App 的簡體，下面是繁體說法。</p></div>
 </section>
 
@@ -198,12 +198,12 @@ light_matrix.show_image(light_matrix.IMAGE_HAPPY)</code></pre></div><ul class="p
   <p class="goal">在官方 App 讓燈陣亮出笑臉，再改圖案。</p>
 <div class="go" data-mode="py"><span class="k">專案</span><span>在官方 App 按「新增專案」，選 <b>Python</b>（不是文字積木）。</span></div>
   <ol class="steps-do" data-mode="py"><li>編輯器裡原本有程式，<b>全部刪掉</b>，貼上下面這段（按「複製」，點編輯器，按 Ctrl+V）。</li><li>按播放鈕，燈陣出現笑臉。</li><li>把 <code>IMAGE_HAPPY</code> 改成 <code>IMAGE_SAD</code>，再按一次播放。</li></ol>
-  <div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>from hub import light_matrix
+  <div class="codewrap" data-mode="py"><button type="button" class="copybtn">複製</button><pre><code>from hub import light_matrix
 
-light_matrix.show_image(light_matrix.IMAGE_HAPPY)</code></pre></div><ul class="pyexp"><li>第一行 <code>from hub import light_matrix</code>：借來燈陣的工具。每支程式開頭都要先借要用的工具。</li><li>程式從上往下，一行一行執行。</li><li>編輯器下面的 <b>Console</b> 會顯示錯誤訊息，出錯先看它說第幾行。Python 靠<b>縮排</b>分段，編輯器會自動用 4 個空白。</li></ul>
-  <div class="adv" data-mode="py"><h3>進階：讓燈陣顯示 Hello, World!</h3><div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>from hub import light_matrix
+light_matrix.show_image(light_matrix.IMAGE_HAPPY)</code></pre></div><ul class="pyexp" data-mode="py"><li>第一行 <code>from hub import light_matrix</code>：借來燈陣的工具。每支程式開頭都要先借要用的工具。</li><li>程式從上往下，一行一行執行。</li><li>編輯器下面的 <b>Console</b> 會顯示錯誤訊息，出錯先看它說第幾行。Python 靠<b>縮排</b>分段，編輯器會自動用 4 個空白。</li></ul>
+  <div class="adv" data-mode="py"><h3>進階：讓燈陣顯示 Hello, World!</h3><div class="codewrap" data-mode="py"><button type="button" class="copybtn">複製</button><pre><code>from hub import light_matrix
 
-light_matrix.write('Hello, World!')</code></pre></div><ul class="pyexp"><li><code>write</code> 會讓文字從右邊一個字一個字跑過燈陣。</li><li>把 <code>'Hello, World!'</code> 裡面的字，換成你的名字再播放。引號要留著，兩邊用同一種。</li></ul></div>
+light_matrix.write('Hello, World!')</code></pre></div><ul class="pyexp" data-mode="py"><li><code>write</code> 會讓文字從右邊一個字一個字跑過燈陣。</li><li>把 <code>'Hello, World!'</code> 裡面的字，換成你的名字再播放。引號要留著，兩邊用同一種。</li></ul></div>
   <div class="t" data-mode="py"><h4>講法</h4><p>「每支程式開頭都要先借工具（import），再寫要做的事。先照貼，看懂最後一行就好。」</p><h4>卡點</h4><ul><li>沒清掉原本的程式，兩份程式混在一起會報錯：全部刪掉再貼。</li><li>縮排不是 4 個空白（後面的課才會出現）：再按 Tab 或空白鍵補齊。</li><li>待確認：新增專案選 Python 的畫面與預設內容；Console 的位置。</li></ul></div>
   <div class="go" data-mode="block">
     <span class="k">打開</span><span>回到官方分頁，做完上一課，畫面會顯示下一課。點「<b>1　矩陣燈</b>」，做第 2 到 6 頁。<br><small>找不到官方分頁？<a class="btn" href="https://spike.legoeducation.com/prime/start/" target="spike" rel="noopener">重新打開官方教學頁</a>（要重新連線）</small></span>
@@ -254,7 +254,7 @@ light_matrix.write('Hello, World!')</code></pre></div><ul class="pyexp"><li><cod
     <div class="blkcard"><span class="b b-mot">將速度設置為 <i>20</i> %</span><p class="bk-zh">「設定速度」積木</p><p>數字越大，馬達轉得越快。</p><p class="bk-en">English：set speed to</p></div>
     <div class="blkcard"><span class="b b-mot"><i class="m">A</i> 運行 <i class="m">↻</i> <i>1</i> 圈</span><p class="bk-zh">「運行幾圈」積木</p><p>讓 A 口的馬達順時針轉 1 圈。</p><p class="bk-en">English：run for rotations</p></div>
   </div>
-  <div class="pyrow" data-mode="py"><div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>motor.run_for_degrees(port.A, 360, 720)</code></pre></div><ul class="pyexp"><li><code>port.A</code>：馬達插在 A 口。</li><li><code>360</code>：轉 360 度，就是 1 圈。</li><li><code>720</code>：速度，是「每秒轉幾度」，數字越大轉得越快。</li><li>程式開頭要先寫 <code>import motor</code> 和 <code>from hub import port</code>，借來馬達和接口的工具。</li></ul><p class="unit">積木的速度是「%」，Python 的速度是「每秒幾度」，數字不能直接搬過來。</p></div>
+  <div class="pyrow" data-mode="py"><div class="codewrap" data-mode="py"><button type="button" class="copybtn">複製</button><pre><code>motor.run_for_degrees(port.A, 360, 720)</code></pre></div><ul class="pyexp" data-mode="py"><li><code>port.A</code>：馬達插在 A 口。</li><li><code>360</code>：轉 360 度，就是 1 圈。</li><li><code>720</code>：速度，是「每秒轉幾度」，數字越大轉得越快。</li><li>程式開頭要先寫 <code>import motor</code> 和 <code>from hub import port</code>，借來馬達和接口的工具。</li></ul><p class="unit">積木的速度是「%」，Python 的速度是「每秒幾度」，數字不能直接搬過來。</p></div>
   <div class="t"><h4>講法</h4><p>「馬達是力氣的來源。積木上的 A 是『馬達插在哪個接口』。今天只讓它轉一圈。」</p></div>
 </section>
 
@@ -263,7 +263,7 @@ light_matrix.write('Hello, World!')</code></pre></div><ul class="pyexp"><li><cod
 <div class="go" data-mode="py"><span class="k">打開</span><span>回到 SPIKE App 的 <b>Python 專案</b>（和上一課同一個就好），把裡面的程式<b>全部換成</b>下面這段。</span></div>
   <div class="guess" data-mode="py" data-key="g.speed.py"><p class="guess-q">先猜：速度從 720 改成 360，馬達轉 1 圈會…</p><div class="guess-opts"><button type="button" data-v="fast">轉得更快</button><button type="button" data-v="same">一樣快</button><button type="button" data-v="slow">轉得更慢</button></div><div class="guess-after" hidden>做完再回來看。<button class="guess-reveal" type="button">看看為什麼</button></div><div class="guess-why" hidden>速度是每秒轉幾度，360 比 720 慢。度數沒改，還是 1 圈，只是花的時間變長。</div></div>
   <ol class="steps-do" data-mode="py"><li>馬達插進 <b>A</b> 接口（程式裡寫 <code>port.A</code>）。</li><li>貼上程式，按播放，馬達轉 1 圈。</li><li>把 <code>720</code>（速度）改成 <code>360</code>，再按一次播放。</li></ol>
-  <div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>import motor
+  <div class="codewrap" data-mode="py"><button type="button" class="copybtn">複製</button><pre><code>import motor
 from hub import port
 
 motor.run_for_degrees(port.A, 360, 720)</code></pre></div>
@@ -326,8 +326,8 @@ motor.run_for_degrees(port.A, 360, 720)</code></pre></div>
     <div class="blkcard"><span class="b hat b-ev"><i class="m">A</i> 當顏色為 <i class="x">紅</i></span><p class="bk-zh">「看到某個顏色」積木</p><p>看到紅色，才執行下面的積木。</p><p class="bk-en">English：when color is</p></div>
     <div class="blkcard"><span class="b b-light">點亮 <i class="mx"><s></s></i></span><p class="bk-zh">「點亮」積木</p><p>剛才燈陣用過，讓燈陣亮起來。</p></div>
   </div>
-  <div class="pyrow" data-mode="py"><div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>if color_sensor.color(port.A) == color.RED:
-    light_matrix.show_image(light_matrix.IMAGE_HAPPY)</code></pre></div><ul class="pyexp"><li><code>color_sensor.color(port.A)</code>：問 A 口的感測器「現在看到什麼顏色」。</li><li><code>color.RED</code>：紅色的名字。</li><li><code>==</code>（兩個等號）：問「是不是一樣」。一個 <code>=</code> 是「放進去」，不一樣。</li><li><code>if</code>：條件成立，才做底下縮排的那一行。</li></ul></div>
+  <div class="pyrow" data-mode="py"><div class="codewrap" data-mode="py"><button type="button" class="copybtn">複製</button><pre><code>if color_sensor.color(port.A) == color.RED:
+    light_matrix.show_image(light_matrix.IMAGE_HAPPY)</code></pre></div><ul class="pyexp" data-mode="py"><li><code>color_sensor.color(port.A)</code>：問 A 口的感測器「現在看到什麼顏色」。</li><li><code>color.RED</code>：紅色的名字。</li><li><code>==</code>（兩個等號）：問「是不是一樣」。一個 <code>=</code> 是「放進去」，不一樣。</li><li><code>if</code>：條件成立，才做底下縮排的那一行。</li></ul></div>
   <div class="t"><h4>講法</h4><p>「顏色感測器是眼睛。這個積木長得像『開始』積木，但它是在等：看到紅色才開始。」</p></div>
 </section>
 
@@ -335,7 +335,7 @@ motor.run_for_degrees(port.A, 360, 720)</code></pre></div>
   <p class="goal">看到紅色就亮燈，再改成認黃色。</p>
 <div class="go" data-mode="py"><span class="k">打開</span><span>回到 SPIKE App 的 <b>Python 專案</b>（和上一課同一個就好），把裡面的程式<b>全部換成</b>下面這段。</span></div>
   <ol class="steps-do" data-mode="py"><li>拔掉馬達，把顏色感測器插進 <b>A</b>。</li><li>貼上程式，按播放，拿<b>紅色 LEGO 方塊</b>放在感測器前面。</li><li>把 <code>color.RED</code> 改成 <code>color.YELLOW</code>，換<b>黃色 LEGO 方塊</b>試試。</li></ol>
-  <div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>from hub import port, light_matrix
+  <div class="codewrap" data-mode="py"><button type="button" class="copybtn">複製</button><pre><code>from hub import port, light_matrix
 import color_sensor
 import color
 import time
@@ -345,7 +345,7 @@ while True:
         light_matrix.show_image(light_matrix.IMAGE_HAPPY)
     else:
         light_matrix.clear()
-    time.sleep_ms(50)</code></pre></div><ul class="pyexp"><li><code>while True:</code>：一直重複，所以感測器會一直看。</li><li><code>else:</code>：不是紅色的時候做這一行，把燈陣關掉。</li><li><code>time.sleep_ms(50)</code>：每次歇 50 毫秒（1000 毫秒是 1 秒）。</li></ul>
+    time.sleep_ms(50)</code></pre></div><ul class="pyexp" data-mode="py"><li><code>while True:</code>：一直重複，所以感測器會一直看。</li><li><code>else:</code>：不是紅色的時候做這一行，把燈陣關掉。</li><li><code>time.sleep_ms(50)</code>：每次歇 50 毫秒（1000 毫秒是 1 秒）。</li></ul>
   <div class="t" data-mode="py"><h4>卡點</h4><ul><li>燈一直亮或一直不亮：感測器要離方塊近一點；<code>==</code> 有沒有寫成一個 <code>=</code>。</li><li>忘了拔馬達：一個接口一次只能接一個。</li></ul></div>
   <div class="go" data-mode="block">
     <span class="k">打開</span><span>回到官方分頁，做完上一課，畫面會顯示下一課。點「<b>3　顏色傳感器</b>」，做第 2 到 7 頁。<br><small>找不到官方分頁？<a class="btn" href="https://spike.legoeducation.com/prime/start/" target="spike" rel="noopener">重新打開官方教學頁</a>（要重新連線）</small></span>
@@ -400,9 +400,9 @@ while True:
     <div class="blkcard"><span class="b hat b-ev"><i class="m">A</i> 當 近于 <i>8</i> %</span><p class="bk-zh">「東西靠近」積木</p><p>東西離感測器比「8 份」更近（約 16 公分，官方說明），才執行下面的積木。</p><p class="bk-en">English：when closer than</p></div>
     <div class="blkcard"><span class="b b-light">點亮 <i class="mx"><s></s></i></span><p class="bk-zh">「點亮」積木</p><p>剛才燈陣用過。東西靠近時，讓燈陣亮起來。</p><p class="bk-en">English：turn on</p></div>
   </div>
-  <div class="pyrow" data-mode="py"><div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>d = distance_sensor.distance(port.A)
+  <div class="pyrow" data-mode="py"><div class="codewrap" data-mode="py"><button type="button" class="copybtn">複製</button><pre><code>d = distance_sensor.distance(port.A)
 if 0 &lt; d &lt; 160:
-    light_matrix.show_image(light_matrix.IMAGE_HAPPY)</code></pre></div><ul class="pyexp"><li><code>d = ...</code>：把量到的數字存在 <code>d</code> 裡。</li><li>沒偵測到東西時，會回傳 <b>-1</b>，所以要寫 <code>0 < d</code>，不然 -1 也算「小於 160」。</li><li><code>160</code> 毫米就是 16 公分，約等於積木的「8 份」。</li><li><code>show_image</code>：燈陣亮出笑臉，和燈陣那一課一樣。</li></ul></div>
+    light_matrix.show_image(light_matrix.IMAGE_HAPPY)</code></pre></div><ul class="pyexp" data-mode="py"><li><code>d = ...</code>：把量到的數字存在 <code>d</code> 裡。</li><li>沒偵測到東西時，會回傳 <b>-1</b>，所以要寫 <code>0 < d</code>，不然 -1 也算「小於 160」。</li><li><code>160</code> 毫米就是 16 公分，約等於積木的「8 份」。</li><li><code>show_image</code>：燈陣亮出笑臉，和燈陣那一課一樣。</li></ul></div>
   <div class="t"><h4>講法</h4><p>「距離感測器量遠近。8% 是範圍的比例，官方寫範圍約 200 公分，所以約 16 公分。之後的閃避區會用到它。」</p><h4>待確認</h4><p>實際偵測距離與誤差要實測，頁面只寫官方文件的數字。</p></div>
 </section>
 
@@ -411,7 +411,7 @@ if 0 &lt; d &lt; 160:
 <div class="go" data-mode="py"><span class="k">打開</span><span>回到 SPIKE App 的 <b>Python 專案</b>（和上一課同一個就好），把裡面的程式<b>全部換成</b>下面這段。</span></div>
   <div class="guess" data-mode="py" data-key="g.dist.py"><p class="guess-q">先猜：把 160 改成 400，手離感測器更近還是更遠就會亮？</p><div class="guess-opts"><button type="button" data-v="far">更遠就會亮</button><button type="button" data-v="near">要更近才會亮</button><button type="button" data-v="same">沒有差別</button></div><div class="guess-after" hidden>做完再回來看。<button class="guess-reveal" type="button">看看為什麼</button></div><div class="guess-why" hidden>400 毫米是 40 公分，比 160 毫米（16 公分）更遠，所以手在更遠的地方就會觸發。</div></div>
   <ol class="steps-do" data-mode="py"><li>拔掉上一個零件，把距離感測器插進 <b>A</b>。</li><li>貼上程式，按播放，手慢慢靠近感測器，看燈陣亮出笑臉。</li><li>把 <code>160</code> 改成 <code>400</code>，再試一次。</li></ol>
-  <div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>from hub import port, light_matrix
+  <div class="codewrap" data-mode="py"><button type="button" class="copybtn">複製</button><pre><code>from hub import port, light_matrix
 import distance_sensor
 import time
 
@@ -483,10 +483,10 @@ while True:
     <div class="blkcard"><span class="b b-mot"><i class="m">A</i> 啟動電機 <i class="m">↻</i></span><p class="bk-zh">「啟動馬達」積木</p><p>讓 A 口的馬達一直轉。</p><p class="bk-en">English：start motor</p></div>
 
   </div>
-  <div class="pyrow" data-mode="py"><div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>if force_sensor.pressed(port.B):
+  <div class="pyrow" data-mode="py"><div class="codewrap" data-mode="py"><button type="button" class="copybtn">複製</button><pre><code>if force_sensor.pressed(port.B):
     motor.run(port.A, 720)
 else:
-    motor.stop(port.A)</code></pre></div><ul class="pyexp"><li><code>force_sensor.pressed(port.B)</code>：B 口的力感測器被按下去是 <code>True</code>，放開是 <code>False</code>。</li><li><code>motor.run</code>：讓馬達一直轉，不用等它轉完。</li><li><code>else:</code>：沒被按下時做這一行，<code>motor.stop</code> 讓馬達停。</li><li>想知道按多大力，用 <code>force_sensor.force(port.B)</code>，數字從 0 到 100（單位是十分之一牛頓）。</li></ul></div>
+    motor.stop(port.A)</code></pre></div><ul class="pyexp" data-mode="py"><li><code>force_sensor.pressed(port.B)</code>：B 口的力感測器被按下去是 <code>True</code>，放開是 <code>False</code>。</li><li><code>motor.run</code>：讓馬達一直轉，不用等它轉完。</li><li><code>else:</code>：沒被按下時做這一行，<code>motor.stop</code> 讓馬達停。</li><li>想知道按多大力，用 <code>force_sensor.force(port.B)</code>，數字從 0 到 100（單位是十分之一牛頓）。</li></ul></div>
   <div class="t"><h4>講法</h4><p>「力感測器就像按鈕：按下去一個動作，放開一個動作。兩個『當』積木，各管一件事。」</p><h4>卡點</h4><ul><li>這一課要兩個零件同時插：A 馬達、B 力感測器。</li><li>官方積木下拉選單：「被按壓」「被鬆開」（官方說明寫法）。</li></ul></div>
 </section>
 
@@ -494,7 +494,7 @@ else:
   <p class="goal">按下力感測器馬達轉，放開就停。</p>
 <div class="go" data-mode="py"><span class="k">打開</span><span>回到 SPIKE App 的 <b>Python 專案</b>（和上一課同一個就好），把裡面的程式<b>全部換成</b>下面這段。</span></div>
   <ol class="steps-do" data-mode="py"><li>先拔掉距離感測器。<b>馬達</b>插 A，<b>力感測器</b>插 B。</li><li>貼上程式，按播放。</li><li>用手按住力感測器，再放開。</li></ol>
-  <div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>from hub import port
+  <div class="codewrap" data-mode="py"><button type="button" class="copybtn">複製</button><pre><code>from hub import port
 import force_sensor
 import motor
 
@@ -576,7 +576,7 @@ while True:
       <p class="hint">在黑色舞台上拖曳：左右拖是左右歪，上下拖是前後歪。</p>
     </div>
   </div>
-  <div class="pyrow" data-mode="py"><div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>yaw, pitch, roll = motion_sensor.tilt_angles()</code></pre></div><ul class="pyexp"><li>一次回傳三個數字：轉向 <code>yaw</code>、俯仰 <code>pitch</code>、翻滾 <code>roll</code>，和上面虛擬主機的三個數字一樣。</li><li>單位是<b>十分之一度</b>，所以 <code>450</code> 是 45 度。</li></ul></div>
+  <div class="pyrow" data-mode="py"><div class="codewrap" data-mode="py"><button type="button" class="copybtn">複製</button><pre><code>yaw, pitch, roll = motion_sensor.tilt_angles()</code></pre></div><ul class="pyexp" data-mode="py"><li>一次回傳三個數字：轉向 <code>yaw</code>、俯仰 <code>pitch</code>、翻滾 <code>roll</code>，和上面虛擬主機的三個數字一樣。</li><li>單位是<b>十分之一度</b>，所以 <code>450</code> 是 45 度。</li></ul></div>
   <div class="t"><h4>講法</h4><p>「第六個零件不用插線，在主機肚子裡。它量三種角度：前後歪、左右歪、平放轉圈。車子轉彎用的是第三種。」</p><h4>待確認</h4><p>虛擬陀螺的方向與正負號要用真主機對照；頁面只顯示「向左／向右」等文字。官方教學 6 往右歪要歪多少才觸發要實測。</p></div>
 </section>
 
@@ -585,13 +585,13 @@ while True:
 <div class="go" data-mode="py"><span class="k">打開</span><span>回到 SPIKE App 的 <b>Python 專案</b>，把程式<b>全部換成</b>下面這段。這一課不用插零件。</span></div>
   <ol class="steps-do" data-mode="py"><li>貼上程式，按播放。</li><li>拿起主機（燈陣面向你），慢慢往你的<b>右手邊</b>歪，看 Console 的數字（現在印的是 <code>pitch</code>）有沒有在變。</li><li><b>練習：</b>想改成印別的數字（翻滾 <code>roll</code>、轉向 <code>yaw</code>），<code>print</code> 的括號裡要改成什麼？改改看，再歪一次主機。</li><li>找出往右歪時，哪個數字會變、往哪邊變大。</li></ol>
   <div class="guess" data-mode="py" data-key="g.gyro.py"><p class="guess-q">想一想：想看「翻滾」的數字，<code>print(pitch)</code> 要改成？</p><div class="guess-opts"><button type="button" data-v="roll"><code>print(roll)</code></button><button type="button" data-v="yaw"><code>print(yaw)</code></button><button type="button" data-v="same"><code>print(pitch)</code>，不用改</button></div><div class="guess-after" hidden>改改看再回來對答案。<button class="guess-reveal" type="button">看看為什麼</button></div><div class="guess-why" hidden>括號裡放哪個名字，就印哪個數字：<code>pitch</code> 俯仰、<code>roll</code> 翻滾、<code>yaw</code> 轉向。想看翻滾就寫 <code>print(roll)</code>。</div></div>
-  <div class="codewrap"><button type="button" class="copybtn">複製</button><pre><code>from hub import motion_sensor
+  <div class="codewrap" data-mode="py"><button type="button" class="copybtn">複製</button><pre><code>from hub import motion_sensor
 import time
 
 while True:
     yaw, pitch, roll = motion_sensor.tilt_angles()
     print(pitch)
-    time.sleep_ms(200)</code></pre></div><ul class="pyexp"><li><code>print(pitch)</code>：把 <code>pitch</code>（俯仰）這個數字印在 Console，每 200 毫秒一次。一次只印一個。</li><li>USB 線不要拉扯。</li></ul>
+    time.sleep_ms(200)</code></pre></div><ul class="pyexp" data-mode="py"><li><code>print(pitch)</code>：把 <code>pitch</code>（俯仰）這個數字印在 Console，每 200 毫秒一次。一次只印一個。</li><li>USB 線不要拉扯。</li></ul>
   <div class="checklist" data-mode="py"><label class="chk"><input type="checkbox" data-key="p6.py1"><span>Console 的數字，會跟著主機歪而改變</span></label><label class="chk"><input type="checkbox" data-key="p6.py2"><span>我會改 print 的括號，印出 pitch、roll、yaw 其中一個，並找到往右歪時變的是哪個</span></label></div>
   <div class="t" data-mode="py"><h4>卡點</h4><ul><li>數字很多看不清：主機放平先看一下起始值，再慢慢歪。</li><li>待確認：軸向與正負號（往右歪是 roll 變大還是變小）；Console 顯示速度。</li></ul></div>
   <div class="go" data-mode="block">
@@ -642,7 +642,7 @@ while True:
 </div>
 
 <script src="../assets/firebase-config.js"></script>
-<script src="../assets/course.js?v=14"></script>
+<script src="../assets/course.js?v=15"></script>
 <script>
 /* 虛擬陀螺：拖曳改變俯仰／翻滾，按鈕改變轉向。只用文字說明方向。 */
 (function () {
