@@ -43,6 +43,10 @@ ul.cells{font-size:1.1rem;margin:4px 0 8px;padding-left:1.4em}ul.cells li{margin
 .dialfig img{width:260px;height:auto;border-radius:8px;border:1px solid #e5e7eb}
 .dialfig figcaption{flex:1 1 280px;font-size:1.08rem;line-height:1.6}
 .u20 th:first-child,.u20 td:first-child,.u20 th:nth-child(3){white-space:nowrap}
+.circ2{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 10px}
+.circfig{flex:1 1 300px;margin:0;border:2px solid #86efac;border-radius:12px;padding:8px;background:#fff}
+.circfig svg{width:100%;height:auto;display:block;background:#f8fafc;border-radius:8px}
+.circfig figcaption{font-size:1.05rem;line-height:1.6;margin-top:6px}
 .signnote{background:#eff6ff;border:2px solid #93c5fd;border-radius:12px;padding:8px 14px;margin:10px 0;font-size:1.05rem}
 .b-ghost{background:#fff!important;color:#94a3b8!important;border:2px dashed #cbd5e1;min-width:7em;justify-content:center}
 .pick{border:2px dashed #fcd34d;background:#fffbeb;border-radius:12px;padding:8px 12px;margin:8px 0}
@@ -446,6 +450,13 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
     </div>
   </div>
 
+  <h3 class="mini">轉向值管「圓多大」，圈數管「走多遠」</h3>
+  <div class="circ2">
+    <figure class="circfig"><svg id="cf-a" viewBox="0 40 340 220" role="img" aria-label="同樣 1 圈，右:25、右:50、右:75 三個圓的大小"></svg>
+      <figcaption><b>1. 圈數一樣（都是 1 圈），換轉向值</b><br>粗線是外側輪子走的路，三條<b>一樣長</b>。轉向值越大，<b>圓越小</b>，同樣的路就繞得越彎，車子轉得越多。</figcaption></figure>
+    <figure class="circfig"><svg id="cf-b" viewBox="0 0 300 260" role="img" aria-label="同樣右:25，輪子轉 1、2、3、4 圈時車子的方向"></svg>
+      <figcaption><b>2. 轉向值一樣（都是右:25），換圈數</b><br>圓的大小不變。圈數越多，外側輪子在圓上走得<b>越遠</b>，車子轉得<b>越多</b>。</figcaption></figure>
+  </div>
   <h3 class="mini">② ③ 輪子轉多少：看兩個輪子</h3>
   <div class="wa">
     <div class="wa-head"><b>動畫：這塊積木執行時，兩個輪子怎麼轉</b>
@@ -494,6 +505,7 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
 
 <section class="step" data-type="task" data-part="轉彎" data-sub="轉直角" data-title="試試看：幾圈是銳角、直角、鈍角" data-min="5" data-color="#16a34a">
   <p class="goal">改圈數試試看，找出幾圈會轉成<b>銳角</b>、<b>直角</b>、<b>鈍角</b>。</p>
+  <p class="warnbox"><b>前提：轉向值固定用「右:100」</b>，只改圈數。轉向值換了，圓的大小就變，同樣角度要的圈數也會跟著變。</p>
   <div class="two">
     <div>
       <ol class="steps-do">
@@ -849,6 +861,41 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
   mbs.forEach(function (b) { b.addEventListener('click', function () { pick((cur >= 2 ? 2 : 0) + +b.dataset.m); }); });
   play.addEventListener('click', function () { playing = !playing; play.textContent = playing ? '⏸ 暫停' : '▶ 播放'; });
   render(); requestAnimationFrame(tick);
+})();
+/* 示意圖：轉向值決定外側輪子畫的圓多大，圈數決定在圓上走多遠（兩輪差速算法：外圓半徑 = 50 × 輪距 ÷ 轉向值；一圈 17.5 公分、輪距 11.2 公分） */
+(function () {
+  var a = document.getElementById('cf-a'), b = document.getElementById('cf-b');
+  if (!a || !b) return;
+  var W = 11.2, C = 17.5, K = 4.6, OX = 40, OY = 215;   // 車子起點（車身中心）在左下，車頭朝上，往右轉；第 1 張圖放大
+  function rOut(s) { return 50 * W / s; }
+  function car(th, s, col, lab) {   // th：車子轉了幾弳度
+    var cx = OX + (rOut(s) - W / 2) * K, R = (rOut(s) - W / 2) * K;
+    var x = cx - R * Math.cos(th), y = OY - R * Math.sin(th), deg = th * 180 / Math.PI;
+    return '<g transform="translate(' + x.toFixed(1) + ',' + y.toFixed(1) + ') rotate(' + deg.toFixed(1) + ') scale(' + (K > 5 ? .7 : 1) + ')"><rect x="-12" y="-14" width="24" height="26" rx="4" fill="' + col + '" fill-opacity=".85" stroke="#0f172a" stroke-width="1.2"/><path d="M-5 -14 L0 -22 L5 -14" fill="#dc2626"/></g>' +
+      (lab ? '<text x="' + (x + 16).toFixed(1) + '" y="' + (y - 14).toFixed(1) + '" font-size="13" font-weight="700" fill="#0f172a">' + lab + '</text>' : '');
+  }
+  function circle(s, col) {   // 外側（左）輪子畫的圓
+    var cx = OX + (rOut(s) - W / 2) * K;
+    return '<circle cx="' + cx.toFixed(1) + '" cy="' + OY + '" r="' + (rOut(s) * K).toFixed(1) + '" fill="none" stroke="' + col + '" stroke-width="1.5" stroke-dasharray="5 4" opacity=".7"/>';
+  }
+  function arc(s, n, col) {   // 外側輪子轉 n 圈走的路
+    var R = rOut(s) * K, cx = OX + (rOut(s) - W / 2) * K, th = n * C / rOut(s);
+    var x0 = cx - R, y0 = OY, x1 = cx - R * Math.cos(th), y1 = OY - R * Math.sin(th);
+    return '<path d="M' + x0.toFixed(1) + ' ' + y0 + ' A' + R.toFixed(1) + ' ' + R.toFixed(1) + ' 0 ' + (th > Math.PI ? 1 : 0) + ' 1 ' + x1.toFixed(1) + ' ' + y1.toFixed(1) + '" fill="none" stroke="' + col + '" stroke-width="6" stroke-linecap="round"/>';
+  }
+  function startG() { return '<g transform="translate(' + OX + ',' + OY + ')"><rect x="-12" y="-14" width="24" height="26" rx="4" fill="#e2e8f0" stroke="#64748b"/><path d="M-5 -14 L0 -22 L5 -14" fill="#94a3b8"/></g><text x="' + (OX - 30) + '" y="' + (OY + 34) + '" font-size="12" fill="#64748b">出發（車頭朝上）</text>'; }
+  var A = [[25, '#16a34a'], [50, '#2563eb'], [75, '#e23db8']], h = '', K0 = K;
+  K = 7; OX = 50; OY = 250;
+  A.forEach(function (q) { h += circle(q[0], q[1]); });
+  A.forEach(function (q) { h += arc(q[0], 1, q[1]); });
+  h += startG();
+  A.forEach(function (q) { h += car(1 * C / rOut(q[0]), q[0], q[1], ''); });
+  A.forEach(function (q, i) { h += '<rect x="200" y="' + (54 + i * 20) + '" width="26" height="6" rx="3" fill="' + q[1] + '"/><text x="232" y="' + (61 + i * 20) + '" font-size="13" font-weight="700" fill="#0f172a">右:' + q[0] + '</text>'; });
+  a.innerHTML = h;
+  K = K0; OX = 40; OY = 215;
+  var s = 25, col = '#16a34a', g = circle(s, col) + arc(s, 4, '#bbf7d0') + startG();
+  [1, 2, 3, 4].forEach(function (n) { g += car(n * C / rOut(s), s, col, n + ' 圈'); });
+  b.innerHTML = g;
 })();
 /* 官方影片：點畫面一下放大、再點一下縮回（不暫停）；點到下方控制列照原本行為。 */
 (function () {
