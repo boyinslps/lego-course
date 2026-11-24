@@ -417,11 +417,11 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
 <section class="step" data-type="intro" data-part="轉彎" data-sub="說明" data-title="轉彎積木：一格一格看懂" data-min="3" data-color="#16a34a">
   <p class="goal">轉彎用這一塊。它有三格，<b>一格一格看</b>。</p>
   <div class="blkrow">
-    <div class="blkcard"><span class="b b-move">向 <i class="m">右:100</i> 移動 <i>0.5</i> <i class="m">圈</i></span><p class="bk-zh">「轉向移動」積木</p><p class="bk-en">English：move with steering</p>
-      <p class="cell-key"><span class="num">①</span>右:100　<span class="num">②</span>0.5　<span class="num">③</span>圈</p></div>
+    <div class="blkcard"><span class="b b-move">向 <i class="m">右:25</i> 移動 <i>1</i> <i class="m">圈</i></span><p class="bk-zh">「轉向移動」積木</p><p class="bk-en">English：move with steering</p>
+      <p class="cell-key"><span class="num">①</span>右:25　<span class="num">②</span>1　<span class="num">③</span>圈</p></div>
     <div class="meaning">
-      <p><span class="tag">① 右:100</span><b>往哪邊、彎多急</b>（叫「轉向值」）。它<b>不是角度</b>。</p>
-      <p><span class="tag">② 0.5</span><b>輪子</b>要轉多少（不是車子轉多少）。</p>
+      <p><span class="tag">① 右:25</span><b>往哪邊、彎多急</b>（叫「轉向值」）。它<b>不是角度</b>。</p>
+      <p><span class="tag">② 1</span><b>輪子</b>要轉多少（不是車子轉多少）。</p>
       <p><span class="tag">③ 圈</span>②的單位。這一塊只能選<b>圈、度、秒</b>，沒有厘米。</p>
     </div>
   </div>
@@ -777,11 +777,10 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
   if (!top || !wh) return;
   var C = 17.5, W = 11.2, K = 5;   // 上視圖 1 公分 = 5 px
   var SC = [
-    { s: 100, n: 0.5, cap: '右:100：左輪往前、右輪往後，一樣快。兩個輪子各轉 0.5 圈，車子在原地往右轉。' },
-    { s: 100, n: 1, cap: '同樣右:100，改成 1 圈：輪子轉兩倍，車子也轉兩倍。車子轉多少，看「圈」這格。' },
-    { s: -100, n: 0.5, cap: '左:-100：反過來，右輪往前、左輪往後，車子在原地往左轉。' },
-    { s: 50, n: 1, cap: '右:50：右輪停住不動，只有左輪轉 1 圈，車子繞著右輪轉。' },
-    { s: 25, n: 1, cap: '右:25：兩個輪子都往前，右輪比較慢，車子往右畫一個大弧。' }
+    { s: 25, n: 1, cap: '右:25：兩個輪子都往前，右輪比較慢，車子往右畫一個大弧。' },
+    { s: 75, n: 1, cap: '右:75：右輪往後轉、左輪往前，車子往右彎得很急。' },
+    { s: -25, n: 1, cap: '左:-25：反過來，左輪比較慢，車子往左畫一個大弧。' },
+    { s: -75, n: 1, cap: '左:-75：左輪往後轉、右輪往前，車子往左彎得很急。' }
   ];
   function lab(s) { return s > 0 ? '右:' + s : s < 0 ? '左:' + s : '0'; }
   var tabs = top.parentNode.parentNode.querySelector('.wa-tabs'), play = top.parentNode.parentNode.querySelector('.wa-play');
