@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="資訊老師黃博胤">
+<title>第 3 節　車子的移動：測量學習單</title>
+<style>
+@page { size: A4; margin: 12mm; }
+* { box-sizing: border-box; }
+html, body { background: #fff; color: #000; }
+body {
+  margin: 0;
+  font-family: "Microsoft JhengHei", "微軟正黑體", "PingFang TC", "Noto Sans TC", sans-serif;
+  font-size: 12pt;
+  line-height: 1.4;
+}
+.page { width: 186mm; margin: 0 auto; }
+.page + .page { page-break-before: always; break-before: page; }
+@media screen {
+  body { background: #fff; padding: 10mm 0; }
+  .page { border: 1px solid #999; padding: 12mm; width: 210mm; min-height: 297mm; margin: 0 auto 10mm; }
+}
+.head { border-bottom: 2px solid #000; padding-bottom: 2mm; margin-bottom: 4mm; }
+.head h1 { font-size: 16pt; margin: 0 0 2mm; }
+.head .who { font-size: 12pt; }
+.head .who span { display: inline-block; border-bottom: 1px solid #000; min-width: 22mm; height: 7mm; vertical-align: bottom; margin: 0 4mm 0 1mm; }
+.head .who span.s { min-width: 14mm; margin-right: 2mm; }
+.part { font-size: 13pt; font-weight: bold; margin: 0 0 3mm; }
+h2 { font-size: 13pt; margin: 5mm 0 2mm; }
+h2 .n { display: inline-block; width: 7mm; height: 7mm; line-height: 7mm; text-align: center; border: 2px solid #000; border-radius: 50%; font-size: 11pt; margin-right: 2mm; }
+p { margin: 0 0 2mm; }
+table { width: 100%; border-collapse: collapse; margin-bottom: 2mm; }
+th, td { border: 1.5px solid #000; padding: 0 2mm; height: 10mm; vertical-align: middle; }
+th { background: #e6e6e6; font-weight: bold; height: 8mm; text-align: center; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+td.c { text-align: center; }
+td.pre { text-align: center; font-weight: bold; }
+.blank { display: inline-block; border-bottom: 1px solid #000; min-width: 22mm; height: 7mm; vertical-align: bottom; margin: 0 1mm; }
+.blank.w { min-width: 70mm; }
+.blank.xw { min-width: 110mm; }
+.opt { display: flex; justify-content: space-around; }
+.code { border: 1px solid #000; padding: 0 1.5mm; font-weight: bold; }
+.tip { border: 2.5px solid #000; padding: 2mm 3mm; font-weight: bold; margin: 0 0 2mm; }
+.line { margin: 3mm 0; }
+.sign { position: fixed; right: 0; bottom: 0; font-size: 8pt; color: #555; }
+@media screen { .sign { right: 4mm; bottom: 4mm; } }
+</style>
+</head>
+<body>
+
+<div class="sign">made by 資訊老師黃博胤</div>
+
+<!-- 第 1 頁：直線 -->
+<div class="page">
+  <div class="head">
+    <h1>第 3 節　車子的移動：測量學習單</h1>
+    <div class="who">隊伍<span></span>班級<span></span>座號<span class="s"></span><span class="s"></span><span class="s"></span></div>
+  </div>
+  <div class="part">第 1 頁：直線</div>
+
+  <h2><span class="n">1</span>先量輪徑</h2>
+  <table>
+    <tr><td style="width:70%">輪子的直徑</td><td><span class="blank"></span> 公分</td></tr>
+    <tr><td>輪子轉一圈，車走幾公分（直徑 × 3.14）</td><td><span class="blank"></span> 公分</td></tr>
+  </table>
+
+  <h2><span class="n">2</span>自己量，走出剛好 20 公分</h2>
+  <p>把量出來的數字填進「將電機旋轉一圈設置為 ？ 厘米」，按 ▶，量車走了幾公分；沒到 20 就只改這個數字再試。</p>
+  <table>
+    <tr><th style="width:20%">第幾次</th><th style="width:40%">填的數字</th><th>走了幾公分</th></tr>
+    <tr><td class="c">1</td><td></td><td></td></tr>
+    <tr><td class="c">2</td><td></td><td></td></tr>
+    <tr><td class="c">3</td><td></td><td></td></tr>
+  </table>
+
+  <h2><span class="n">3</span>換單位：各要填多少才走 20 公分</h2>
+  <table>
+    <tr><th style="width:13%">單位</th><th style="width:37%">意思</th><th style="width:25%">填多少</th><th>走了幾公分</th></tr>
+    <tr><td class="c">厘米</td><td>車走幾公分</td><td class="pre">20</td><td></td></tr>
+    <tr><td class="c">圈</td><td>輪子轉幾圈</td><td></td><td></td></tr>
+    <tr><td class="c">度</td><td>輪子轉幾度（360 度＝1 圈）</td><td></td><td></td></tr>
+    <tr><td class="c">秒</td><td>輪子轉幾秒就停（速度 50 %）</td><td></td><td></td></tr>
+  </table>
+  <p class="line">為什麼用「秒」最難剛好走 20 公分？<span class="blank w"></span></p>
+  <p class="line"><span class="blank xw" style="min-width:180mm;margin:0"></span></p>
+
+  <h2><span class="n">4</span>速度試試看</h2>
+  <table>
+    <tr><th style="width:18%">速度</th><th style="width:50%">快還是慢（圈選）</th><th>走了幾公分</th></tr>
+    <tr><td class="c">20 %</td><td><div class="opt"><span>很慢</span><span>普通</span><span>很快</span></div></td><td></td></tr>
+    <tr><td class="c">50 %</td><td><div class="opt"><span>很慢</span><span>普通</span><span>很快</span></div></td><td></td></tr>
+    <tr><td class="c">100 %</td><td><div class="opt"><span>很慢</span><span>普通</span><span>很快</span></div></td><td></td></tr>
+  </table>
+</div>
+
+<!-- 第 2 頁：轉彎 -->
+<div class="page">
+  <div class="head">
+    <h1>第 3 節　車子的移動：測量學習單</h1>
+    <div class="who">隊伍<span></span>班級<span></span>座號<span class="s"></span><span class="s"></span><span class="s"></span></div>
+  </div>
+  <div class="part">第 2 頁：轉彎</div>
+
+  <h2><span class="n">1</span>三種轉向值</h2>
+  <p>積木：<span class="code">向 右:○ 移動 1 圈</span></p>
+  <table>
+    <tr><th style="width:14%">轉向值</th><th style="width:46%">車子怎麼走（圈選）</th><th>右輪怎麼轉（圈選）</th></tr>
+    <tr><td class="c">右:25</td><td><div class="opt"><span>畫大弧</span><span>繞著右輪轉</span><span>原地打轉</span></div></td><td><div class="opt"><span>往前比較慢</span><span>停住</span><span>往後轉</span></div></td></tr>
+    <tr><td class="c">右:50</td><td><div class="opt"><span>畫大弧</span><span>繞著右輪轉</span><span>原地打轉</span></div></td><td><div class="opt"><span>往前比較慢</span><span>停住</span><span>往後轉</span></div></td></tr>
+    <tr><td class="c">右:100</td><td><div class="opt"><span>畫大弧</span><span>繞著右輪轉</span><span>原地打轉</span></div></td><td><div class="opt"><span>往前比較慢</span><span>停住</span><span>往後轉</span></div></td></tr>
+  </table>
+
+  <h2><span class="n">2</span>幾圈是銳角、直角、鈍角</h2>
+  <div class="tip">前提：轉向值固定用「右:100」，只改圈數。</div>
+  <p>積木順序：設定三塊 → <span class="code">向 右:100 移動 ？ 圈</span> → <span class="code">↑ 移動 20 厘米</span> → <span class="code">停止運動</span></p>
+  <p>（先轉再走，看走出去的方向和線夾的角）</p>
+  <table>
+    <tr><th style="width:14%">第幾次</th><th style="width:20%">圈數</th><th>轉成什麼角（圈選）</th></tr>
+    <tr><td class="c">1</td><td class="pre">0.2</td><td><div class="opt"><span>銳角</span><span>直角</span><span>鈍角</span><span>比鈍角還多</span></div></td></tr>
+    <tr><td class="c">2</td><td class="pre">0.4</td><td><div class="opt"><span>銳角</span><span>直角</span><span>鈍角</span><span>比鈍角還多</span></div></td></tr>
+    <tr><td class="c">3</td><td class="pre">0.6</td><td><div class="opt"><span>銳角</span><span>直角</span><span>鈍角</span><span>比鈍角還多</span></div></td></tr>
+    <tr><td class="c">4</td><td class="pre">0.8</td><td><div class="opt"><span>銳角</span><span>直角</span><span>鈍角</span><span>比鈍角還多</span></div></td></tr>
+    <tr><td class="c">5</td><td></td><td><div class="opt"><span>銳角</span><span>直角</span><span>鈍角</span><span>比鈍角還多</span></div></td></tr>
+    <tr><td class="c">6</td><td></td><td><div class="opt"><span>銳角</span><span>直角</span><span>鈍角</span><span>比鈍角還多</span></div></td></tr>
+  </table>
+  <p class="line"><b>我們發現：</b>銳角 <span class="blank"></span>～<span class="blank"></span> 圈；直角 <span class="blank"></span> 圈；鈍角 <span class="blank"></span>～<span class="blank"></span> 圈</p>
+
+  <h2><span class="n">3</span>走正方形</h2>
+  <p class="line">重複執行 <span class="blank"></span> 次，裡面放：<span class="blank xw"></span></p>
+  <p class="line">走完車頭離起點 <span class="blank"></span> 公分</p>
+</div>
+
+</body>
+</html>
