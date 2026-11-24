@@ -43,6 +43,7 @@ td.pre { text-align: center; font-weight: bold; }
 .line { margin: 3mm 0; }
 .sign { position: fixed; right: 0; bottom: 0; font-size: 8pt; color: #555; }
 @media screen { .sign { right: 4mm; bottom: 4mm; } }
+.blkp{line-height:2;margin:4px 0 6px 6mm}
 </style>
 </head>
 <body>
@@ -94,7 +95,8 @@ td.pre { text-align: center; font-weight: bold; }
 
   <h2><span class="n">1</span>幾圈是銳角、直角、鈍角</h2>
   <div class="tip">前提：轉向值固定用「右:100」，只改圈數。</div>
-  <p>積木順序：設定三塊 → <span class="code">向 右:100 移動 ？ 圈</span> → <span class="code">↑ 移動 20 厘米</span> → <span class="code">停止運動</span></p>
+  <p><b>積木提示</b>（只有「？」的圈數要自己試）：</p>
+  <p class="blkp"><span class="code">當程式啟動時</span><br><span class="code">將運轉電機設置為 C+D</span><br><span class="code">將運動速度設置為 50 %</span><br><span class="code">將電機旋轉一圈設置為 ＿＿＿ 厘米</span>（你們量的數字）<br><span class="code">向 右:100 移動 <b>？</b> 圈</span><br><span class="code">↑ 移動 20 厘米</span><br><span class="code">停止運動</span></p>
   <p>（先轉再走，看走出去的方向和線夾的角）</p>
   <table>
     <tr><th style="width:14%">第幾次</th><th style="width:20%">圈數</th><th>轉成什麼角（圈選）</th></tr>
