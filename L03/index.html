@@ -386,31 +386,31 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
 </section>
 
 <section class="step" data-type="task" data-part="走直線" data-sub="換單位" data-title="換單位：各要填多少才走 20 公分" data-min="4" data-color="#e23db8">
-  <p class="goal">同樣走 <b>20 公分</b>，換成圈、度、秒，各要填多少？<b>先算，再試。</b></p>
+  <p class="goal">同樣走 <b>20 公分</b>，換成圈、度、秒，各要填多少？<b>跑車子試出來。</b></p>
   <div class="two">
     <div>
       <h3 class="mini">1. 先量輪徑</h3>
       <p class="say">輪子直徑 <b><span data-mirror="w.dia" data-empty="＿＿"></span></b> 公分，轉一圈走 <b><span data-mirror="w.circ" data-empty="＿＿"></span></b> 公分。</p>
       <p class="say"><small>還沒量？回「動手」那一頁，用尺量輪子直徑，乘 3.14。</small></p>
-      <h3 class="mini">2. 算一算，再按 ▶ 試</h3>
+      <h3 class="mini">2. 跑車子試試看</h3>
       <ol class="steps-do">
         <li>把「<b>↑ 移動 20 厘米</b>」最後那格換成圈、度、秒，數字照表改。</li>
-        <li>每換一次都按 ▶，量車走了幾公分。</li>
+        <li>每換一次都按 ▶，量車走了幾公分。不是 20 就改數字再試。</li>
       </ol>
       <div class="blkstack"><span class="b b-ev hat">當程式啟動時</span><span class="b b-move">設定三塊（和剛才一樣）</span><span class="b b-move"><i class="m">↑</i> 移動 <i class="x">？</i> <i class="m">○</i></span></div>
     </div>
     <div>
       <table class="rec u20">
-        <tr><th>單位</th><th class="l">怎麼算</th><th>要填多少</th><th>走了幾公分</th></tr>
-        <tr><td><b>厘米</b></td><td class="l">直接寫</td><td><b>20</b></td><td><input type="number" step="any" data-key="u.cmd" data-optional aria-label="厘米走了幾公分"></td></tr>
-        <tr><td><b>圈</b></td><td class="l">20 ÷ 一圈幾公分</td><td><input type="number" step="any" data-key="u.rot" aria-label="要填幾圈"></td><td><input type="number" step="any" data-key="u.rotd" aria-label="圈走了幾公分"></td></tr>
-        <tr><td><b>度</b></td><td class="l">圈數 × 360</td><td><input type="number" step="any" data-key="u.deg" aria-label="要填幾度"></td><td><input type="number" step="any" data-key="u.degd" aria-label="度走了幾公分"></td></tr>
-        <tr><td><b>秒</b></td><td class="l">算不出來，要試。先試 1 秒走幾公分，再推（速度 50 %）</td><td><input type="number" step="any" data-key="u.sec" aria-label="要填幾秒"></td><td><input type="number" step="any" data-key="u.secd" aria-label="秒走了幾公分"></td></tr>
+        <tr><th>單位</th><th class="l">意思</th><th>填多少</th><th>走了幾公分</th></tr>
+        <tr><td><b>厘米</b></td><td class="l">車走幾公分</td><td><b>20</b></td><td><input type="number" step="any" data-key="u.cmd" data-optional aria-label="厘米走了幾公分"></td></tr>
+        <tr><td><b>圈</b></td><td class="l">輪子轉幾圈</td><td><input type="number" step="any" data-key="u.rot" aria-label="要填幾圈"></td><td><input type="number" step="any" data-key="u.rotd" aria-label="圈走了幾公分"></td></tr>
+        <tr><td><b>度</b></td><td class="l">輪子轉幾度（360 度＝1 圈）</td><td><input type="number" step="any" data-key="u.deg" aria-label="要填幾度"></td><td><input type="number" step="any" data-key="u.degd" aria-label="度走了幾公分"></td></tr>
+        <tr><td><b>秒</b></td><td class="l">輪子轉幾秒就停（速度 50 %）</td><td><input type="number" step="any" data-key="u.sec" aria-label="要填幾秒"></td><td><input type="number" step="any" data-key="u.secd" aria-label="秒走了幾公分"></td></tr>
       </table>
       <div class="pick"><p class="pick-q">為什麼「秒」最難剛好走 20 公分？</p><div class="pick-opts"><button type="button" data-fb="秒的數字可以填小數，像 1.5 秒。再想想，同樣 1 秒，什麼會讓車走得遠或近？">秒不能填小數</button><button type="button" data-ok="1" data-fb="對！用秒的時候，走多遠還要看速度。速度一改，同樣幾秒走的距離就變了。">走多遠還要看速度</button><button type="button" data-fb="圈、度、秒都是看輪子。想想看，秒和速度有什麼關係？">秒和輪子沒關係</button></div><p class="pick-fb" hidden></p></div>
     </div>
   </div>
-  <div class="t"><h4>講法</h4><p>「同樣 20 公分，可以用不同單位寫。圈和度可以算出來；秒要看速度，只能試。」先讓學生自己算，算完才按 ▶ 驗證。</p><h4>參考（不要直接給）</h4><p>一圈約 17.5 公分時：20 ÷ 17.5 ≈ 1.14 圈；1.14 × 360 ≈ 411 度；秒依車子速度而定，要實測。</p><h4>卡點</h4><ul><li>度算錯：先算圈，再乘 360。</li><li>秒走太遠或太近：速度是不是 50 %？只改秒數。</li><li>還沒量輪徑：回動手頁量。</li></ul></div>
+  <div class="t"><h4>講法</h4><p>「同樣 20 公分，可以用不同單位寫。每一種都跑車子試，差多少就改多少。」想算的學生可以用輪徑算，但不要求。</p><h4>參考（不要直接給）</h4><p>一圈約 17.5 公分時：20 ÷ 17.5 ≈ 1.14 圈；1.14 × 360 ≈ 411 度；秒依車子速度而定，要實測。</p><h4>卡點</h4><ul><li>度不知道從哪裡開始：圈試出來以後，想想 1 圈是幾度。</li><li>秒走太遠或太近：速度是不是 50 %？只改秒數。</li><li>還沒量輪徑：回動手頁量。</li></ul></div>
 </section>
 
 <!-- ========== 4 轉彎 ========== -->
