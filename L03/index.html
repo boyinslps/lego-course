@@ -56,6 +56,14 @@
 .unitbox{background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:8px 14px;margin:10px 0;font-size:1.08rem}
 .unit-t{margin:8px 0 4px}.unit-t td,.unit-t th{text-align:center;white-space:nowrap}.unit-t .l{text-align:left;white-space:normal}
 .unit-note{margin:4px 0 0;color:#475569}
+.ua{border:2px solid #c4b5fd;border-radius:12px;padding:8px 12px;margin:10px 0;background:#fff}
+.ua-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:1.08rem}
+.ua-tabs{display:inline-flex;gap:4px}
+.ua-tabs button,.ua-play{font:inherit;font-size:1rem;padding:3px 12px;border-radius:999px;border:2px solid #c4b5fd;background:#fff;cursor:pointer}
+.ua-tabs button.on{background:#7c3aed;border-color:#7c3aed;color:#fff}
+.ua-play{margin-left:auto}
+#ua-svg{display:block;width:100%;max-width:760px;height:auto;margin:4px auto 0}
+.ua-cap{background:#0f172a;color:#fff;border-radius:8px;padding:8px 14px;margin:4px 0 0;font-size:1.15rem;min-height:2.6em;line-height:1.5;text-align:center}
 .calcbox{background:#faf5ff;border:2px solid #c4b5fd;border-radius:12px;padding:8px 14px;margin:10px 0;font-size:1.08rem}
 .calcbox p{margin:6px 0}.calc-steps{margin:4px 0;padding-left:1.4em}.calc-steps li{margin:6px 0;line-height:1.9}
 .calc-steps .b{display:inline-flex;width:auto;vertical-align:middle;margin:0 2px}
@@ -249,6 +257,27 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
       <tr><td><b>英寸</b></td><td class="l">美國常用的長度，<b>1 英寸 ≈ 2.54 公分</b>。和厘米一樣是換算出來的；我們用厘米就好。</td><td>✗</td><td>✓</td></tr>
     </table>
     <p class="unit-note">藍色只管一顆馬達，不知道車走多遠，所以沒有「厘米」「英寸」。</p>
+  </div>
+  <div class="ua">
+    <div class="ua-head"><b>動畫：看輪子怎麼轉</b>
+      <span class="ua-tabs" role="group" aria-label="選單位"><button type="button" data-s="0">圈</button><button type="button" data-s="1">度</button><button type="button" data-s="2">秒</button><button type="button" data-s="3">厘米</button></span>
+      <button type="button" class="ua-play" aria-label="暫停">⏸ 暫停</button>
+    </div>
+    <svg id="ua-svg" viewBox="0 0 640 215" role="img" aria-label="輪子在尺上滾動的動畫，下方有字幕">
+      <g id="ua-ruler"></g>
+      <rect id="ua-trail" x="50" y="166" width="0" height="5" rx="2" fill="#e23db8"/>
+      <g id="ua-ghost" style="display:none"><line y1="95" y2="172" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 3"/><text y="90" text-anchor="middle" font-size="13" fill="#64748b"></text></g>
+      <path id="ua-arc" fill="none" stroke="#f59e0b" stroke-width="6" stroke-linecap="round"/>
+      <g id="ua-wheel">
+        <circle r="33.6" fill="#334155"/><circle r="19" fill="#e2e8f0"/><circle r="4" fill="#64748b"/>
+        <line id="ua-dia" x1="-33.6" y1="0" x2="33.6" y2="0" stroke="#0ea5e9" stroke-width="3" stroke-dasharray="5 3"/>
+        <g id="ua-spin"><line x1="0" y1="0" x2="0" y2="-31" stroke="#dc2626" stroke-width="5" stroke-linecap="round"/><circle cy="-27" r="5" fill="#dc2626"/></g>
+      </g>
+      <text id="ua-dia-t" font-size="13" fill="#0369a1" text-anchor="middle">直徑 5.6 公分</text>
+      <text id="ua-count" x="50" y="28" font-size="18" font-weight="700" fill="#0f172a"></text>
+      <text id="ua-timer" x="600" y="28" font-size="18" font-weight="700" fill="#7c3aed" text-anchor="end"></text>
+    </svg>
+    <p class="ua-cap" id="ua-cap" aria-live="polite"></p>
   </div>
   <div class="calcbox"><b>「厘米」是怎麼算出來的？</b>
     <p>主機<b>只會數輪子轉了幾圈</b>，它看不到車走了幾公分。公分是用<b>輪子的大小</b>算出來的：</p>
@@ -591,6 +620,67 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
       });
     });
   });
+})();
+/* 單位動畫：輪子在尺上滾，配字幕。1 公分 = 12 px，輪子直徑 5.6 公分、一圈 17.5 公分。 */
+(function () {
+  var svg = document.getElementById('ua-svg'); if (!svg) return;
+  var S = 12, X0 = 50, GY = 168, R = 33.6, C = 17.5;
+  function $(id) { return document.getElementById(id); }
+  var ruler = $('ua-ruler'), h = '<line x1="' + X0 + '" y1="' + GY + '" x2="' + (X0 + 45 * S) + '" y2="' + GY + '" stroke="#94a3b8" stroke-width="2"/>';
+  for (var c = 0; c <= 45; c++) {
+    var x = X0 + c * S, big = c % 5 === 0;
+    h += '<line x1="' + x + '" y1="' + GY + '" x2="' + x + '" y2="' + (GY + (big ? 12 : 6)) + '" stroke="#94a3b8" stroke-width="' + (big ? 2 : 1) + '"/>';
+    if (big) h += '<text x="' + x + '" y="' + (GY + 28) + '" font-size="12" fill="#64748b" text-anchor="middle">' + c + '</text>';
+  }
+  ruler.innerHTML = h + '<text x="' + (X0 + 45 * S + 8) + '" y="' + (GY + 28) + '" font-size="12" fill="#64748b">公分</text>';
+  function turns(d) { return d / C; }
+  var SEG = [
+    { s: 0, a: 0, b: C, dur: 3000, cap: '「圈」＝輪子轉幾圈。看紅色記號：轉一整圈、回到上面，就是 1 圈。', cnt: function (d) { return '輪子轉了 ' + turns(d).toFixed(2) + ' 圈'; } },
+    { s: 0, a: 0, b: C / 2, dur: 1800, cap: '0.5 圈＝半圈：紅色記號只轉到下面。', cnt: function (d) { return '輪子轉了 ' + turns(d).toFixed(2) + ' 圈'; } },
+    { s: 1, a: 0, b: C / 4, dur: 1200, deg: 1, cap: '「度」也是輪子轉多少。90 度＝四分之一圈。', cnt: degc },
+    { s: 1, a: C / 4, b: C / 2, dur: 1200, deg: 1, cap: '180 度＝半圈。', cnt: degc },
+    { s: 1, a: C / 2, b: C, dur: 2000, deg: 1, cap: '360 度＝1 圈。度比圈更細，適合只轉一點點。', cnt: degc },
+    { s: 2, a: 0, b: 20, dur: 2000, sec: '50 %', cap: '「秒」＝轉幾秒就停。速度 50 %，轉 2 秒，走到這裡。', cnt: function () { return '速度 50 %'; } },
+    { s: 2, a: 0, b: 40, dur: 2000, sec: '100 %', ghost: 20, cap: '速度 100 %，一樣 2 秒，走得更遠。用「秒」時，走多遠要看速度。', cnt: function () { return '速度 100 %'; } },
+    { s: 3, a: 0, b: C, dur: 3000, dia: 1, cap: '輪子轉 1 圈，滾過的長度＝輪子一圈＝直徑 5.6 × 3.14 ≈ 17.5 公分。', cnt: cmc },
+    { s: 3, a: 0, b: 20, dur: 3000, cap: '寫「移動 20 厘米」：主機算 20 ÷ 17.5 ≈ 1.14，讓輪子轉 1.14 圈。', cnt: cmc }
+  ];
+  function degc(d) { return '輪子轉了 ' + Math.round(turns(d) * 360) + ' 度'; }
+  function cmc(d) { return '輪子轉了 ' + turns(d).toFixed(2) + ' 圈 → 走了 ' + d.toFixed(1) + ' 公分'; }
+  var HOLD = 2600, seg = 0, el = 0, last = 0, playing = true, shownCap = -1;
+  var tabs = [].slice.call(svg.parentNode.querySelectorAll('.ua-tabs button')), play = svg.parentNode.querySelector('.ua-play');
+  function render() {
+    var g = SEG[seg], u = Math.min(1, el / g.dur), d = g.a + (g.b - g.a) * u;
+    var cx = X0 + d * S, cy = GY - R, ang = turns(d) * 360;
+    $('ua-wheel').setAttribute('transform', 'translate(' + cx.toFixed(1) + ',' + cy.toFixed(1) + ')');
+    $('ua-spin').setAttribute('transform', 'rotate(' + ang.toFixed(1) + ')');
+    $('ua-trail').setAttribute('width', Math.max(0, d * S).toFixed(1));
+    $('ua-dia').style.display = $('ua-dia-t').style.display = g.dia ? '' : 'none';
+    if (g.dia) { $('ua-dia-t').setAttribute('x', cx.toFixed(1)); $('ua-dia-t').setAttribute('y', (cy - R - 8).toFixed(1)); }
+    var arc = '';
+    if (g.deg) {
+      var RR = R + 9, a0 = turns(g.a > 0 ? 0 : 0) * 360, sw = Math.min(ang, 359.9), th = sw * Math.PI / 180;
+      if (sw > 0.5) arc = 'M' + cx + ' ' + (cy - RR) + ' A' + RR + ' ' + RR + ' 0 ' + (sw > 180 ? 1 : 0) + ' 1 ' + (cx + RR * Math.sin(th)).toFixed(1) + ' ' + (cy - RR * Math.cos(th)).toFixed(1);
+    }
+    $('ua-arc').setAttribute('d', arc);
+    var gh = $('ua-ghost');
+    if (g.ghost) { var gx = X0 + g.ghost * S; gh.style.display = ''; gh.firstChild.setAttribute('x1', gx); gh.firstChild.setAttribute('x2', gx); gh.lastChild.setAttribute('x', gx); gh.lastChild.textContent = '50 %：2 秒到這裡'; }
+    else gh.style.display = 'none';
+    $('ua-count').textContent = g.cnt(d);
+    $('ua-timer').textContent = g.sec ? (2 * u).toFixed(1) + ' 秒' : '';
+    if (shownCap !== seg) { $('ua-cap').textContent = g.cap; shownCap = seg; }
+    tabs.forEach(function (b) { b.classList.toggle('on', +b.dataset.s === g.s); });
+  }
+  function tick(now) {
+    requestAnimationFrame(tick);
+    var dt = last ? Math.min(250, now - last) : 0; last = now;
+    if (svg.getBoundingClientRect().width === 0) return;
+    if (playing) { el += dt; if (el > SEG[seg].dur + HOLD) { seg = (seg + 1) % SEG.length; el = 0; } }
+    render();
+  }
+  tabs.forEach(function (b) { b.addEventListener('click', function () { for (var i = 0; i < SEG.length; i++) if (SEG[i].s === +b.dataset.s) { seg = i; el = 0; break; } playing = true; play.textContent = '⏸ 暫停'; play.setAttribute('aria-label', '暫停'); }); });
+  play.addEventListener('click', function () { playing = !playing; play.textContent = playing ? '⏸ 暫停' : '▶ 播放'; play.setAttribute('aria-label', playing ? '暫停' : '播放'); });
+  render(); requestAnimationFrame(tick);
 })();
 /* 官方影片：點畫面一下放大、再點一下縮回（不暫停）；點到下方控制列照原本行為。 */
 (function () {
