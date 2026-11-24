@@ -53,6 +53,9 @@
 .vs-sum{font-size:1.08rem;margin:0 0 6px!important}
 .blist dt .b{display:inline-flex;width:auto}
 .blist{margin:0}.blist dt{margin:8px 0 0}.blist dd{margin:2px 0 0 4px;font-size:1.02rem;color:#334155}
+.unitbox{background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:8px 14px;margin:10px 0;font-size:1.08rem}
+.unit-t{margin:8px 0 4px}.unit-t td,.unit-t th{text-align:center;white-space:nowrap}.unit-t .l{text-align:left;white-space:normal}
+.unit-note{margin:4px 0 0;color:#475569}
 .speedbox{background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:8px 14px;margin:10px 0;font-size:1.1rem}
 h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
 .meaning{flex:1 1 320px;font-size:1.1rem}
@@ -119,7 +122,7 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
     <p>三人一台車，怎麼分工讓學生自己想辦法，頁面不寫角色。</p>
     <h4>待確認（實機驗證後寫回，並改學生頁）</h4>
     <ul>
-      <li>官方「驅動底座 1」最後一頁的接口 C、D、E，照書接；哪一邊是 C、哪一邊是 D 實車確認（學生頁讓學生自己照手冊填）。</li>
+      <li>官方「驅動底座 1」最後一頁的接口 C、D、E，照書接：左輪 C、右輪 D（老師 11/24 確認）。</li>
       <li>「↑ 移動 20 厘米」真車實際走幾公分（官方設定 1 圈＝17.5 厘米）。</li>
       <li>「向 右:100 移動」每 0.2 圈實際轉幾度；我們的車轉直角要幾圈（頁面讓學生自己試，不給答案）。</li>
       <li>轉向值正數是不是向右（官方說明：正數右、負數左；真機待確認）。</li>
@@ -159,7 +162,7 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
 </section>
 
 <section class="step" data-type="task" data-part="組車" data-sub="組車" data-title="照官方搭建手冊組車" data-min="9" data-color="#0369a1">
-  <p class="goal">照搭建手冊從第 1 步組，最後<b>照手冊接線：C、D、E</b>。</p>
+  <p class="goal">照搭建手冊從第 1 步組，最後照手冊接線：<b>左輪 C、右輪 D</b>，E 照手冊接。</p>
   <div class="two">
     <div>
       <div class="go">
@@ -171,20 +174,20 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
       </ol>
     </div>
     <div>
-      <svg class="carfig" viewBox="0 0 320 210" width="300" role="img" aria-label="車子從上面看：車頭朝上，左右各一個輪子馬達">
+      <svg class="carfig" viewBox="0 0 320 210" width="300" role="img" aria-label="車子從上面看：車頭朝上，左輪的馬達接 C，右輪的馬達接 D">
         <rect x="102" y="38" width="116" height="140" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="3"/>
         <text x="160" y="112" text-anchor="middle" font-size="16" font-weight="700" fill="#334155">主機</text>
         <rect x="60" y="102" width="34" height="62" rx="8" fill="#22d3ee" stroke="#0e7490" stroke-width="3"/>
         <rect x="226" y="102" width="34" height="62" rx="8" fill="#22d3ee" stroke="#0e7490" stroke-width="3"/>
-        <text x="77" y="196" text-anchor="middle" font-size="18" font-weight="700" fill="#0e7490">左輪</text>
-        <text x="243" y="196" text-anchor="middle" font-size="18" font-weight="700" fill="#0e7490">右輪</text>
+        <text x="77" y="196" text-anchor="middle" font-size="18" font-weight="700" fill="#0e7490">左輪　C</text>
+        <text x="243" y="196" text-anchor="middle" font-size="18" font-weight="700" fill="#0e7490">右輪　D</text>
         <path d="M160 34 L160 8 M150 18 L160 6 L170 18" stroke="#dc2626" stroke-width="4" fill="none"/>
         <text x="196" y="22" font-size="16" font-weight="700" fill="#dc2626">車頭</text>
       </svg>
-      <div class="port-fill">照手冊填：左輪接 <select data-key="port.left"><option value=""></option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select>　右輪接 <select data-key="port.right"><option value=""></option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div>
+      <div class="port-fill">左輪接 <select data-key="port.left"><option value=""></option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select>　右輪接 <select data-key="port.right"><option value=""></option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div>
       <div class="checklist">
         <label class="chk"><input type="checkbox" data-key="b.built"><span>用手推車子，兩個輪子順順地轉</span></label>
-        <label class="chk"><input type="checkbox" data-key="b.ports"><span>照手冊插好 C、D、E，線沒碰到輪子</span></label>
+        <label class="chk"><input type="checkbox" data-key="b.ports"><span>左輪插 C、右輪插 D、E 照手冊接，線沒碰到輪子</span></label>
       </div>
     </div>
   </div>
@@ -194,10 +197,10 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
 <section class="step" data-gate data-type="quiz" data-part="組車" data-sub="小測驗" data-title="組車小測驗" data-min="1" data-color="#0369a1">
   <p class="goal">答對拿一顆星。答錯會告訴你為什麼，可以再選。</p>
   <div class="quiz">
-    <div class="q" data-key="qa1"><p class="q-t">1. 照手冊，兩個輪子的馬達接哪兩個口？</p><div class="opts">
-      <button type="button" data-ok="1" data-fb="對！手冊最後一頁是 C、D，粉色積木預設也是 C+D，照書接就不用改。">C 和 D</button>
-      <button type="button" data-fb="再看一次手冊最後一頁，輪子的線插在哪兩個口？">A 和 B</button>
-      <button type="button" data-fb="再看一次手冊最後一頁，E 接的不是輪子。">D 和 E</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="qa1"><p class="q-t">1. 站在車子後面往前看，左輪接哪個口？</p><div class="opts">
+      <button type="button" data-ok="1" data-fb="對！左輪 C、右輪 D，和手冊一樣。">C</button>
+      <button type="button" data-fb="D 是右輪。">D</button>
+      <button type="button" data-fb="再看一次手冊最後一頁，E 接的不是輪子。">E</button></div><p class="fb" hidden></p></div>
     <div class="q" data-key="qa2"><p class="q-t">2. 線垂在輪子旁邊，會怎樣？</p><div class="opts">
       <button type="button" data-ok="1" data-fb="輪子一轉就會把線捲進去，車會卡住或歪掉。線要整理好、固定在車身。">輪子轉起來會把線捲進去</button>
       <button type="button" data-fb="線碰到輪子就會被捲，不是沒關係。">沒關係</button></div><p class="fb" hidden></p></div>
@@ -233,6 +236,15 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
       </dl>
     </div>
   </div>
+  <div class="unitbox"><b>單位：圈、秒、厘米</b>　積木最後那格（例如「C 運行 ↻ 1 <i class="m">圈</i>」的「圈」）點開可以換單位：
+    <table class="rec unit-t">
+      <tr><th>單位</th><th class="l">意思</th><th>藍色</th><th>粉色</th></tr>
+      <tr><td><b>圈</b></td><td class="l"><b>輪子</b>轉幾圈。1 圈＝轉一整圈回到原來的樣子，0.5 圈＝半圈。</td><td>✓</td><td>✓</td></tr>
+      <tr><td><b>秒</b></td><td class="l">轉幾<b>秒</b>就停。走多遠要看速度：速度快，同樣幾秒走得比較遠。</td><td>✓</td><td>✓</td></tr>
+      <tr><td><b>厘米</b></td><td class="l">車走幾<b>公分</b>（厘米就是公分）。靠「將電機旋轉一圈設置為 17.5 厘米」換算：輪子轉 1 圈＝走 17.5 公分。</td><td>✗</td><td>✓</td></tr>
+    </table>
+    <p class="unit-note">藍色只管一顆馬達，不知道車走多遠，所以沒有「厘米」。</p>
+  </div>
   <div class="speedbox"><b>速度是什麼？</b>　速度＝<b>多快</b>，用 % 表示，100 % 最快。速度只管快慢；<b>走多遠，看「移動」那塊的數字</b>。真的是這樣嗎？下一頁自己試。</div>
   <p class="say">今天開車用<b>粉色</b>。前三塊是「設定三塊」，每支程式開頭照抄。</p>
   <div class="t"><h4>講法</h4><p>「藍色一次只能叫一個輪子轉；粉色把兩個輪子綁成一台車。前三塊粉色是出發前的設定：哪兩個輪子、開多快、輪子多大。」</p><h4>App 上的字</h4><p>App 只有簡體中文，字形和頁面上的繁體略有不同（例如「電機」「運動」），意思一樣；學生問就說「同一個字的另一種寫法」。藍色類別 App 上叫「電機」，頁面統一說「馬達」。</p><h4>英文</h4><p>run for／start motor／stop motor／set speed；set movement motors／set movement speed／set 1 motor rotation／move for／move with steering／stop moving。</p></div>
@@ -252,7 +264,6 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
     </div>
     <div>
       <div class="blkstack"><span class="b b-ev hat">當程式啟動時</span><span class="b b-move">將運轉電機設置為 <i class="m">C+D</i></span><span class="b b-move">將運動速度設置為 <i>50</i> %</span><span class="b b-move">將電機旋轉一圈設置為 <i>17.5</i> 厘米</span><span class="b b-move"><i class="m">↑</i> 移動 <i>20</i> <i class="m">厘米</i></span></div>
-      <p class="warnbox">積木預設就是 <b>C+D</b>，和手冊接的一樣，不用改。</p>
     </div>
   </div>
 
@@ -284,7 +295,7 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
     </div>
     <div>
       <div class="blkstack"><span class="b b-ev hat">當程式啟動時</span><span class="b b-move">設定三塊（和剛才一樣）</span><span class="b b-mot"><i class="m">C</i> 運行 <i class="m">↻</i> <i>1</i> <i class="m">圈</i></span></div>
-      <p class="say">車子 <select data-key="bl.obs"><option value=""></option><option>只有一個輪子轉，車子歪一邊轉</option><option>兩個輪子一起往前走</option><option>完全不動</option></select></p>
+      <p class="say">車子 <select data-key="bl.obs"><option value=""></option><option>只有左輪轉，車子歪一邊轉</option><option>兩個輪子一起往前走</option><option>完全不動</option></select></p>
     </div>
   </div>
   <div class="adv"><h3>進階</h3><ol class="steps-do"><li>把 ↑ 改成 <b>↓</b>，車子怎麼動？</li><li>藍色再加一塊「<b>D 運行 1 圈</b>」接在下面，車子會直走嗎？為什麼？</li></ol></div>
