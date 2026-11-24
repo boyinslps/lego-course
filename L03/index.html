@@ -240,23 +240,12 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
       <dl class="blist">
         <dt><span class="b b-move">將運轉電機設置為 <i class="m">C+D</i></span></dt><dd>哪兩顆馬達是輪子。</dd>
         <dt><span class="b b-move">將運動速度設置為 <i>50</i> %</span></dt><dd>車子開多快。</dd>
-        <dt><span class="b b-move">將電機旋轉一圈設置為 <i>17.5</i> 厘米</span></dt><dd>輪子轉一圈，車走幾公分。</dd>
+        <dt><span class="b b-move">將電機旋轉一圈設置為 <i class="x">？</i> 厘米</span></dt><dd>輪子轉一圈，車走幾公分。</dd>
         <dt><span class="b b-move"><i class="m">↑</i> 移動 <i>20</i> <i class="m">厘米</i></span></dt><dd>↑ 前進、↓ 後退，走多遠。厘米就是公分。</dd>
         <dt><span class="b b-move">向 <i class="m">右:100</i> 移動 <i>1</i> <i class="m">圈</i></span></dt><dd>轉彎（等一下學）。</dd>
         <dt><span class="b b-move">停止運動</span></dt><dd>車子停下來。</dd>
       </dl>
     </div>
-  </div>
-  <div class="unitbox"><b>單位：圈、度、秒、厘米、英寸</b>　積木最後那格（例如「C 運行 ↻ 1 <i class="m">圈</i>」的「圈」）點開可以換單位：
-    <table class="rec unit-t">
-      <tr><th>單位</th><th class="l">意思</th><th>藍色</th><th>粉色</th></tr>
-      <tr><td><b>圈</b></td><td class="l"><b>輪子</b>轉幾圈。1 圈＝轉一整圈回到原來的樣子，0.5 圈＝半圈。</td><td>✓</td><td>✓</td></tr>
-      <tr><td><b>度</b></td><td class="l"><b>輪子</b>轉幾度。<b>360 度＝1 圈</b>，180 度＝半圈，90 度＝四分之一圈。比圈更細，適合轉一點點。（是輪子轉的度數，不是車子轉的角度）</td><td>✓</td><td>✓</td></tr>
-      <tr><td><b>秒</b></td><td class="l">轉幾<b>秒</b>就停。走多遠要看速度：速度快，同樣幾秒走得比較遠。</td><td>✓</td><td>✓</td></tr>
-      <tr><td><b>厘米</b></td><td class="l">車走幾<b>公分</b>（厘米就是公分）。是從「圈」換算出來的，看下面。</td><td>✗</td><td>✓</td></tr>
-      <tr><td><b>英寸</b></td><td class="l">美國常用的長度，<b>1 英寸 ≈ 2.54 公分</b>。和厘米一樣是換算出來的；我們用厘米就好。</td><td>✗</td><td>✓</td></tr>
-    </table>
-    <p class="unit-note">藍色只管一顆馬達，不知道車走多遠，所以沒有「厘米」「英寸」。</p>
   </div>
   <div class="ua">
     <div class="ua-head"><b>動畫：看輪子怎麼轉</b>
@@ -273,18 +262,29 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
         <line id="ua-dia" x1="-33.6" y1="0" x2="33.6" y2="0" stroke="#0ea5e9" stroke-width="3" stroke-dasharray="5 3"/>
         <g id="ua-spin"><line x1="0" y1="0" x2="0" y2="-31" stroke="#dc2626" stroke-width="5" stroke-linecap="round"/><circle cy="-27" r="5" fill="#dc2626"/></g>
       </g>
-      <text id="ua-dia-t" font-size="13" fill="#0369a1" text-anchor="middle">直徑 5.6 公分</text>
+      <text id="ua-dia-t" font-size="13" fill="#0369a1" text-anchor="middle">直徑</text>
       <text id="ua-count" x="50" y="28" font-size="18" font-weight="700" fill="#0f172a"></text>
       <text id="ua-timer" x="600" y="28" font-size="18" font-weight="700" fill="#7c3aed" text-anchor="end"></text>
     </svg>
     <p class="ua-cap" id="ua-cap" aria-live="polite"></p>
   </div>
+  <div class="unitbox"><b>單位：圈、度、秒、厘米、英寸</b>　積木最後那格（例如「C 運行 ↻ 1 <i class="m">圈</i>」的「圈」）點開可以換單位：
+    <table class="rec unit-t">
+      <tr><th>單位</th><th class="l">意思</th><th>藍色</th><th>粉色</th></tr>
+      <tr><td><b>圈</b></td><td class="l"><b>輪子</b>轉幾圈。1 圈＝轉一整圈回到原來的樣子，0.5 圈＝半圈。</td><td>✓</td><td>✓</td></tr>
+      <tr><td><b>度</b></td><td class="l"><b>輪子</b>轉幾度。<b>360 度＝1 圈</b>，180 度＝半圈，90 度＝四分之一圈。比圈更細，適合轉一點點。（是輪子轉的度數，不是車子轉的角度）</td><td>✓</td><td>✓</td></tr>
+      <tr><td><b>秒</b></td><td class="l">轉幾<b>秒</b>就停。走多遠要看速度：速度快，同樣幾秒走得比較遠。</td><td>✓</td><td>✓</td></tr>
+      <tr><td><b>厘米</b></td><td class="l">車走幾<b>公分</b>（厘米就是公分）。是從「圈」換算出來的，看下面。</td><td>✗</td><td>✓</td></tr>
+      <tr><td><b>英寸</b></td><td class="l">美國常用的長度，<b>1 英寸 ≈ 2.54 公分</b>。和厘米一樣是換算出來的；我們用厘米就好。</td><td>✗</td><td>✓</td></tr>
+    </table>
+    <p class="unit-note">藍色只管一顆馬達，不知道車走多遠，所以沒有「厘米」「英寸」。</p>
+  </div>
   <div class="calcbox"><b>「厘米」是怎麼算出來的？</b>
     <p>主機<b>只會數輪子轉了幾圈</b>，它看不到車走了幾公分。公分是用<b>輪子的大小</b>算出來的：</p>
     <ol class="calc-steps">
-      <li>輪子轉 1 圈，車走的距離＝輪子一圈的長度＝<b>直徑 × 3.14</b>。官方小輪子直徑約 5.6 公分，5.6 × 3.14 ≈ 17.6，所以填 <b>17.5</b>。</li>
-      <li>這就是粉色「<span class="b b-move">將電機旋轉一圈設置為 <i>17.5</i> 厘米</span>」在做的事：告訴主機輪子一圈走幾公分。</li>
-      <li>寫「<span class="b b-move"><i class="m">↑</i> 移動 <i>20</i> <i class="m">厘米</i></span>」，主機就算 20 ÷ 17.5 ≈ 1.14，讓輪子轉 <b>1.14 圈</b>。</li>
+      <li>輪子轉 1 圈，車走的距離＝輪子一圈的長度＝<b>直徑 × 3.14</b>。直徑多少？等一下用尺量你們的輪子。</li>
+      <li>這就是粉色「<span class="b b-move">將電機旋轉一圈設置為 <i class="x">？</i> 厘米</span>」在做的事：告訴主機輪子一圈走幾公分。</li>
+      <li>寫「<span class="b b-move"><i class="m">↑</i> 移動 <i>20</i> <i class="m">厘米</i></span>」，主機就算 <b>20 ÷ 一圈幾公分</b>，算出輪子要轉幾圈。</li>
     </ol>
   </div>
   <div class="speedbox"><b>速度是什麼？</b>　速度＝<b>多快</b>，用 % 表示，100 % 最快。速度只管快慢；<b>走多遠，看「移動」那塊的數字</b>。真的是這樣嗎？等一下自己試。</div>
@@ -294,9 +294,9 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
 <!-- ========== 4 走直線 ========== -->
 <section class="step" data-type="intro" data-part="走直線" data-sub="說明" data-title="走直線要用的積木" data-min="1" data-color="#e23db8">
   <p class="goal">開車用<b>粉色</b>。每支程式開頭先放「<b>設定三塊</b>」，再放「移動」。</p>
-  <div class="blkstack"><span class="b b-ev hat">當程式啟動時</span><span class="b b-move">將運轉電機設置為 <i class="m">C+D</i></span><span class="b b-move">將運動速度設置為 <i>50</i> %</span><span class="b b-move">將電機旋轉一圈設置為 <i>17.5</i> 厘米</span><span class="b b-move"><i class="m">↑</i> 移動 <i>20</i> <i class="m">厘米</i></span></div>
+  <div class="blkstack"><span class="b b-ev hat">當程式啟動時</span><span class="b b-move">將運轉電機設置為 <i class="m">C+D</i></span><span class="b b-move">將運動速度設置為 <i>50</i> %</span><span class="b b-move">將電機旋轉一圈設置為 <i class="x">？</i> 厘米</span><span class="b b-move"><i class="m">↑</i> 移動 <i>20</i> <i class="m">厘米</i></span></div>
   <dl class="blist">
-    <dt>設定三塊</dt><dd>哪兩顆馬達是輪子（C+D）、開多快（50 %）、輪子一圈走幾公分（17.5）。</dd>
+    <dt>設定三塊</dt><dd>哪兩顆馬達是輪子（C+D）、開多快（50 %）、輪子一圈走幾公分（等一下自己量）。</dd>
     <dt>↑ 移動 20 厘米</dt><dd>↑ 前進、↓ 後退，走 20 公分。</dd>
   </dl>
   <div class="t"><h4>講法</h4><p>「設定三塊每支程式開頭照抄，接著放移動。」</p></div>
@@ -304,18 +304,32 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
 
 <section class="step" data-type="task" data-part="走直線" data-sub="動手" data-title="走直線、試速度、試藍色" data-min="8" data-color="#e23db8">
   <p class="goal">先讓車前進 20 公分，再試試看：<b>速度</b>改了會怎樣？<b>藍色</b>積木會怎樣？</p>
-  <h3 class="mini">1. 走 20 公分</h3>
+  <h3 class="mini">1. 自己量，走出剛好 20 公分</h3>
   <div class="two">
     <div>
       <ol class="steps-do">
         <li>官方 App 首頁「<b>新建項目</b>」→「<b>詞語模塊</b>」→「創建」。按左上角黃色「<b>連接</b>」，選你們的主機。</li>
-        <li>照右邊的圖排積木（粉色在左邊「運動」類）。</li>
-        <li>找一條桌邊或地磚線當起點線，車頭前緣對齊，按 ▶。量車頭前緣離起點線幾公分。</li>
+        <li>用尺量<b>輪子的直徑</b>，算輪子轉一圈走幾公分。</li>
+        <li>照右邊的圖排積木，把算出來的數字填進「<b>將電機旋轉一圈設置為 ？ 厘米</b>」。</li>
+        <li>找一條桌邊或地磚線當起點線，車頭前緣對齊，按 ▶。量車頭前緣走了幾公分。</li>
+        <li>沒有剛好 20：<b>只改那個數字</b>，再試。</li>
       </ol>
-      <div class="guess" data-key="g.move20"><p class="guess-q">先猜：寫 20 公分，車會剛好走 20 公分嗎？</p><div class="guess-opts"><button type="button" data-v="exact">剛好 20</button><button type="button" data-v="more">多一點</button><button type="button" data-v="less">少一點</button></div><div class="guess-after" hidden>量完再回來看。<button class="guess-reveal" type="button">看看為什麼</button></div><div class="guess-why" hidden>車子是用「輪子轉幾圈 × 一圈 17.5 公分」算出來的。輪子打滑、地板、起點沒對準，都會差一點點。</div></div>
+      <table class="rec">
+        <tr><th class="l">量一量、算一算</th><th>數字</th></tr>
+        <tr><td class="l">輪子的直徑（公分）</td><td><input type="number" step="any" data-key="w.dia" aria-label="輪子直徑幾公分"></td></tr>
+        <tr><td class="l">一圈走幾公分（直徑 × 3.14）</td><td><input type="number" step="any" data-key="w.circ" aria-label="一圈走幾公分"></td></tr>
+      </table>
     </div>
     <div>
-      <div class="blkstack"><span class="b b-ev hat">當程式啟動時</span><span class="b b-move">將運轉電機設置為 <i class="m">C+D</i></span><span class="b b-move">將運動速度設置為 <i>50</i> %</span><span class="b b-move">將電機旋轉一圈設置為 <i>17.5</i> 厘米</span><span class="b b-move"><i class="m">↑</i> 移動 <i>20</i> <i class="m">厘米</i></span></div>
+      <div class="blkstack"><span class="b b-ev hat">當程式啟動時</span><span class="b b-move">將運轉電機設置為 <i class="m">C+D</i></span><span class="b b-move">將運動速度設置為 <i>50</i> %</span><span class="b b-move">將電機旋轉一圈設置為 <i class="x">？</i> 厘米</span><span class="b b-move"><i class="m">↑</i> 移動 <i>20</i> <i class="m">厘米</i></span></div>
+      <table class="rec">
+        <tr><th>第幾次</th><th>填的數字</th><th>走了幾公分</th></tr>
+        <tr><td>1</td><td><input type="number" step="any" data-key="w.v1" aria-label="第一次填的數字"></td><td><input type="number" step="any" data-key="w.d1" aria-label="第一次走了幾公分"></td></tr>
+        <tr><td>2</td><td><input type="number" step="any" data-key="w.v2" data-optional aria-label="第二次填的數字"></td><td><input type="number" step="any" data-key="w.d2" data-optional aria-label="第二次走了幾公分"></td></tr>
+        <tr><td>3</td><td><input type="number" step="any" data-key="w.v3" data-optional aria-label="第三次填的數字"></td><td><input type="number" step="any" data-key="w.d3" data-optional aria-label="第三次走了幾公分"></td></tr>
+      </table>
+      <div class="pick"><p class="pick-q">車走了 23 公分，超過 20。那個數字要？</p><div class="pick-opts"><button type="button" data-fb="數字變小，主機會以為一圈比較短，就讓輪子多轉幾圈，車會走得更遠。">改小</button><button type="button" data-ok="1" data-fb="對！數字改大，主機以為一圈比較長，就讓輪子少轉一點，車會走得比較近。">改大</button></div><p class="pick-fb" hidden></p></div>
+      <div class="checklist"><label class="chk"><input type="checkbox" data-key="w.ok"><span>車走了 20 公分（差 1 公分以內）</span></label></div>
     </div>
   </div>
 
@@ -351,7 +365,7 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
     </div>
   </div>
   <div class="adv"><h3>進階</h3><ol class="steps-do"><li>把 ↑ 改成 <b>↓</b>，車子怎麼動？</li><li>藍色再加一塊「<b>D 運行 1 圈</b>」接在下面，車子會直走嗎？為什麼？</li></ol></div>
-  <div class="t"><h4>講法</h4><p>「先猜，再按。一次只改一個數字。尺從起點線量到車頭前緣。」速度試完問：「速度改了，距離有變嗎？那距離是誰決定的？」藍色試完問：「只叫 C 轉，D 沒動，車子會怎樣？所以開車用哪一種比較方便？」</p><h4>卡點</h4><ul><li>車不動：「將運轉電機設置為」是 C+D 嗎？連接還在嗎？積木有沒有接在「當程式啟動時」下面（要貼緊）？</li><li>車往後走：A、B 線對調。</li><li>速度 100 多走一點：衝太快停不住，正常。</li><li>藍色積木讓車往後歪：↻／↺ 是馬達自己的方向，左右輪馬達裝的方向相反，正常。</li><li>時間不夠：速度只試 20 和 100；藍色由老師示範。</li></ul></div>
+  <div class="t"><h4>講法</h4><p>「先量輪子、自己算，不要問別人答案。一次只改一個數字。尺從起點線量到車頭前緣。」速度試完問：「速度改了，距離有變嗎？那距離是誰決定的？」藍色試完問：「只叫 C 轉，D 沒動，車子會怎樣？所以開車用哪一種比較方便？」</p><h4>卡點</h4><ul><li>車不動：「將運轉電機設置為」是 C+D 嗎？連接還在嗎？積木有沒有接在「當程式啟動時」下面（要貼緊）？</li><li>車往後走：A、B 線對調。</li><li>速度 100 多走一點：衝太快停不住，正常。</li><li>藍色積木讓車往後歪：↻／↺ 是馬達自己的方向，左右輪馬達裝的方向相反，正常。</li><li>時間不夠：速度只試 20 和 100；藍色由老師示範。</li></ul><h4>參考（不要直接給）</h4><p>官方小輪子直徑約 5.6 公分，5.6 × 3.14 ≈ 17.6，官方範例填 17.5。學生填 17～18 都合理，差一點是打滑、對準造成的。</p></div>
 </section>
 
 <section class="step" data-gate data-type="quiz" data-part="走直線" data-sub="小測驗" data-title="走直線小測驗" data-min="1" data-color="#e23db8">
@@ -360,7 +374,7 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
     <div class="q" data-key="qb1"><p class="q-t">1. 想讓車後退 30 公分，要改哪裡？</p><div class="opts">
       <button type="button" data-ok="1" data-fb="方向改 ↓（後退），距離改 30。設定三塊不用動。">↑ 改成 ↓，20 改成 30</button>
       <button type="button" data-fb="C+D 是哪兩顆馬達，和前進後退無關。">C+D 改成 D+C</button>
-      <button type="button" data-fb="17.5 是輪子轉一圈走幾公分，改了距離會不準。">17.5 改成 30</button></div><p class="fb" hidden></p></div>
+      <button type="button" data-fb="那是輪子轉一圈走幾公分，改了距離會不準。">「旋轉一圈」的數字改成 30</button></div><p class="fb" hidden></p></div>
     <div class="q" data-key="qb2"><p class="q-t">2. 按播放，車完全不動。最先檢查什麼？</p><div class="opts">
       <button type="button" data-ok="1" data-fb="線沒插緊或 App 沒連上，車就不會動。積木預設 C+D 和手冊一樣，先看線和連接。">C、D 的線插好了嗎、App 連上了嗎</button>
       <button type="button" data-fb="速度 50 車就會動，不是原因。">把速度改成 100</button></div><p class="fb" hidden></p></div>
@@ -641,11 +655,11 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
     { s: 1, a: C / 2, b: C, dur: 2000, deg: 1, cap: '360 度＝1 圈。度比圈更細，適合只轉一點點。', cnt: degc },
     { s: 2, a: 0, b: 20, dur: 2000, sec: '50 %', cap: '「秒」＝轉幾秒就停。速度 50 %，轉 2 秒，走到這裡。', cnt: function () { return '速度 50 %'; } },
     { s: 2, a: 0, b: 40, dur: 2000, sec: '100 %', ghost: 20, cap: '速度 100 %，一樣 2 秒，走得更遠。用「秒」時，走多遠要看速度。', cnt: function () { return '速度 100 %'; } },
-    { s: 3, a: 0, b: C, dur: 3000, dia: 1, cap: '輪子轉 1 圈，滾過的長度＝輪子一圈＝直徑 5.6 × 3.14 ≈ 17.5 公分。', cnt: cmc },
-    { s: 3, a: 0, b: 20, dur: 3000, cap: '寫「移動 20 厘米」：主機算 20 ÷ 17.5 ≈ 1.14，讓輪子轉 1.14 圈。', cnt: cmc }
+    { s: 3, a: 0, b: C, dur: 3000, dia: 1, cap: '輪子轉 1 圈，滾過的長度＝輪子一圈的長度＝直徑 × 3.14。', cnt: cmc },
+    { s: 3, a: 0, b: 20, dur: 3000, cap: '寫「移動 20 厘米」：主機算 20 ÷ 一圈的長度，算出輪子要轉幾圈。', cnt: function () { return ''; } }
   ];
   function degc(d) { return '輪子轉了 ' + Math.round(turns(d) * 360) + ' 度'; }
-  function cmc(d) { return '輪子轉了 ' + turns(d).toFixed(2) + ' 圈 → 走了 ' + d.toFixed(1) + ' 公分'; }
+  function cmc(d) { return '輪子轉了 ' + turns(d).toFixed(2) + ' 圈'; }
   var HOLD = 2600, seg = 0, el = 0, last = 0, playing = true, shownCap = -1;
   var tabs = [].slice.call(svg.parentNode.querySelectorAll('.ua-tabs button')), play = svg.parentNode.querySelector('.ua-play');
   function render() {
