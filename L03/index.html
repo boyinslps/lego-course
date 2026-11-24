@@ -39,6 +39,9 @@ ul.cells{font-size:1.1rem;margin:4px 0 8px;padding-left:1.4em}ul.cells li{margin
 .wa-side{flex:1 1 300px}
 .wa-blk{margin:4px 0 6px}.wa-blk .b{display:inline-flex;width:auto}
 #wa-wheels{width:100%;max-width:420px;height:auto;display:block}
+.dialfig{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:8px 0;background:#fdf4ff;border:2px solid #f0abfc;border-radius:12px;padding:8px 12px}
+.dialfig img{width:260px;height:auto;border-radius:8px;border:1px solid #e5e7eb}
+.dialfig figcaption{flex:1 1 280px;font-size:1.08rem;line-height:1.6}
 .signnote{background:#eff6ff;border:2px solid #93c5fd;border-radius:12px;padding:8px 14px;margin:10px 0;font-size:1.05rem}
 .b-ghost{background:#fff!important;color:#94a3b8!important;border:2px dashed #cbd5e1;min-width:7em;justify-content:center}
 .pick{border:2px dashed #fcd34d;background:#fffbeb;border-radius:12px;padding:8px 12px;margin:8px 0}
@@ -424,6 +427,8 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
     <li><b>0</b>：直直走。數字<b>越大</b>（不管正負），兩個輪子速度差越多，<b>彎得越急</b>。</li>
     <li><b>100</b>（或 -100）：兩個輪子一樣快、方向相反，車子<b>在原地打轉</b>。</li>
   </ul>
+  <figure class="dialfig"><img src="../assets/img/steer_dial.png" alt="官方 App：點轉向值那格，跳出方向盤轉盤，下方顯示「右:20」，左右有減號和加號按鈕" loading="lazy">
+    <figcaption>點「右:20」那格會跳出<b>方向盤轉盤</b>。轉盤是用來<b>選數字</b>的：轉得越偏，數字越大、彎得越急。<b>轉盤指的位置不是車子會轉的角度</b>（100 是原地打轉，不是轉 100 度）。也可以按 － ＋ 調數字。</figcaption></figure>
   <div class="daily"><b>生活中的例子</b>　兩個人手牽手並排走，要往右轉：<b>左邊的人走快、右邊的人走慢</b>，兩人就一起往右彎。右邊的人<b>停下來</b>，左邊的人就繞著他轉一圈。兩個人<b>一個往前、一個往後</b>，就在原地打轉。車子的兩個輪子就是這兩個人。</div>
   <p class="say">拉拉看，看兩個輪子的速度和車子怎麼走：</p>
   <div class="steer">
