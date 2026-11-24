@@ -26,6 +26,19 @@
 .wbar .wz{position:absolute;left:50%;top:0;bottom:0;width:2px;background:#94a3b8}
 .wbar .wf{position:absolute;top:0;bottom:0}
 .wbar b{min-width:6.5em}
+.cell-key{margin:6px 0 0;font-size:1rem;color:#334155}.cell-key .num{color:#e23db8;font-weight:700;margin-left:6px}
+ul.cells{font-size:1.1rem;margin:4px 0 8px;padding-left:1.4em}ul.cells li{margin:4px 0}
+.wa{border:2px solid #86efac;border-radius:12px;padding:8px 12px;margin:10px 0;background:#fff}
+.wa-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:1.08rem}
+.wa-tabs{display:inline-flex;gap:4px;flex-wrap:wrap}
+.wa-tabs button,.wa-play{font:inherit;font-size:.95rem;padding:3px 10px;border-radius:999px;border:2px solid #86efac;background:#fff;cursor:pointer}
+.wa-tabs button.on{background:#16a34a;border-color:#16a34a;color:#fff}
+.wa-play{margin-left:auto}
+.wa-body{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+#wa-top{width:240px;height:240px;background:#f8fafc;border-radius:10px;flex:0 0 auto}
+.wa-side{flex:1 1 300px}
+.wa-blk{margin:4px 0 6px}.wa-blk .b{display:inline-flex;width:auto}
+#wa-wheels{width:100%;max-width:420px;height:auto;display:block}
 .signnote{background:#eff6ff;border:2px solid #93c5fd;border-radius:12px;padding:8px 14px;margin:10px 0;font-size:1.05rem}
 .b-ghost{background:#fff!important;color:#94a3b8!important;border:2px dashed #cbd5e1;min-width:7em;justify-content:center}
 .pick{border:2px dashed #fcd34d;background:#fffbeb;border-radius:12px;padding:8px 12px;margin:8px 0}
@@ -277,7 +290,7 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
       <tr><td><b>厘米</b></td><td class="l">車走幾<b>公分</b>（厘米就是公分）。是從「圈」換算出來的，看下面。</td><td>✗</td><td>✓</td></tr>
       <tr><td><b>英寸</b></td><td class="l">美國常用的長度，<b>1 英寸 ≈ 2.54 公分</b>。和厘米一樣是換算出來的；我們用厘米就好。</td><td>✗</td><td>✓</td></tr>
     </table>
-    <p class="unit-note">藍色只管一顆馬達，不知道車走多遠，所以沒有「厘米」「英寸」。</p>
+    <p class="unit-note">藍色只管一顆馬達，不知道車走多遠，所以沒有「厘米」「英寸」。粉色轉彎那塊「向 ○ 移動」也只有圈、度、秒。</p>
   </div>
   <div class="calcbox"><b>「厘米」是怎麼算出來的？</b>
     <p>主機<b>只會數輪子轉了幾圈</b>，它看不到車走了幾公分。公分是用<b>輪子的大小</b>算出來的：</p>
@@ -393,15 +406,24 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
 </section>
 
 <!-- ========== 4 轉彎 ========== -->
-<section class="step" data-type="intro" data-part="轉彎" data-sub="說明" data-title="轉向值：讓車子轉彎" data-min="3" data-color="#16a34a">
-  <p class="goal">轉彎用「<b>向 ○ 移動</b>」積木。它有兩個地方要看懂。</p>
+<section class="step" data-type="intro" data-part="轉彎" data-sub="說明" data-title="轉彎積木：一格一格看懂" data-min="3" data-color="#16a34a">
+  <p class="goal">轉彎用這一塊。它有三格，<b>一格一格看</b>。</p>
   <div class="blkrow">
-    <div class="blkcard"><span class="b b-move">向 <i class="m">右:100</i> 移動 <i>1</i> <i class="m">圈</i></span><p class="bk-zh">「轉向移動」積木</p><p class="bk-en">English：move with steering</p></div>
+    <div class="blkcard"><span class="b b-move">向 <i class="m">右:100</i> 移動 <i>0.5</i> <i class="m">圈</i></span><p class="bk-zh">「轉向移動」積木</p><p class="bk-en">English：move with steering</p>
+      <p class="cell-key"><span class="num">①</span>右:100　<span class="num">②</span>0.5　<span class="num">③</span>圈</p></div>
     <div class="meaning">
-      <p><span class="tag">右:100</span>叫「<b>轉向值</b>」（也叫轉向比）：<b>左右兩個輪子的速度怎麼分</b>。數字越大，兩輪速度差越多，彎得越急。它<b>不是角度</b>。</p>
-      <p><span class="tag">1 圈</span><b>輪子</b>轉幾圈（不是車子轉幾圈）。0.5 圈＝輪子轉半圈。<b>車子轉多少角度，是由這個圈數決定的</b>。</p>
+      <p><span class="tag">① 右:100</span><b>往哪邊、彎多急</b>（叫「轉向值」）。它<b>不是角度</b>。</p>
+      <p><span class="tag">② 0.5</span><b>輪子</b>要轉多少（不是車子轉多少）。</p>
+      <p><span class="tag">③ 圈</span>②的單位。這一塊只能選<b>圈、度、秒</b>，沒有厘米。</p>
     </div>
   </div>
+
+  <h3 class="mini">① 轉向值：往哪邊、彎多急</h3>
+  <ul class="cells">
+    <li>往右是<b>正數</b>，積木寫「<b>右:50</b>」；往左是<b>負數</b>，積木寫「<b>左:-50</b>」。</li>
+    <li><b>0</b>：直直走。數字<b>越大</b>（不管正負），兩個輪子速度差越多，<b>彎得越急</b>。</li>
+    <li><b>100</b>（或 -100）：兩個輪子一樣快、方向相反，車子<b>在原地打轉</b>。</li>
+  </ul>
   <div class="daily"><b>生活中的例子</b>　兩個人手牽手並排走，要往右轉：<b>左邊的人走快、右邊的人走慢</b>，兩人就一起往右彎。右邊的人<b>停下來</b>，左邊的人就繞著他轉一圈。兩個人<b>一個往前、一個往後</b>，就在原地打轉。車子的兩個輪子就是這兩個人。</div>
   <p class="say">拉拉看，看兩個輪子的速度和車子怎麼走：</p>
   <div class="steer">
@@ -413,8 +435,24 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
       <p class="steer-tip" id="st-tip">0：兩個輪子一樣快，直直走。</p>
     </div>
   </div>
-  <p class="signnote"><b>示範裡的負數是什麼？</b>　轉向值其實是一個 -100 到 100 的數字：<b>正數往右、負數往左</b>。積木為了好懂，把它寫成「方向＋數字」：<b>右:50 就是 50，左:50 就是 -50</b>，所以積木上不用打負號。Python 的話直接寫數字，例如 <code>steering=-50</code> 就是往左。</p>
-  <div class="t"><h4>講法</h4><p>「拉到 0、25、50、75、100，每次看兩條速度條。0 兩輪一樣快；往右拉，右輪越來越慢；50 右輪停住；超過 50 右輪開始倒轉；100 兩輪一樣快但方向相反，原地轉。」「圈是輪子轉的圈數。拿起車子，用手把輪子轉半圈給你看——這就是 0.5 圈。」可以請兩位學生手牽手當左右輪，現場演一次。</p><h4>官方怎麼說</h4><p>官方說明（簡體）只寫：轉向值 -100 到 100；「0」直線行駛；+99／-99 弧形路徑最明顯；100／-100 以自身為中心旋轉。官方沒有寫公式；速度條用的是常見的轉向比算法（外側輪照設定速度，內側輪＝設定速度 ×（1 − 轉向值 ÷ 50）），真車待確認。</p><h4>粉色積木還有</h4><p>「停止運動」今天在轉直角頁用來收尾，讓車確實停住再看角度。「開始移動」（一直走到叫停）之後感測器課會用到。</p><h4>單位</h4><p>「圈」那格點開還能選厘米、度、秒；今天轉彎都用「圈」。</p></div>
+
+  <h3 class="mini">② ③ 輪子轉多少：看兩個輪子</h3>
+  <div class="wa">
+    <div class="wa-head"><b>動畫：這塊積木執行時，兩個輪子怎麼轉</b>
+      <span class="wa-tabs" role="group" aria-label="選一塊積木"></span>
+      <button type="button" class="wa-play">⏸ 暫停</button>
+    </div>
+    <div class="wa-body">
+      <svg id="wa-top" viewBox="-90 -90 180 180" role="img" aria-label="從上面看車子轉彎"></svg>
+      <div class="wa-side">
+        <p class="wa-blk"><span class="b b-move" id="wa-blk"></span></p>
+        <svg id="wa-wheels" viewBox="0 0 300 120" role="img" aria-label="從側面看左輪和右輪轉多少"></svg>
+      </div>
+    </div>
+    <p class="ua-cap" id="wa-cap" aria-live="polite"></p>
+  </div>
+  <p class="signnote"><b>Python 呢？</b>　Python 直接寫數字：<code>steering=50</code> 往右，<code>steering=-50</code> 往左，和積木上的數字一樣。</p>
+  <div class="t"><h4>講法</h4><p>「拉到 0、25、50、75、100，每次看兩條速度條。0 兩輪一樣快；往右拉，右輪越來越慢；50 右輪停住；超過 50 右輪開始倒轉；100 兩輪一樣快但方向相反，原地轉。」「圈是輪子轉的圈數。拿起車子，用手把輪子轉半圈給你看——這就是 0.5 圈。」可以請兩位學生手牽手當左右輪，現場演一次。</p><h4>官方怎麼說</h4><p>官方說明（簡體）只寫：轉向值 -100 到 100；「0」直線行駛；+99／-99 弧形路徑最明顯；100／-100 以自身為中心旋轉。官方沒有寫公式；速度條用的是常見的轉向比算法（外側輪照設定速度，內側輪＝設定速度 ×（1 − 轉向值 ÷ 50）），真車待確認。</p><h4>粉色積木還有</h4><p>「停止運動」今天在轉直角頁用來收尾，讓車確實停住再看角度。「開始移動」（一直走到叫停）之後感測器課會用到。</p><h4>單位</h4><p>「向 ○ 移動」最後那格只有圈、度、秒（App 截圖確認，11/24），沒有厘米；今天轉彎都用「圈」。</p><h4>「圈」以哪個輪子算</h4><p>轉向值 ±100 時兩輪一樣多，沒有疑問。其他轉向值，動畫假設以<b>轉得快的那個輪子</b>為準（常見說法，官方沒寫），真車待確認。</p></div>
 </section>
 
 <section class="step" data-type="task" data-part="轉彎" data-sub="轉直角" data-title="試試看：幾圈是銳角、直角、鈍角" data-min="5" data-color="#16a34a">
@@ -515,7 +553,7 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
         <tr><td>6</td><td><select data-key="c.a6" data-optional><option value=""></option><option>前進</option><option>後退</option><option>右轉直角</option><option>左轉直角</option></select></td><td><input type="number" step="any" data-key="c.n6" data-optional aria-label="第 6 步公分"></td></tr>
         <tr><td>7</td><td><select data-key="c.a7" data-optional><option value=""></option><option>前進</option><option>後退</option><option>右轉直角</option><option>左轉直角</option></select></td><td><input type="number" step="any" data-key="c.n7" data-optional aria-label="第 7 步公分"></td></tr>
       </table>
-      <p class="say">轉直角用 <span data-mirror="sq.rot" data-empty="（上一頁找到的數字）"></span> 圈：右轉「右:100」，左轉「左:100」。</p>
+      <p class="say">轉直角用 <span data-mirror="sq.rot" data-empty="（上一頁找到的數字）"></span> 圈：右轉「右:100」，左轉「左:-100」。</p>
     </div>
   </div>
   <ol class="steps-do">
@@ -566,7 +604,7 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
   function tip(s) {
     var a = Math.abs(s), side = s > 0 ? '右' : '左', other = s > 0 ? '左' : '右';
     if (a === 0) return '0：兩個輪子一樣快，直直走。';
-    var lab = s + '（積木上是「' + side + ':' + a + '」）';
+    var lab = '「' + side + ':' + s + '」';
     if (a < 50) return lab + '：' + side + '輪比' + other + '輪慢，車子往' + side + '彎。';
     if (a === 50) return lab + '：' + side + '輪停住，車子繞著它轉。';
     if (a < 100) return lab + '：' + side + '輪往後轉，車子彎得很急。';
@@ -693,6 +731,82 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
   }
   tabs.forEach(function (b) { b.addEventListener('click', function () { for (var i = 0; i < SEG.length; i++) if (SEG[i].s === +b.dataset.s) { seg = i; el = 0; break; } playing = true; play.textContent = '⏸ 暫停'; play.setAttribute('aria-label', '暫停'); }); });
   play.addEventListener('click', function () { playing = !playing; play.textContent = playing ? '⏸ 暫停' : '▶ 播放'; play.setAttribute('aria-label', playing ? '暫停' : '播放'); });
+  render(); requestAnimationFrame(tick);
+})();
+/* 轉彎積木動畫：上面看車子＋側面看兩個輪子。轉向比算法同上（外側輪 1、內側輪 1 - |s|/50），
+   「圈」假設以轉得快的輪子為準；輪子一圈 17.5 公分、輪距 11.2 公分。 */
+(function () {
+  var top = document.getElementById('wa-top'), wh = document.getElementById('wa-wheels');
+  if (!top || !wh) return;
+  var C = 17.5, W = 11.2, K = 5;   // 上視圖 1 公分 = 5 px
+  var SC = [
+    { s: 100, n: 0.5, cap: '右:100：左輪往前、右輪往後，一樣快。兩個輪子各轉 0.5 圈，車子在原地往右轉。' },
+    { s: 100, n: 1, cap: '同樣右:100，改成 1 圈：輪子轉兩倍，車子也轉兩倍。車子轉多少，看「圈」這格。' },
+    { s: -100, n: 0.5, cap: '左:-100：反過來，右輪往前、左輪往後，車子在原地往左轉。' },
+    { s: 50, n: 1, cap: '右:50：右輪停住不動，只有左輪轉 1 圈，車子繞著右輪轉。' },
+    { s: 25, n: 1, cap: '右:25：兩個輪子都往前，右輪比較慢，車子往右畫一個大弧。' }
+  ];
+  function lab(s) { return s > 0 ? '右:' + s : s < 0 ? '左:' + s : '0'; }
+  var tabs = top.parentNode.parentNode.querySelector('.wa-tabs'), play = top.parentNode.parentNode.querySelector('.wa-play');
+  tabs.innerHTML = SC.map(function (c, i) { return '<button type="button" data-i="' + i + '">' + lab(c.s) + '　' + c.n + ' 圈</button>'; }).join('');
+  var tbs = [].slice.call(tabs.querySelectorAll('button'));
+  function speeds(s) { var k = 1 - Math.abs(s) / 50; return s >= 0 ? [1, k] : [k, 1]; }
+  function pose(c, u) {   // 回傳 [x, y, 車頭角度(順時針，度)]
+    var v = speeds(c.s), dl = c.n * u * v[0] * C, dr = c.n * u * v[1] * C;
+    var dth = (dl - dr) / W, ds = (dl + dr) / 2, x, y;
+    if (Math.abs(dth) < 1e-6) { x = 0; y = -ds; } else { var R = ds / dth; x = R * (1 - Math.cos(dth)); y = -R * Math.sin(dth); }
+    return [x * K, y * K, dth * 180 / Math.PI];
+  }
+  function carSvg(p, op, id) {
+    var hw = W / 2 * K;
+    return '<g' + (id ? ' id="' + id + '"' : '') + ' opacity="' + op + '" transform="translate(' + p[0].toFixed(1) + ',' + p[1].toFixed(1) + ') rotate(' + p[2].toFixed(1) + ')">' +
+      '<rect x="' + (-hw + 5) + '" y="-20" width="' + (2 * hw - 10) + '" height="36" rx="5" fill="#22d3ee" stroke="#0e7490" stroke-width="2"/>' +
+      '<rect x="' + (-hw - 4) + '" y="-11" width="8" height="22" rx="2" fill="#0f172a"/><rect x="' + (hw - 4) + '" y="-11" width="8" height="22" rx="2" fill="#0f172a"/>' +
+      '<text x="' + (-hw) + '" y="26" font-size="10" text-anchor="middle" fill="#0f172a">左</text><text x="' + hw + '" y="26" font-size="10" text-anchor="middle" fill="#0f172a">右</text>' +
+      '<path d="M-7 -20 L0 -32 L7 -20" fill="#dc2626"/></g>';
+  }
+  function dial(cx, name) {
+    return '<g transform="translate(' + cx + ',58)"><circle r="40" fill="#334155"/><circle r="24" fill="#e2e8f0"/>' +
+      '<g id="wa-sp-' + name + '"><line y2="-37" stroke="#dc2626" stroke-width="6" stroke-linecap="round"/><circle cy="-32" r="6" fill="#dc2626"/></g></g>';
+  }
+  wh.innerHTML = dial(75, 'l') + dial(225, 'r') +
+    '<text x="75" y="114" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a" id="wa-tl"></text>' +
+    '<text x="225" y="114" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a" id="wa-tr"></text>';
+  function wtext(name, r) {
+    var a = Math.abs(r), dir = a < 0.005 ? '停住' : r > 0 ? '往前' : '往後';
+    return name + '：' + (a < 0.005 ? '0' : a.toFixed(2)) + ' 圈 ' + dir;
+  }
+  var cur = 0, el = 0, last = 0, playing = true, DUR = 3200, HOLD = 2800, built = -1;
+  function build() {
+    var c = SC[cur], pts = [];
+    for (var i = 0; i <= 40; i++) { var q = pose(c, i / 40); pts.push(q[0].toFixed(1) + ',' + q[1].toFixed(1)); }
+    top.innerHTML = '<line x1="-90" y1="0" x2="90" y2="0" stroke="#cbd5e1" stroke-dasharray="4 4"/><line x1="0" y1="-90" x2="0" y2="90" stroke="#cbd5e1" stroke-dasharray="4 4"/>' +
+      carSvg([0, 0, 0], .18) + '<polyline points="' + pts.join(' ') + '" fill="none" stroke="#e23db8" stroke-width="2.5" stroke-dasharray="5 4"/>' + carSvg([0, 0, 0], 1, 'wa-car') +
+      '<text x="-86" y="-76" font-size="11" fill="#64748b">從上面看</text>';
+    document.getElementById('wa-blk').innerHTML = '向 <i class="m">' + lab(c.s) + '</i> 移動 <i>' + c.n + '</i> <i class="m">圈</i>';
+    document.getElementById('wa-cap').textContent = c.cap;
+    tbs.forEach(function (b, i) { b.classList.toggle('on', i === cur); });
+    built = cur;
+  }
+  function render() {
+    if (built !== cur) build();
+    var c = SC[cur], u = Math.min(1, el / DUR), p = pose(c, u), v = speeds(c.s);
+    var rl = c.n * u * v[0], rr = c.n * u * v[1];
+    document.getElementById('wa-car').setAttribute('transform', 'translate(' + p[0].toFixed(1) + ',' + p[1].toFixed(1) + ') rotate(' + p[2].toFixed(1) + ')');
+    document.getElementById('wa-sp-l').setAttribute('transform', 'rotate(' + (rl * 360).toFixed(1) + ')');
+    document.getElementById('wa-sp-r').setAttribute('transform', 'rotate(' + (rr * 360).toFixed(1) + ')');
+    document.getElementById('wa-tl').textContent = wtext('左輪', rl);
+    document.getElementById('wa-tr').textContent = wtext('右輪', rr);
+  }
+  function tick(now) {
+    requestAnimationFrame(tick);
+    var dt = last ? Math.min(250, now - last) : 0; last = now;
+    if (top.getBoundingClientRect().width === 0) return;
+    if (playing) { el += dt; if (el > DUR + HOLD) { cur = (cur + 1) % SC.length; el = 0; } }
+    render();
+  }
+  tbs.forEach(function (b, i) { b.addEventListener('click', function () { cur = i; el = 0; playing = true; play.textContent = '⏸ 暫停'; }); });
+  play.addEventListener('click', function () { playing = !playing; play.textContent = playing ? '⏸ 暫停' : '▶ 播放'; });
   render(); requestAnimationFrame(tick);
 })();
 /* 官方影片：點畫面一下放大、再點一下縮回（不暫停）；點到下方控制列照原本行為。 */
