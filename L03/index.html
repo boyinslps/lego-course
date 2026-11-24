@@ -56,6 +56,9 @@
 .unitbox{background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:8px 14px;margin:10px 0;font-size:1.08rem}
 .unit-t{margin:8px 0 4px}.unit-t td,.unit-t th{text-align:center;white-space:nowrap}.unit-t .l{text-align:left;white-space:normal}
 .unit-note{margin:4px 0 0;color:#475569}
+.calcbox{background:#faf5ff;border:2px solid #c4b5fd;border-radius:12px;padding:8px 14px;margin:10px 0;font-size:1.08rem}
+.calcbox p{margin:6px 0}.calc-steps{margin:4px 0;padding-left:1.4em}.calc-steps li{margin:6px 0;line-height:1.9}
+.calc-steps .b{display:inline-flex;width:auto;vertical-align:middle;margin:0 2px}
 .speedbox{background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:8px 14px;margin:10px 0;font-size:1.1rem}
 h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
 .meaning{flex:1 1 320px;font-size:1.1rem}
@@ -102,7 +105,7 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
       <li>本節沒有任何聲音。</li>
     </ul>
     <h4>時間軸（分鐘）</h4>
-    <p>領箱 0–3 → 看影片 3–5 → 組車 5–14 → 組車小測驗 14–15 → 藍色粉色說明 15–18 → 直線＋速度＋藍色動手 18–26 → 直線小測驗 26–27 → 轉彎說明 27–30 → 銳角直角鈍角 30–35 → 正方形 35–40 → 繞積木 40–48 → 收拾 48–50。<b>檢查點</b>：第 15 分鐘兩台車組好；第 27 分鐘直線做完；第 40 分鐘正方形做完。動手合計 35 分鐘。</p>
+    <p>領箱 0–3 → 看影片 3–5 → 組車 5–14 → 組車小測驗 14–15 → 車子移動說明 15–17 → 走直線積木 17–18 → 直線＋速度＋藍色動手 18–26 → 直線小測驗 26–27 → 轉彎說明 27–30 → 銳角直角鈍角 30–35 → 正方形 35–40 → 繞積木 40–48 → 收拾 48–50。<b>檢查點</b>：第 15 分鐘兩台車組好；第 27 分鐘直線做完；第 40 分鐘正方形做完。動手合計 35 分鐘。</p>
     <h4>時間不夠時的砍法（照順序；被砍的下一節開頭補）</h4>
     <p><b>今天做不完，就只上到「試試看：幾圈是銳角、直角、鈍角」（轉彎量測）</b>；正方形和繞積木留到下一節。到第 40 分鐘還沒做完轉彎量測，就請學生直接點上方「收拾」（收拾永遠可以點，不用過小測驗）。</p>
     <ol>
@@ -209,8 +212,8 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
   <div class="t"><h4>講法</h4><p>答完換下一個人操作。</p></div>
 </section>
 
-<!-- ========== 3 走直線 ========== -->
-<section class="step" data-type="intro" data-part="走直線" data-sub="說明" data-title="藍色和粉色積木：馬達和運動" data-min="3" data-color="#e23db8">
+<!-- ========== 3 LEGO 車子的移動 ========== -->
+<section class="step" data-type="intro" data-part="車子移動" data-title="LEGO 車子的移動" data-min="2" data-color="#7c3aed">
   <p class="goal">藍色和粉色都能讓輪子轉。差別是：<b>一次管幾顆馬達</b>。</p>
   <div class="vs">
     <div class="vs-blue">
@@ -241,13 +244,32 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
       <tr><th>單位</th><th class="l">意思</th><th>藍色</th><th>粉色</th></tr>
       <tr><td><b>圈</b></td><td class="l"><b>輪子</b>轉幾圈。1 圈＝轉一整圈回到原來的樣子，0.5 圈＝半圈。</td><td>✓</td><td>✓</td></tr>
       <tr><td><b>秒</b></td><td class="l">轉幾<b>秒</b>就停。走多遠要看速度：速度快，同樣幾秒走得比較遠。</td><td>✓</td><td>✓</td></tr>
-      <tr><td><b>厘米</b></td><td class="l">車走幾<b>公分</b>（厘米就是公分）。靠「將電機旋轉一圈設置為 17.5 厘米」換算：輪子轉 1 圈＝走 17.5 公分。</td><td>✗</td><td>✓</td></tr>
+      <tr><td><b>厘米</b></td><td class="l">車走幾<b>公分</b>（厘米就是公分）。是從「圈」換算出來的，看下面。</td><td>✗</td><td>✓</td></tr>
     </table>
     <p class="unit-note">藍色只管一顆馬達，不知道車走多遠，所以沒有「厘米」。</p>
   </div>
-  <div class="speedbox"><b>速度是什麼？</b>　速度＝<b>多快</b>，用 % 表示，100 % 最快。速度只管快慢；<b>走多遠，看「移動」那塊的數字</b>。真的是這樣嗎？下一頁自己試。</div>
-  <p class="say">今天開車用<b>粉色</b>。前三塊是「設定三塊」，每支程式開頭照抄。</p>
-  <div class="t"><h4>講法</h4><p>「藍色一次只能叫一個輪子轉；粉色把兩個輪子綁成一台車。前三塊粉色是出發前的設定：哪兩個輪子、開多快、輪子多大。」</p><h4>App 上的字</h4><p>App 只有簡體中文，字形和頁面上的繁體略有不同（例如「電機」「運動」），意思一樣；學生問就說「同一個字的另一種寫法」。藍色類別 App 上叫「電機」，頁面統一說「馬達」。</p><h4>英文</h4><p>run for／start motor／stop motor／set speed；set movement motors／set movement speed／set 1 motor rotation／move for／move with steering／stop moving。</p></div>
+  <div class="calcbox"><b>「厘米」是怎麼算出來的？</b>
+    <p>主機<b>只會數輪子轉了幾圈</b>，它看不到車走了幾公分。公分是用<b>輪子的大小</b>算出來的：</p>
+    <ol class="calc-steps">
+      <li>輪子轉 1 圈，車走的距離＝輪子一圈的長度＝<b>直徑 × 3.14</b>。官方小輪子直徑約 5.6 公分，5.6 × 3.14 ≈ 17.6，所以填 <b>17.5</b>。</li>
+      <li>這就是粉色「<span class="b b-move">將電機旋轉一圈設置為 <i>17.5</i> 厘米</span>」在做的事：告訴主機輪子一圈走幾公分。</li>
+      <li>寫「<span class="b b-move"><i class="m">↑</i> 移動 <i>20</i> <i class="m">厘米</i></span>」，主機就算 20 ÷ 17.5 ≈ 1.14，讓輪子轉 <b>1.14 圈</b>。</li>
+    </ol>
+    <p class="unit-note">所以：只用「圈」或「秒」的時候，17.5 那塊用不到。換大輪子沒改 17.5，寫 20 厘米會走超過 20 公分。輪子打滑主機也不知道，所以真的車要<b>用尺量</b>。</p>
+  </div>
+  <div class="speedbox"><b>速度是什麼？</b>　速度＝<b>多快</b>，用 % 表示，100 % 最快。速度只管快慢；<b>走多遠，看「移動」那塊的數字</b>。真的是這樣嗎？等一下自己試。</div>
+  <div class="t"><h4>講法</h4><p>「藍色一次只能叫一個輪子轉；粉色把兩個輪子綁成一台車。主機只會數圈，公分是用輪子大小算的。」可以拿一個輪子，用尺量直徑，請學生算算看是不是接近 17.5。</p><h4>App 上的字</h4><p>App 只有簡體中文，字形和頁面上的繁體略有不同（例如「電機」「運動」），意思一樣；學生問就說「同一個字的另一種寫法」。藍色類別 App 上叫「電機」，頁面統一說「馬達」。</p><h4>英文</h4><p>run for／start motor／stop motor／set speed；set movement motors／set movement speed／set 1 motor rotation／move for／move with steering／stop moving。</p></div>
+</section>
+
+<!-- ========== 4 走直線 ========== -->
+<section class="step" data-type="intro" data-part="走直線" data-sub="說明" data-title="走直線要用的積木" data-min="1" data-color="#e23db8">
+  <p class="goal">開車用<b>粉色</b>。每支程式開頭先放「<b>設定三塊</b>」，再放「移動」。</p>
+  <div class="blkstack"><span class="b b-ev hat">當程式啟動時</span><span class="b b-move">將運轉電機設置為 <i class="m">C+D</i></span><span class="b b-move">將運動速度設置為 <i>50</i> %</span><span class="b b-move">將電機旋轉一圈設置為 <i>17.5</i> 厘米</span><span class="b b-move"><i class="m">↑</i> 移動 <i>20</i> <i class="m">厘米</i></span></div>
+  <dl class="blist">
+    <dt>設定三塊</dt><dd>哪兩顆馬達是輪子（C+D）、開多快（50 %）、輪子一圈走幾公分（17.5）。</dd>
+    <dt>↑ 移動 20 厘米</dt><dd>↑ 前進、↓ 後退，走 20 公分。</dd>
+  </dl>
+  <div class="t"><h4>講法</h4><p>「設定三塊每支程式開頭照抄，接著放移動。」</p></div>
 </section>
 
 <section class="step" data-type="task" data-part="走直線" data-sub="動手" data-title="走直線、試速度、試藍色" data-min="8" data-color="#e23db8">
