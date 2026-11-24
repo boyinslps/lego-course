@@ -42,6 +42,7 @@ ul.cells{font-size:1.1rem;margin:4px 0 8px;padding-left:1.4em}ul.cells li{margin
 .dialfig{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:8px 0;background:#fdf4ff;border:2px solid #f0abfc;border-radius:12px;padding:8px 12px}
 .dialfig img{width:260px;height:auto;border-radius:8px;border:1px solid #e5e7eb}
 .dialfig figcaption{flex:1 1 280px;font-size:1.08rem;line-height:1.6}
+.u20 th:first-child,.u20 td:first-child,.u20 th:nth-child(3){white-space:nowrap}
 .signnote{background:#eff6ff;border:2px solid #93c5fd;border-radius:12px;padding:8px 14px;margin:10px 0;font-size:1.05rem}
 .b-ghost{background:#fff!important;color:#94a3b8!important;border:2px dashed #cbd5e1;min-width:7em;justify-content:center}
 .pick{border:2px dashed #fcd34d;background:#fffbeb;border-radius:12px;padding:8px 12px;margin:8px 0}
@@ -115,7 +116,7 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
     <ul>
       <li>舊版「改官方課程第 3 頁四組起始程式」太繞、文字太多。改成：<b>自己新建專案，一次只排一小段積木</b>；官方 TC1 只拿兩樣：開場影片（嵌在第 2 頁）與「驅動底座 1」搭建手冊。</li>
       <li>轉彎用「轉向 100、改圈數」，<b>不用陀螺儀</b>（陀螺儀轉 90 度留到下一節和轉向誤差一起）。圈數不給答案：學生照「轉 → 移動 → 停止」範例（先轉再走，走出去的線比較看得出角度），用表格試出幾圈是銳角、直角、鈍角（度數學生學過，不再考）。</li>
-      <li>照《樂高課程設計規範》：組車、走直線兩段「說明 → 動手 → 小測驗」、闖關答對才往下（轉彎段不考，老師 11/23 定，直接接挑戰）、沒有分享與收納、最後是收拾、老師說明收合。只用積木，不顯示 Python 開關。</li>
+      <li>照《樂高課程設計規範》：組車「動手 → 小測驗」、闖關答對才往下；走直線的小測驗改成「換單位走 20 公分」表格（老師 11/24 定）、轉彎段不考，改成模擬器試三種轉向值、沒有分享與收納、最後是收拾、老師說明收合。只用積木，不顯示 Python 開關。</li>
       <li>下一節接「為什麼回不到起點」時讀 <code>L03:sq.rot</code>（轉直角用的圈數）與 <code>L03:sq.dist</code>（正方形離起點幾公分）。</li>
     </ul>
     <h4>官方影片怎麼接的</h4>
@@ -129,7 +130,7 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
       <li>本節沒有任何聲音。</li>
     </ul>
     <h4>時間軸（分鐘）</h4>
-    <p>領箱 0–3 → 看影片 3–5 → 組車 5–14 → 組車小測驗 14–15 → 車子移動說明 15–17 → 走直線積木 17–18 → 直線＋速度＋藍色動手 18–26 → 直線小測驗 26–27 → 轉彎說明 27–30 → 銳角直角鈍角 30–35 → 正方形 35–40 → 繞積木 40–48 → 收拾 48–50。<b>檢查點</b>：第 15 分鐘兩台車組好；第 27 分鐘直線做完；第 40 分鐘正方形做完。動手合計 35 分鐘。</p>
+    <p>領箱 0–3 → 看影片 3–5 → 組車 5–14 → 組車小測驗 14–15 → 車子移動說明 15–17 → 走直線積木 17–18 → 直線＋速度＋藍色動手 18–25 → 換單位走 20 公分 25–29 → 轉彎說明 29–32 → 三種轉向值 32–35 → 銳角直角鈍角 35–40 → 正方形 40–45 → 繞積木 45–48 → 收拾 48–50。<b>檢查點</b>：第 15 分鐘兩台車組好；第 29 分鐘直線做完；第 40 分鐘轉彎量測做完。</p>
     <h4>時間不夠時的砍法（照順序；被砍的下一節開頭補）</h4>
     <p><b>今天做不完，就只上到「試試看：幾圈是銳角、直角、鈍角」（轉彎量測）</b>；正方形和繞積木留到下一節。到第 40 分鐘還沒做完轉彎量測，就請學生直接點上方「收拾」（收拾永遠可以點，不用過小測驗）。</p>
     <ol>
@@ -318,7 +319,7 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
   <div class="t"><h4>講法</h4><p>「設定三塊每支程式開頭照抄，接著放移動。」</p></div>
 </section>
 
-<section class="step" data-type="task" data-part="走直線" data-sub="動手" data-title="走直線、試速度、試藍色" data-min="8" data-color="#e23db8">
+<section class="step" data-type="task" data-part="走直線" data-sub="動手" data-title="走直線、試速度、試藍色" data-min="7" data-color="#e23db8">
   <p class="goal">先讓車前進 20 公分，再試試看：<b>速度</b>改了會怎樣？<b>藍色</b>積木會怎樣？</p>
   <h3 class="mini">1. 自己量，走出剛好 20 公分</h3>
   <div class="two">
@@ -384,28 +385,32 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
   <div class="t"><h4>講法</h4><p>「先量輪子、自己算，不要問別人答案。一次只改一個數字。尺從起點線量到車頭前緣。」速度試完問：「速度改了，距離有變嗎？那距離是誰決定的？」藍色試完問：「只叫 C 轉，D 沒動，車子會怎樣？所以開車用哪一種比較方便？」</p><h4>卡點</h4><ul><li>車不動：「將運轉電機設置為」是 C+D 嗎？連接還在嗎？積木有沒有接在「當程式啟動時」下面（要貼緊）？</li><li>車往後走：A、B 線對調。</li><li>速度 100 多走一點：衝太快停不住，正常。</li><li>藍色積木讓車往後歪：↻／↺ 是馬達自己的方向，左右輪馬達裝的方向相反，正常。</li><li>時間不夠：速度只試 20 和 100；藍色由老師示範。</li></ul><h4>參考（不要直接給）</h4><p>官方小輪子直徑約 5.6 公分，5.6 × 3.14 ≈ 17.6，官方範例填 17.5。學生填 17～18 都合理，差一點是打滑、對準造成的。</p></div>
 </section>
 
-<section class="step" data-gate data-type="quiz" data-part="走直線" data-sub="小測驗" data-title="走直線小測驗" data-min="1" data-color="#e23db8">
-  <p class="goal">答對拿一顆星。</p>
-  <div class="quiz">
-    <div class="q" data-key="qb1"><p class="q-t">1. 想讓車後退 30 公分，要改哪裡？</p><div class="opts">
-      <button type="button" data-ok="1" data-fb="方向改 ↓（後退），距離改 30。設定三塊不用動。">↑ 改成 ↓，20 改成 30</button>
-      <button type="button" data-fb="C+D 是哪兩顆馬達，和前進後退無關。">C+D 改成 D+C</button>
-      <button type="button" data-fb="那是輪子轉一圈走幾公分，改了距離會不準。">「旋轉一圈」的數字改成 30</button></div><p class="fb" hidden></p></div>
-    <div class="q" data-key="qb2"><p class="q-t">2. 按播放，車完全不動。最先檢查什麼？</p><div class="opts">
-      <button type="button" data-ok="1" data-fb="線沒插緊或 App 沒連上，車就不會動。積木預設 C+D 和手冊一樣，先看線和連接。">C、D 的線插好了嗎、App 連上了嗎</button>
-      <button type="button" data-fb="速度 50 車就會動，不是原因。">把速度改成 100</button></div><p class="fb" hidden></p></div>
-    <div class="q" data-key="qb4"><p class="q-t">3. 想讓整台車往前走，用哪一種顏色的積木最方便？</p><div class="opts">
-      <button type="button" data-ok="1" data-fb="粉色把兩顆馬達當一台車，一塊就能讓車走。">粉色「運動」</button>
-      <button type="button" data-fb="藍色一次只管一顆馬達，左右輪要各排，比較麻煩。">藍色「馬達」</button></div><p class="fb" hidden></p></div>
-    <div class="q" data-key="qb5"><p class="q-t">4. 速度 50 改成 100，「↑ 移動 20 厘米」會走多遠？</p><div class="opts">
-      <button type="button" data-ok="1" data-fb="速度只管快慢，走多遠看「移動」那塊的 20。">還是大約 20 公分，只是比較快</button>
-      <button type="button" data-fb="速度變兩倍，距離不會變兩倍；距離是「移動」那塊決定的。">變成 40 公分</button></div><p class="fb" hidden></p></div>
-    <div class="q" data-key="qb3"><p class="q-t">5. 寫 20 公分，量到 19 公分。這代表？</p><div class="opts">
-      <button type="button" data-ok="1" data-fb="真的車會有一點誤差（打滑、對準）。差多少要量了才知道，所以要用尺量。">正常，真的車會差一點點</button>
-      <button type="button" data-fb="程式沒寫錯，是真實世界的誤差。">程式寫錯了</button></div><p class="fb" hidden></p></div>
-    <p class="quiz-state"></p>
+<section class="step" data-type="task" data-part="走直線" data-sub="換單位" data-title="換單位：各要填多少才走 20 公分" data-min="4" data-color="#e23db8">
+  <p class="goal">同樣走 <b>20 公分</b>，換成圈、度、秒，各要填多少？<b>先算，再試。</b></p>
+  <div class="two">
+    <div>
+      <h3 class="mini">1. 先量輪徑</h3>
+      <p class="say">輪子直徑 <b><span data-mirror="w.dia" data-empty="＿＿"></span></b> 公分，轉一圈走 <b><span data-mirror="w.circ" data-empty="＿＿"></span></b> 公分。</p>
+      <p class="say"><small>還沒量？回「動手」那一頁，用尺量輪子直徑，乘 3.14。</small></p>
+      <h3 class="mini">2. 算一算，再按 ▶ 試</h3>
+      <ol class="steps-do">
+        <li>把「<b>↑ 移動 20 厘米</b>」最後那格換成圈、度、秒，數字照表改。</li>
+        <li>每換一次都按 ▶，量車走了幾公分。</li>
+      </ol>
+      <div class="blkstack"><span class="b b-ev hat">當程式啟動時</span><span class="b b-move">設定三塊（和剛才一樣）</span><span class="b b-move"><i class="m">↑</i> 移動 <i class="x">？</i> <i class="m">○</i></span></div>
+    </div>
+    <div>
+      <table class="rec u20">
+        <tr><th>單位</th><th class="l">怎麼算</th><th>要填多少</th><th>走了幾公分</th></tr>
+        <tr><td><b>厘米</b></td><td class="l">直接寫</td><td><b>20</b></td><td><input type="number" step="any" data-key="u.cmd" data-optional aria-label="厘米走了幾公分"></td></tr>
+        <tr><td><b>圈</b></td><td class="l">20 ÷ 一圈幾公分</td><td><input type="number" step="any" data-key="u.rot" aria-label="要填幾圈"></td><td><input type="number" step="any" data-key="u.rotd" aria-label="圈走了幾公分"></td></tr>
+        <tr><td><b>度</b></td><td class="l">圈數 × 360</td><td><input type="number" step="any" data-key="u.deg" aria-label="要填幾度"></td><td><input type="number" step="any" data-key="u.degd" aria-label="度走了幾公分"></td></tr>
+        <tr><td><b>秒</b></td><td class="l">算不出來，要試。先試 1 秒走幾公分，再推（速度 50 %）</td><td><input type="number" step="any" data-key="u.sec" aria-label="要填幾秒"></td><td><input type="number" step="any" data-key="u.secd" aria-label="秒走了幾公分"></td></tr>
+      </table>
+      <div class="pick"><p class="pick-q">為什麼「秒」最難剛好走 20 公分？</p><div class="pick-opts"><button type="button" data-fb="秒的數字可以填小數，像 1.5 秒。再想想，同樣 1 秒，什麼會讓車走得遠或近？">秒不能填小數</button><button type="button" data-ok="1" data-fb="對！用秒的時候，走多遠還要看速度。速度一改，同樣幾秒走的距離就變了。">走多遠還要看速度</button><button type="button" data-fb="圈、度、秒都是看輪子。想想看，秒和速度有什麼關係？">秒和輪子沒關係</button></div><p class="pick-fb" hidden></p></div>
+    </div>
   </div>
-  <div class="t"><h4>講法</h4><p>答完換下一個人操作。</p></div>
+  <div class="t"><h4>講法</h4><p>「同樣 20 公分，可以用不同單位寫。圈和度可以算出來；秒要看速度，只能試。」先讓學生自己算，算完才按 ▶ 驗證。</p><h4>參考（不要直接給）</h4><p>一圈約 17.5 公分時：20 ÷ 17.5 ≈ 1.14 圈；1.14 × 360 ≈ 411 度；秒依車子速度而定，要實測。</p><h4>卡點</h4><ul><li>度算錯：先算圈，再乘 360。</li><li>秒走太遠或太近：速度是不是 50 %？只改秒數。</li><li>還沒量輪徑：回動手頁量。</li></ul></div>
 </section>
 
 <!-- ========== 4 轉彎 ========== -->
@@ -458,6 +463,33 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
   </div>
   <p class="signnote"><b>Python 呢？</b>　Python 直接寫數字：<code>steering=50</code> 往右，<code>steering=-50</code> 往左，和積木上的數字一樣。</p>
   <div class="t"><h4>講法</h4><p>「拉到 0、25、50、75、100，每次看兩條速度條。0 兩輪一樣快；往右拉，右輪越來越慢；50 右輪停住；超過 50 右輪開始倒轉；100 兩輪一樣快但方向相反，原地轉。」「圈是輪子轉的圈數。拿起車子，用手把輪子轉半圈給你看——這就是 0.5 圈。」可以請兩位學生手牽手當左右輪，現場演一次。</p><h4>官方怎麼說</h4><p>官方說明（簡體）只寫：轉向值 -100 到 100；「0」直線行駛；+99／-99 弧形路徑最明顯；100／-100 以自身為中心旋轉。官方沒有寫公式；速度條用的是常見的兩輪差速算法（外側輪照設定速度，內側輪＝設定速度 ×（1 − 轉向值 ÷ 50）），真車待確認。</p><h4>粉色積木還有</h4><p>「停止運動」今天在轉直角頁用來收尾，讓車確實停住再看角度。「開始移動」（一直走到叫停）之後感測器課會用到。</p><h4>單位</h4><p>「向 ○ 移動」最後那格只有圈、度、秒（App 截圖確認，11/24），沒有厘米；今天轉彎都用「圈」。</p><h4>「圈」以哪個輪子算</h4><p>轉向值 ±100 時兩輪一樣多，沒有疑問。其他轉向值，動畫假設以<b>轉得快的那個輪子</b>為準（常見說法，官方沒寫），真車待確認。</p></div>
+</section>
+
+<section class="step" data-type="task" data-part="轉彎" data-sub="三種轉法" data-title="動手試：三種轉向值" data-min="3" data-color="#16a34a">
+  <p class="goal">用<b>模擬器</b>（或真車）試三種轉向值，看車子轉法有什麼不一樣。</p>
+  <div class="two">
+    <div>
+      <div class="go">
+        <span class="k">模擬器</span><span><a class="btn pri" href="https://boyinslps.github.io/robot-quest/spike-sim/" target="spikesim" rel="noopener">打開 SPIKE 模擬器</a>　真車也可以，兩個都試更好。</span>
+      </div>
+      <ol class="steps-do">
+        <li>照右邊的圖排積木。</li>
+        <li>轉向值依序改成 <b>右:25</b>、<b>右:50</b>、<b>右:100</b>，<b>只改這一格</b>，其他不動。</li>
+        <li>每改一次按 ▶，看車子怎麼走、右輪怎麼轉，填表。</li>
+      </ol>
+    </div>
+    <div>
+      <div class="blkstack"><span class="b b-ev hat">當程式啟動時</span><span class="b b-move">設定三塊（和剛才一樣）</span><span class="b b-move">向 <i class="x">右:○</i> 移動 <i>1</i> <i class="m">圈</i></span><span class="b b-move">停止運動</span></div>
+    </div>
+  </div>
+  <table class="rec">
+    <tr><th>轉向值</th><th>車子怎麼走</th><th>右輪怎麼轉</th></tr>
+    <tr><td><b>右:25</b></td><td><select data-key="tt.p25"><option value=""></option><option>往前畫一個大弧</option><option>繞著右輪轉</option><option>在原地打轉</option></select></td><td><select data-key="tt.w25"><option value=""></option><option>往前，比左輪慢</option><option>停住不動</option><option>往後轉</option></select></td></tr>
+    <tr><td><b>右:50</b></td><td><select data-key="tt.p50"><option value=""></option><option>往前畫一個大弧</option><option>繞著右輪轉</option><option>在原地打轉</option></select></td><td><select data-key="tt.w50"><option value=""></option><option>往前，比左輪慢</option><option>停住不動</option><option>往後轉</option></select></td></tr>
+    <tr><td><b>右:100</b></td><td><select data-key="tt.p100"><option value=""></option><option>往前畫一個大弧</option><option>繞著右輪轉</option><option>在原地打轉</option></select></td><td><select data-key="tt.w100"><option value=""></option><option>往前，比左輪慢</option><option>停住不動</option><option>往後轉</option></select></td></tr>
+  </table>
+  <div class="pick"><p class="pick-q">試完三種，轉向值越大，車子？</p><div class="pick-opts"><button type="button" data-fb="三次都是輪子轉 1 圈。比一比三次車子走的路，哪一個比較彎？">走得越遠</button><button type="button" data-ok="1" data-fb="對！數字越大，右輪越慢、停住、再往後轉，車子就彎得越急，100 是原地打轉。">彎得越急</button><button type="button" data-fb="再看一次表格，三次車子走的樣子一樣嗎？">都一樣</button></div><p class="pick-fb" hidden></p></div>
+  <div class="t"><h4>講法</h4><p>「只改轉向值這一格，其他不動，才看得出差在哪。」模擬器看車子路線很清楚；真車可以把車拿起來按 ▶，看兩個輪子怎麼轉。</p><h4>參考（不要直接給）</h4><p>右:25 往前畫大弧、右輪往前但比較慢；右:50 繞著右輪轉、右輪停住；右:100 原地打轉、右輪往後。（模擬器用同一套算法；真車若不同，照實際寫）</p><h4>卡點</h4><ul><li>三次看起來一樣：是不是改到圈數而不是轉向值？</li><li>車子往左：轉向值是不是變成「左:」？</li></ul></div>
 </section>
 
 <section class="step" data-type="task" data-part="轉彎" data-sub="轉直角" data-title="試試看：幾圈是銳角、直角、鈍角" data-min="5" data-color="#16a34a">
@@ -529,7 +561,7 @@ h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
 </section>
 
 <!-- ========== 5 挑戰：繞積木 ========== -->
-<section class="step" data-type="task" data-part="挑戰" data-sub="繞積木" data-title="挑戰：繞過積木到終點" data-min="8" data-color="#7c3aed">
+<section class="step" data-type="task" data-part="挑戰" data-sub="繞積木" data-title="挑戰：繞過積木到終點" data-min="3" data-color="#7c3aed">
   <p class="goal">積木擋在路中間。<b>先寫計畫</b>，再排積木，讓車繞過去、停在終點線。</p>
   <div class="two">
     <div>
