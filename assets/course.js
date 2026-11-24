@@ -237,6 +237,9 @@
     for (var i = 0; i < steps.length; i++) if (steps[i].hasAttribute('data-gate') && !quizSolved(steps[i])) return i;
     return steps.length - 1;
   }
+  /* 「收拾」永遠可以點（下課時間到，不管小測驗過了沒都能直接跳過去收） */
+  function alwaysOpen(i) { return !!steps[i] && (steps[i].dataset.part === '收拾' || steps[i].hasAttribute('data-open')); }
+  function isOpen(i, mo) { return i <= mo || alwaysOpen(i); }
   /* 進度列依「環節」分組：同一個 data-part 的幾頁（說明／官方／小測驗）合成一顆圓點；
      圓點不縮小、名稱 ≤ 4 字。環節裡的幾頁用頁內的小分頁切換。 */
   var groups = [], starCount = 0, booted = false, toastTimer = null;
@@ -252,11 +255,11 @@
     var mo = maxOpen();
     groups.forEach(function (g) {
       var b = g.btn, done = g.idx.every(stepDone);
-      b.classList.toggle('done', done); b.classList.toggle('locked', g.idx[0] > mo); b.disabled = g.idx[0] > mo;
+      b.classList.toggle('done', done); b.classList.toggle('locked', !isOpen(g.idx[0], mo)); b.disabled = !isOpen(g.idx[0], mo);
       if (g.idx.indexOf(cur) >= 0) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current');
     });
     $$('.subnav button').forEach(function (b) {
-      var i = +b.dataset.i; b.disabled = i > mo; b.classList.toggle('on', i === cur); b.classList.toggle('done', stepDone(i));
+      var i = +b.dataset.i; b.disabled = !isOpen(i, mo); b.classList.toggle('on', i === cur); b.classList.toggle('done', stepDone(i));
       if (i === cur) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
     });
     steps.forEach(function (s, i) { var nx = $('.stepfoot .next', s); if (nx && i < steps.length - 1) { nx.disabled = i + 1 > mo; nx.title = i + 1 > mo ? '先把這一關的題目都答對' : ''; } });
@@ -270,7 +273,7 @@
   function go(i, noScroll) {
     if (!steps.length) return;
     cur = Math.max(0, Math.min(steps.length - 1, i));
-    var mo = maxOpen(); if (cur > mo) cur = mo;
+    var mo = maxOpen(); if (!isOpen(cur, mo)) cur = mo;
     visited[cur] = true;
     if (!state['v' + cur]) { state['v' + cur] = 1; saveLocal(); }   // 純閱讀頁走過就記下來，重新整理後 ✓ 還在
     steps.forEach(function (s, k) { s.hidden = k !== cur; });
