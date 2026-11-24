@@ -141,7 +141,7 @@ textarea.note-in{min-height:3.2em}
 .b i.x{background:#fef08a;color:#854d0e;border:1px dashed #ca8a04}
 .b i.m{background:#e0f2fe;border-radius:6px}
 .b i.hx{border-radius:6px;background:#dcfce7}
-.b-move{background:#5b8def}.b-mot{background:#2b6ad6}.b-ev{background:#f5c400;color:#3b2f00}.b-ev i{color:#3b2f00}
+.b-move{background:#e23db8}.b-mot{background:#2b6ad6}.b-ev{background:#f5c400;color:#3b2f00}.b-ev i{color:#3b2f00}
 .b-ctl{background:#ff9f1a}.b-sen{background:#2dc4d6}.b-op{background:#5cb85c}.b-var{background:#ff6b35}.b-light{background:#9b59e6}.b-sound{background:#d94fa0}
 .b-c{padding-bottom:0;padding-right:10px}
 .b-c .in{display:block;margin:6px 0 0 -14px;padding:4px 0 4px 20px;background:rgba(255,255,255,.14);border-radius:0;min-height:1.6em}

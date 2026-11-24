@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="資訊老師黃博胤">
+<meta name="robots" content="noindex">
+<title>第 3 節 組底盤、移動與轉向、繞過積木</title>
+<link rel="stylesheet" href="../assets/course.css?v=29">
+<style>
+.carfig,.field{display:block;margin:6px auto;max-width:100%}
+.blkstack{display:inline-block;margin:6px 0 10px}
+.offvid{display:block;width:100%;max-width:560px;margin:8px auto;border-radius:12px;background:#0f172a;cursor:zoom-in}
+.offvid.big{position:fixed;inset:4vh 4vw;width:92vw;max-width:none;height:92vh;z-index:60;cursor:zoom-out;box-shadow:0 0 0 100vmax rgba(15,23,42,.8)}
+.vidcap{text-align:center;color:#475569;font-size:.95rem;margin:0 0 6px}
+.warnbox{background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:8px 14px;margin:8px 0}
+.steer{background:#fdf2f8;border:2px solid #f9a8d4;border-radius:14px;padding:10px 14px;margin:10px 0;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.steer svg{flex:none;background:#fff;border-radius:10px}
+.steer-in{font-size:1.15rem;font-weight:700;margin:0}
+.steer-in input[type=range]{width:260px;vertical-align:middle}
+.steer-in b{display:inline-block;min-width:3.2em;text-align:center;background:#fff;border:1px solid #f9a8d4;border-radius:8px;padding:0 6px}
+.steer-side{flex:1 1 300px}
+.wbar{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:1.05rem}
+.wbar .wl{width:2.6em;font-weight:700}
+.wbar .wt{position:relative;flex:1;height:16px;background:#f1f5f9;border-radius:8px;overflow:hidden}
+.wbar .wz{position:absolute;left:50%;top:0;bottom:0;width:2px;background:#94a3b8}
+.wbar .wf{position:absolute;top:0;bottom:0}
+.wbar b{min-width:6.5em}
+.signnote{background:#eff6ff;border:2px solid #93c5fd;border-radius:12px;padding:8px 14px;margin:10px 0;font-size:1.05rem}
+.b-ghost{background:#fff!important;color:#94a3b8!important;border:2px dashed #cbd5e1;min-width:7em;justify-content:center}
+.pick{border:2px dashed #fcd34d;background:#fffbeb;border-radius:12px;padding:8px 12px;margin:8px 0}
+.pick-q{margin:0 0 6px;font-weight:700;font-size:1.1rem}
+.pick-opts{display:flex;flex-wrap:wrap;gap:8px}
+.pick-opts button{font:inherit;padding:4px 14px;border:2px solid #fcd34d;border-radius:999px;background:#fff;cursor:pointer}
+.pick-opts button.no{border-color:#fca5a5;background:#fef2f2;color:#991b1b}
+.pick-opts button.yes{border-color:#16a34a;background:#16a34a;color:#fff}
+.pick-fb{margin:6px 0 0;font-size:1.05rem}.pick-fb.ok{color:#15803d;font-weight:700}.pick-fb.ng{color:#b45309}
+.daily{background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:8px 14px;margin:10px 0;font-size:1.08rem}
+.steer-tip{margin:8px 0 0;font-size:1.1rem}
+.plan{width:100%;border-collapse:collapse;margin:6px 0;font-size:1.05rem}
+.plan th,.plan td{border:1px solid #cbd5e1;padding:3px 8px;text-align:center}
+.plan th{background:#f1f5f9}
+.plan select,.plan input{font:inherit;padding:2px 6px;border:2px solid #cbd5e1;border-radius:8px}
+.plan input{width:4.5em;text-align:center}
+.goalcard{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0}
+.goalcard div{flex:1 1 220px;border:2px solid #cbd5e1;border-radius:12px;padding:8px 12px;background:#fff}
+.goalcard b{color:#6d28d9}
+.vs{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 10px}
+.vs>div{flex:1 1 260px;border:2px solid #e2e8f0;border-radius:12px;padding:8px 12px;background:#fff}
+.vs p{margin:6px 0 0;font-size:1.08rem}
+.vs h3{margin:0 0 4px;font-size:1.2rem}.vs h3 small{font-weight:400;color:#64748b;font-size:.85rem}
+.vs-blue{border-color:#93c5fd!important}.vs-pink{border-color:#f9a8d4!important}
+.vs-sum{font-size:1.08rem;margin:0 0 6px!important}
+.blist dt .b{display:inline-flex;width:auto}
+.blist{margin:0}.blist dt{margin:8px 0 0}.blist dd{margin:2px 0 0 4px;font-size:1.02rem;color:#334155}
+.speedbox{background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:8px 14px;margin:10px 0;font-size:1.1rem}
+h3.mini{margin:14px 0 6px;font-size:1.2rem;color:#be185d}
+.meaning{flex:1 1 320px;font-size:1.1rem}
+.meaning p{margin:4px 0 10px}
+.meaning .tag{display:inline-block;background:#e23db8;color:#fff;font-weight:700;border-radius:8px;padding:0 8px;margin-right:8px}
+.angles{display:block;margin:4px auto}
+.found-t{margin-top:10px}
+.found-t th[colspan]{background:#dcfce7;color:#15803d}
+.found-t td{white-space:nowrap}
+.found-t input{width:3.6em!important;min-width:0}
+</style>
+</head>
+<body data-lesson="L03" data-nopy>
+<div class="wrap">
+
+<header class="hero">
+  <div class="in">
+    <div class="hub-slot"></div>
+    <div>
+      <div class="sub"><a href="../index.html">← 課程目錄</a> · 第 3 節</div>
+      <h1>組底盤、移動與轉向、繞過積木</h1>
+      <p class="goal1">今天結束時：<b>你們的車能走直線、轉直角、走正方形，最後自己排程式繞過一塊積木。</b></p>
+      <div class="meta"><span>三人一台車</span><span>用 LEGO 官方 SPIKE App</span><span>共 <span id="total-min">50</span> 分鐘</span></div>
+    </div>
+  </div>
+  <aside class="t t-head"><details><summary>老師說明：準備清單、時間軸、卡關處理、待確認（點一下展開／收合）</summary>
+    <h4>這節的一個坎</h4>
+    <p>「<b>車會照我排的粉色積木動，而且我能用數字控制它走多遠、轉多少</b>」。組車是為了讓這件事發生；走直線 → 轉直角 → 正方形是三個里程碑；最後的「繞積木」是把三樣自己組合起來的遷移題（官方 TC1 第 5 步「穿過 8 塊色磚」的簡化版）。</p>
+    <h4>2026-11-23 改版重點（和舊版差在哪）</h4>
+    <ul>
+      <li>舊版「改官方課程第 3 頁四組起始程式」太繞、文字太多。改成：<b>自己新建專案，一次只排一小段積木</b>；官方 TC1 只拿兩樣：開場影片（嵌在第 2 頁）與「驅動底座 1」搭建手冊。</li>
+      <li>轉彎用「轉向 100、改圈數」，<b>不用陀螺儀</b>（陀螺儀轉 90 度留到下一節和轉向誤差一起）。圈數不給答案：學生照「移動 → 轉 → 停止」範例，用表格試出幾圈是銳角、直角、鈍角（度數學生學過，不再考）。</li>
+      <li>照《樂高課程設計規範》：組車、走直線兩段「說明 → 動手 → 小測驗」、闖關答對才往下（轉彎段不考，老師 11/23 定，直接接挑戰）、沒有分享與收納、最後是收拾、老師說明收合。只用積木，不顯示 Python 開關。</li>
+      <li>下一節接「為什麼回不到起點」時讀 <code>L03:sq.rot</code>（轉直角用的圈數）與 <code>L03:sq.dist</code>（正方形離起點幾公分）。</li>
+    </ul>
+    <h4>官方影片怎麼接的</h4>
+    <p>第 2 頁直接播放官方 TC1 開場影片（48 秒，沒有字也看得懂，從第 6 秒開始播以跳過片頭色塊；教室沒聲音沒關係）。影片在官方 App 的內容伺服器 <code>spike.legoeducation.com/content/…-unix.mp4</code>（2026-11-23 從官方單元 JSON 找到路徑，確認從別的網站也能播）；<b>沒有下載、沒有放進我們的網站</b>。官方換網址就會播不出來，那時改按「打開官方課程」在 App 裡看第 1 課第 1 頁。</p>
+    <h4>上課前一天一定要做</h4>
+    <ul>
+      <li><b>用真車在教室的 Chrome 走一遍</b>：組裝、接 A／B、連線、直線 20 公分、轉向 100 試 0.2／0.4／0.6／0.8 圈各轉成什麼角、正方形、繞積木。實際數字寫進下方待確認。</li>
+      <li><b>半成品</b>：「驅動底座 1」先做到馬達與輪子固定好（線不接），學生從那一步接著組。記下一台組完要幾分鐘（頁面估 10 分鐘）。另備 1 台組好的備用車。</li>
+      <li>每隊：捲尺或 50 公分以上的尺、膠帶（貼起點、終點、直角）、一塊<b>直立的高積木</b>（約 2×4 疊 3～4 層，或一個紙杯）、80×80 公分平整空地；兩隊跑道隔開。</li>
+      <li>主機充飽、貼隊名；App 語言設成中文（官方只有簡體）；USB 線夠長，或藍牙先試過。</li>
+      <li>本節沒有任何聲音。</li>
+    </ul>
+    <h4>時間軸（分鐘）</h4>
+    <p>領箱 0–3 → 看影片 3–5 → 組車 5–14 → 組車小測驗 14–15 → 藍色粉色說明 15–18 → 直線＋速度＋藍色動手 18–26 → 直線小測驗 26–27 → 轉彎說明 27–30 → 銳角直角鈍角 30–35 → 正方形 35–40 → 繞積木 40–48 → 收拾 48–50。<b>檢查點</b>：第 15 分鐘兩台車組好；第 27 分鐘直線做完；第 40 分鐘正方形做完。動手合計 35 分鐘。</p>
+    <h4>時間不夠時的砍法（照順序；被砍的下一節開頭補）</h4>
+    <ol>
+      <li>直線動手：速度只試 20 和 100，藍色由老師示範。</li>
+      <li>組車超過 10 分鐘：老師當場補一半，或換備用車。</li>
+      <li>轉直角只試 0.2、0.4、0.6、0.8 四次，直角填最接近的數字。</li>
+      <li>繞積木只做「★ 過關」，「★★ 回到起點」留給下一節開頭當暖身。</li>
+    </ol>
+    <h4>卡關處理</h4>
+    <ul>
+      <li>車不動：線插 A、B 了嗎？「將運轉電機設置為」是 A+B 嗎？左上角「連接」還連著嗎？</li>
+      <li>車往後走或原地轉：A、B 插反或其中一條沒插緊 → 對調再試。</li>
+      <li>小測驗卡住：先看答錯的提示；仍卡住，網址加 <code>#teacher/s頁碼</code> 放行。</li>
+      <li>兩隊同時求救：先顧還沒到檢查點的那隊，一次最多 2 分鐘。</li>
+    </ul>
+    <h4>分工（T13）</h4>
+    <p>三人一台車：組車時「看圖、拼、對照」每 5 步換；寫程式時「排積木、放車、量尺」三個角色，每過一個小測驗輪一次。頁面只寫「輪流」，不分配固定角色。</p>
+    <h4>待確認（實機驗證後寫回，並改學生頁）</h4>
+    <ul>
+      <li>官方「驅動底座 1」最後一頁的接口（lego-course 第 3 節備份寫 C、D、E）；我們改 A 左、B 右，E 不接。</li>
+      <li>「↑ 移動 20 厘米」真車實際走幾公分（官方設定 1 圈＝17.5 厘米）。</li>
+      <li>「向 右:100 移動」每 0.2 圈實際轉幾度；我們的車轉直角要幾圈（頁面讓學生自己試，不給答案）。</li>
+      <li>轉向值正數是不是向右（官方說明：正數右、負數左；真機待確認）。</li>
+      <li>繞積木：積木放 30 公分、終點 60 公分，桌面夠不夠大。</li>
+    </ul>
+    <h4>學理備註</h4>
+    <p>T1：直線動手新積木 2（設定三塊整段照抄算 1、移動 1）；轉彎兩頁新積木 2（轉向移動、重複）。T4：直線給完整範例；正方形先用四題選擇引導出「重複」，範例只給空格；轉直角不給數字，用表格試出銳角／直角／鈍角的圈數範圍；繞積木全部自己排。G1／G7：開場影片最後那台車在積木間穿梭，就是今天最後的挑戰。G6：直線、轉直角前先猜，繞積木先寫計畫。G11：轉直角、繞積木一次只改一個數字。轉直角先猜「不到／剛好／超過 1 圈」。</p>
+  </details></aside>
+</header>
+
+<div class="idbar"></div>
+
+<!-- ========== 1 領箱 ========== -->
+<section class="step" data-type="box" data-part="領箱" data-title="領箱、找齊東西" data-min="3" data-color="#64748b">
+  <p class="goal">填好身分，找齊今天要用的東西。三人一台車，輪流操作。</p>
+  <div class="two">
+    <div class="checklist">
+      <label class="chk"><input type="checkbox" data-key="box.id"><span>上面的隊伍、班級、座號填好了</span></label>
+      <label class="chk"><input type="checkbox" data-key="box.hub"><span>主機、馬達 2 個、線 2 條</span></label>
+      <label class="chk"><input type="checkbox" data-key="box.base"><span>老師給的車子半成品</span></label>
+      <label class="chk"><input type="checkbox" data-key="box.tool"><span>尺、膠帶、一塊高積木</span></label>
+    </div>
+    <div class="go">
+      <span class="k">官方</span><span><a class="btn pri" href="https://spike.legoeducation.com/prime/lobby/" target="spike" rel="noopener">打開官方 App</a>　先留著，組車、寫程式都在這裡。</span>
+    </div>
+  </div>
+  <div class="t"><h4>講法</h4><p>「三分鐘找齊四樣，打開官方 App 先放著。」</p><h4>卡點</h4><ul><li>學生開始拼：先看下一頁的影片。少零件：記下，用備用零件補。</li></ul></div>
+</section>
+
+<!-- ========== 2 組車 ========== -->
+<section class="step" data-type="intro" data-part="組車" data-sub="看影片" data-title="看官方影片：車子會做什麼" data-min="2" data-color="#0369a1">
+  <p class="goal">按播放，看 LEGO 的車子怎麼動。注意<b>最後</b>它在做什麼。</p>
+  <video class="offvid" controls muted playsinline preload="metadata" title="LEGO 官方 Training Camp 1 開場影片（點畫面放大）">
+    <source src="https://spike.legoeducation.com/content/49543312/51454898/4abea51900c4b581839b813d78ce6246/video_hd/competition-ready-training-camp-1-d-27-video-unix.mp4#t=6" type="video/mp4">
+  </video>
+  <p class="vidcap">LEGO 官方影片．點畫面放大．播不出來就按 <a href="https://spike.legoeducation.com/prime/unit-plans/blt4b49bd6ee0bde119" target="spike" rel="noopener">打開官方課程</a> → 第 1 課</p>
+  <label class="say">影片最後，車子在做什麼？<select data-key="v.end"><option value=""></option><option value="weave">在積木中間穿過去，沒撞到</option><option value="push">把積木推倒</option><option value="stop">停在原地不動</option></select></label>
+  <p class="say">今天最後，你們也要讓車<b>繞過一塊積木</b>。</p>
+  <div class="t"><h4>講法</h4><p>「先看車子會做哪些動作：直走、後退、轉彎。最後它在積木中間穿過去沒撞到——今天最後的挑戰就是這個，只是我們只放一塊。」</p><h4>卡點</h4><ul><li>影片播不出來：投影老師電腦的官方 App 第 1 課第 1 頁。</li></ul></div>
+</section>
+
+<section class="step" data-type="task" data-part="組車" data-sub="組車" data-title="照官方搭建手冊組車" data-min="9" data-color="#0369a1">
+  <p class="goal">從半成品接著組，最後<b>左輪插 A、右輪插 B</b>。</p>
+  <div class="two">
+    <div>
+      <div class="go">
+        <span class="k">打開</span><span>官方 App 左邊「<b>搭建手冊</b>」→「<b>驅動底座 1</b>」。<br><small>找不到？<a class="btn" href="https://spike.legoeducation.com/prime/models/" target="spike" rel="noopener">打開搭建手冊</a></small></span>
+      </div>
+      <ol class="steps-do">
+        <li>翻到和半成品一樣的那一步，從下一步開始。</li>
+        <li>一人看圖、一人拼、一人對照，<b>每 5 步換人</b>。</li>
+        <li>接線：左輪 → <b>A</b>，右輪 → <b>B</b>。</li>
+      </ol>
+      <p class="warnbox">手冊最後一頁畫的是 C、D、E。<b>我們用 A 和 B</b>，E 那個零件不接。</p>
+    </div>
+    <div>
+      <svg class="carfig" viewBox="0 0 320 210" width="300" role="img" aria-label="車子從上面看：車頭朝上，左輪的馬達接 A，右輪的馬達接 B">
+        <rect x="102" y="38" width="116" height="140" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="3"/>
+        <text x="160" y="112" text-anchor="middle" font-size="16" font-weight="700" fill="#334155">主機</text>
+        <rect x="60" y="102" width="34" height="62" rx="8" fill="#22d3ee" stroke="#0e7490" stroke-width="3"/>
+        <rect x="226" y="102" width="34" height="62" rx="8" fill="#22d3ee" stroke="#0e7490" stroke-width="3"/>
+        <text x="77" y="196" text-anchor="middle" font-size="18" font-weight="700" fill="#0e7490">左輪　A</text>
+        <text x="243" y="196" text-anchor="middle" font-size="18" font-weight="700" fill="#0e7490">右輪　B</text>
+        <path d="M160 34 L160 8 M150 18 L160 6 L170 18" stroke="#dc2626" stroke-width="4" fill="none"/>
+        <text x="196" y="22" font-size="16" font-weight="700" fill="#dc2626">車頭</text>
+      </svg>
+      <div class="port-fill">左輪接 <select data-key="port.left"><option value=""></option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select>　右輪接 <select data-key="port.right"><option value=""></option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div>
+      <div class="checklist">
+        <label class="chk"><input type="checkbox" data-key="b.built"><span>用手推車子，兩個輪子順順地轉</span></label>
+        <label class="chk"><input type="checkbox" data-key="b.ports"><span>左輪插 A、右輪插 B，線沒碰到輪子</span></label>
+      </div>
+    </div>
+  </div>
+  <div class="t"><h4>講法</h4><p>「看圖拼，不要猜。換人時三個人一起轉一格。左右：站在車子後面往前看。」</p><h4>卡點</h4><ul><li>組超過 10 分鐘：老師補一半或換備用車。</li><li>輪子卡住：輪軸插到底了嗎？</li><li>線太短接不到 A、B：插夠得到的口，接口格照實際填，程式也要照改。</li></ul></div>
+</section>
+
+<section class="step" data-gate data-type="quiz" data-part="組車" data-sub="小測驗" data-title="組車小測驗" data-min="1" data-color="#0369a1">
+  <p class="goal">答對拿一顆星。答錯會告訴你為什麼，可以再選。</p>
+  <div class="quiz">
+    <div class="q" data-key="qa1"><p class="q-t">1. 站在車子後面往前看，左輪接哪個口？</p><div class="opts">
+      <button type="button" data-ok="1" data-fb="左 A、右 B。之後每一節都這樣接，程式才通用。">A</button>
+      <button type="button" data-fb="B 是右輪。">B</button>
+      <button type="button" data-fb="手冊畫的是 C，但我們約定左 A、右 B。">C</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="qa2"><p class="q-t">2. 線垂在輪子旁邊，會怎樣？</p><div class="opts">
+      <button type="button" data-ok="1" data-fb="輪子一轉就會把線捲進去，車會卡住或歪掉。線要整理好、固定在車身。">輪子轉起來會把線捲進去</button>
+      <button type="button" data-fb="線碰到輪子就會被捲，不是沒關係。">沒關係</button></div><p class="fb" hidden></p></div>
+    <p class="quiz-state"></p>
+  </div>
+  <div class="t"><h4>講法</h4><p>答完換下一個人操作。</p></div>
+</section>
+
+<!-- ========== 3 走直線 ========== -->
+<section class="step" data-type="intro" data-part="走直線" data-sub="說明" data-title="藍色和粉色積木：馬達和運動" data-min="3" data-color="#e23db8">
+  <p class="goal">藍色和粉色都能讓輪子轉。差別是：<b>一次管幾顆馬達</b>。</p>
+  <div class="vs">
+    <div class="vs-blue">
+      <h3>藍色「馬達」<small>（App：電機）</small></h3>
+      <p class="vs-sum">一次只管<b>一顆</b>馬達，積木前面要選接口（A、B…）。</p>
+      <dl class="blist">
+        <dt><span class="b b-mot"><i class="m">A</i> 運行 <i class="m">↻</i> <i>1</i> <i class="m">圈</i></span></dt><dd>讓 A 這顆馬達轉 1 圈就停。↻／↺ 選轉的方向；圈也能改成秒、度。</dd>
+        <dt><span class="b b-mot"><i class="m">A</i> 啟動電機 <i class="m">↻</i></span></dt><dd>A 一直轉，不會自己停。</dd>
+        <dt><span class="b b-mot"><i class="m">A</i> 關閉電機</span></dt><dd>A 停下來。</dd>
+        <dt><span class="b b-mot"><i class="m">A</i> 將速度設置為 <i>75</i> %</span></dt><dd>A 轉多快。</dd>
+      </dl>
+    </div>
+    <div class="vs-pink">
+      <h3>粉色「運動」</h3>
+      <p class="vs-sum"><b>兩顆</b>馬達一起當成一台車，一塊就能讓車走。</p>
+      <dl class="blist">
+        <dt><span class="b b-move">將運轉電機設置為 <i class="m">A+B</i></span></dt><dd>哪兩顆馬達是輪子。</dd>
+        <dt><span class="b b-move">將運動速度設置為 <i>50</i> %</span></dt><dd>車子開多快。</dd>
+        <dt><span class="b b-move">將電機旋轉一圈設置為 <i>17.5</i> 厘米</span></dt><dd>輪子轉一圈，車走幾公分。</dd>
+        <dt><span class="b b-move"><i class="m">↑</i> 移動 <i>20</i> <i class="m">厘米</i></span></dt><dd>↑ 前進、↓ 後退，走多遠。厘米就是公分。</dd>
+        <dt><span class="b b-move">向 <i class="m">右:100</i> 移動 <i>1</i> <i class="m">圈</i></span></dt><dd>轉彎（等一下學）。</dd>
+        <dt><span class="b b-move">停止運動</span></dt><dd>車子停下來。</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="speedbox"><b>速度是什麼？</b>　速度＝<b>多快</b>，用 % 表示，100 % 最快。速度只管快慢；<b>走多遠，看「移動」那塊的數字</b>。真的是這樣嗎？下一頁自己試。</div>
+  <p class="say">今天開車用<b>粉色</b>。前三塊是「設定三塊」，每支程式開頭照抄。</p>
+  <div class="t"><h4>講法</h4><p>「藍色一次只能叫一個輪子轉；粉色把兩個輪子綁成一台車。前三塊粉色是出發前的設定：哪兩個輪子、開多快、輪子多大。」</p><h4>App 上的字</h4><p>App 只有簡體中文，字形和頁面上的繁體略有不同（例如「電機」「運動」），意思一樣；學生問就說「同一個字的另一種寫法」。藍色類別 App 上叫「電機」，頁面統一說「馬達」。</p><h4>英文</h4><p>run for／start motor／stop motor／set speed；set movement motors／set movement speed／set 1 motor rotation／move for／move with steering／stop moving。</p></div>
+</section>
+
+<section class="step" data-type="task" data-part="走直線" data-sub="動手" data-title="走直線、試速度、試藍色" data-min="8" data-color="#e23db8">
+  <p class="goal">先讓車前進 20 公分，再試試看：<b>速度</b>改了會怎樣？<b>藍色</b>積木會怎樣？</p>
+  <h3 class="mini">1. 走 20 公分</h3>
+  <div class="two">
+    <div>
+      <ol class="steps-do">
+        <li>官方 App 首頁「<b>新建項目</b>」→「<b>詞語模塊</b>」→「創建」。按左上角黃色「<b>連接</b>」，選你們的主機。</li>
+        <li>照右邊的圖排積木（粉色在左邊「運動」類）。</li>
+        <li>桌上貼起點線，車頭前緣對齊，按 ▶。量車頭前緣離起點線幾公分。</li>
+      </ol>
+      <div class="guess" data-key="g.move20"><p class="guess-q">先猜：寫 20 公分，車會剛好走 20 公分嗎？</p><div class="guess-opts"><button type="button" data-v="exact">剛好 20</button><button type="button" data-v="more">多一點</button><button type="button" data-v="less">少一點</button></div><div class="guess-after" hidden>量完再回來看。<button class="guess-reveal" type="button">看看為什麼</button></div><div class="guess-why" hidden>車子是用「輪子轉幾圈 × 一圈 17.5 公分」算出來的。輪子打滑、地板、起點沒對準，都會差一點點。</div></div>
+    </div>
+    <div>
+      <div class="blkstack"><span class="b b-ev hat">當程式啟動時</span><span class="b b-move">將運轉電機設置為 <i class="m">A+B</i></span><span class="b b-move">將運動速度設置為 <i>50</i> %</span><span class="b b-move">將電機旋轉一圈設置為 <i>17.5</i> 厘米</span><span class="b b-move"><i class="m">↑</i> 移動 <i>20</i> <i class="m">厘米</i></span></div>
+      <p class="warnbox">積木預設是 <b>C+D</b>，要點一下改成 <b>A+B</b>。</p>
+    </div>
+  </div>
+
+  <h3 class="mini">2. 速度試試看</h3>
+  <div class="two">
+    <div>
+      <p>只改「將運動速度設置為」的數字，其他不動，每次都量。</p>
+      <div class="guess" data-key="g.speed"><p class="guess-q">先猜：速度 50 改成 100，車會？</p><div class="guess-opts"><button type="button" data-v="far">走得更遠</button><button type="button" data-v="fast">走得更快，一樣遠</button><button type="button" data-v="both">又快又遠</button></div><div class="guess-after" hidden>試完再回來看。<button class="guess-reveal" type="button">看看為什麼</button></div><div class="guess-why" hidden>速度只管快慢。走多遠是「移動 20 厘米」決定的，所以速度改了，還是走大約 20 公分，只是比較快到。</div></div>
+    </div>
+    <div>
+      <table class="rec">
+        <tr><th>速度</th><th>快還是慢</th><th>走了幾公分</th></tr>
+        <tr><td>20 %</td><td><select data-key="sp.q20"><option value=""></option><option>很慢</option><option>普通</option><option>很快</option></select></td><td><input type="number" step="any" data-key="sp.d20" aria-label="速度 20 走了幾公分"></td></tr>
+        <tr><td>50 %</td><td><select data-key="sp.q50"><option value=""></option><option>很慢</option><option>普通</option><option>很快</option></select></td><td><input type="number" step="any" data-key="m.d20" aria-label="速度 50 走了幾公分"></td></tr>
+        <tr><td>100 %</td><td><select data-key="sp.q100"><option value=""></option><option>很慢</option><option>普通</option><option>很快</option></select></td><td><input type="number" step="any" data-key="sp.d100" aria-label="速度 100 走了幾公分"></td></tr>
+      </table>
+      <p class="say">我們發現：速度改大，車子 <select data-key="sp.find"><option value=""></option><option>走得更快，距離差不多</option><option>走得更遠</option><option>沒有改變</option></select></p>
+    </div>
+  </div>
+
+  <h3 class="mini">3. 藍色試試看</h3>
+  <div class="two">
+    <div>
+      <ol class="steps-do">
+        <li>速度改回 50。把「↑ 移動 20 厘米」拖走，換成藍色「<b>A 運行 ↻ 1 圈</b>」（左邊「電機」類）。</li>
+        <li>按 ▶，看哪個輪子轉、車子怎麼動。</li>
+        <li>看完換回「↑ 移動 20 厘米」。</li>
+      </ol>
+    </div>
+    <div>
+      <div class="blkstack"><span class="b b-ev hat">當程式啟動時</span><span class="b b-move">設定三塊（和剛才一樣）</span><span class="b b-mot"><i class="m">A</i> 運行 <i class="m">↻</i> <i>1</i> <i class="m">圈</i></span></div>
+      <p class="say">車子 <select data-key="bl.obs"><option value=""></option><option>只有左輪轉，車子歪一邊轉</option><option>兩個輪子一起往前走</option><option>完全不動</option></select></p>
+    </div>
+  </div>
+  <div class="adv"><h3>進階</h3><ol class="steps-do"><li>把 ↑ 改成 <b>↓</b>，車子怎麼動？</li><li>藍色再加一塊「<b>B 運行 1 圈</b>」接在下面，車子會直走嗎？為什麼？</li></ol></div>
+  <div class="t"><h4>講法</h4><p>「先猜，再按。一次只改一個數字。尺從起點線量到車頭前緣。」速度試完問：「速度改了，距離有變嗎？那距離是誰決定的？」藍色試完問：「只叫 A 轉，B 沒動，車子會怎樣？所以開車用哪一種比較方便？」</p><h4>卡點</h4><ul><li>車不動：A+B 改了沒？連接還在嗎？積木有沒有接在「當程式啟動時」下面（要貼緊）？</li><li>車往後走：A、B 線對調。</li><li>速度 100 多走一點：衝太快停不住，正常。</li><li>藍色積木讓車往後歪：↻／↺ 是馬達自己的方向，左右輪馬達裝的方向相反，正常。</li><li>時間不夠：速度只試 20 和 100；藍色由老師示範。</li></ul></div>
+</section>
+
+<section class="step" data-gate data-type="quiz" data-part="走直線" data-sub="小測驗" data-title="走直線小測驗" data-min="1" data-color="#e23db8">
+  <p class="goal">答對拿一顆星。</p>
+  <div class="quiz">
+    <div class="q" data-key="qb1"><p class="q-t">1. 想讓車後退 30 公分，要改哪裡？</p><div class="opts">
+      <button type="button" data-ok="1" data-fb="方向改 ↓（後退），距離改 30。設定三塊不用動。">↑ 改成 ↓，20 改成 30</button>
+      <button type="button" data-fb="A+B 是哪兩顆馬達，和前進後退無關。">A+B 改成 B+A</button>
+      <button type="button" data-fb="17.5 是輪子轉一圈走幾公分，改了距離會不準。">17.5 改成 30</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="qb2"><p class="q-t">2. 按播放，車完全不動。最先檢查什麼？</p><div class="opts">
+      <button type="button" data-ok="1" data-fb="積木預設 C+D，我們的馬達在 A、B。先看這個，再看線和連接。">「運轉電機」是不是 A+B</button>
+      <button type="button" data-fb="速度 50 車就會動，不是原因。">把速度改成 100</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="qb4"><p class="q-t">3. 想讓整台車往前走，用哪一種顏色的積木最方便？</p><div class="opts">
+      <button type="button" data-ok="1" data-fb="粉色把兩顆馬達當一台車，一塊就能讓車走。">粉色「運動」</button>
+      <button type="button" data-fb="藍色一次只管一顆馬達，左右輪要各排，比較麻煩。">藍色「馬達」</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="qb5"><p class="q-t">4. 速度 50 改成 100，「↑ 移動 20 厘米」會走多遠？</p><div class="opts">
+      <button type="button" data-ok="1" data-fb="速度只管快慢，走多遠看「移動」那塊的 20。">還是大約 20 公分，只是比較快</button>
+      <button type="button" data-fb="速度變兩倍，距離不會變兩倍；距離是「移動」那塊決定的。">變成 40 公分</button></div><p class="fb" hidden></p></div>
+    <div class="q" data-key="qb3"><p class="q-t">5. 寫 20 公分，量到 19 公分。這代表？</p><div class="opts">
+      <button type="button" data-ok="1" data-fb="真的車會有一點誤差（打滑、對準）。差多少要量了才知道，所以要用尺量。">正常，真的車會差一點點</button>
+      <button type="button" data-fb="程式沒寫錯，是真實世界的誤差。">程式寫錯了</button></div><p class="fb" hidden></p></div>
+    <p class="quiz-state"></p>
+  </div>
+  <div class="t"><h4>講法</h4><p>答完換下一個人操作。</p></div>
+</section>
+
+<!-- ========== 4 轉彎 ========== -->
+<section class="step" data-type="intro" data-part="轉彎" data-sub="說明" data-title="轉向值：讓車子轉彎" data-min="3" data-color="#16a34a">
+  <p class="goal">轉彎用「<b>向 ○ 移動</b>」積木。它有兩個地方要看懂。</p>
+  <div class="blkrow">
+    <div class="blkcard"><span class="b b-move">向 <i class="m">右:100</i> 移動 <i>1</i> <i class="m">圈</i></span><p class="bk-zh">「轉向移動」積木</p><p class="bk-en">English：move with steering</p></div>
+    <div class="meaning">
+      <p><span class="tag">右:100</span>叫「<b>轉向值</b>」（也叫轉向比）：<b>左右兩個輪子的速度怎麼分</b>。數字越大，兩輪速度差越多，彎得越急。它<b>不是角度</b>。</p>
+      <p><span class="tag">1 圈</span><b>輪子</b>轉幾圈（不是車子轉幾圈）。0.5 圈＝輪子轉半圈。<b>車子轉多少角度，是由這個圈數決定的</b>。</p>
+    </div>
+  </div>
+  <div class="daily"><b>生活中的例子</b>　兩個人手牽手並排走，要往右轉：<b>左邊的人走快、右邊的人走慢</b>，兩人就一起往右彎。右邊的人<b>停下來</b>，左邊的人就繞著他轉一圈。兩個人<b>一個往前、一個往後</b>，就在原地打轉。車子的兩個輪子就是這兩個人。</div>
+  <p class="say">拉拉看，看兩個輪子的速度和車子怎麼走：</p>
+  <div class="steer">
+    <svg id="st-svg" viewBox="-110 -125 220 160" width="300" height="220" role="img" aria-label="轉向值示意：車子從下方出發，沿著路線移動"></svg>
+    <div class="steer-side">
+      <p class="steer-in">轉向值 <input id="st-v" type="range" min="-100" max="100" step="25" value="0" aria-label="轉向值"> <b id="st-n">0</b></p>
+      <div class="wbar"><span class="wl">左輪</span><span class="wt"><span class="wz"></span><span class="wf" id="st-wl"></span></span><b id="st-tl">100%</b></div>
+      <div class="wbar"><span class="wl">右輪</span><span class="wt"><span class="wz"></span><span class="wf" id="st-wr"></span></span><b id="st-tr">100%</b></div>
+      <p class="steer-tip" id="st-tip">0：兩個輪子一樣快，直直走。</p>
+    </div>
+  </div>
+  <p class="signnote"><b>示範裡的負數是什麼？</b>　轉向值其實是一個 -100 到 100 的數字：<b>正數往右、負數往左</b>。積木為了好懂，把它寫成「方向＋數字」：<b>右:50 就是 50，左:50 就是 -50</b>，所以積木上不用打負號。Python 的話直接寫數字，例如 <code>steering=-50</code> 就是往左。</p>
+  <div class="t"><h4>講法</h4><p>「拉到 0、25、50、75、100，每次看兩條速度條。0 兩輪一樣快；往右拉，右輪越來越慢；50 右輪停住；超過 50 右輪開始倒轉；100 兩輪一樣快但方向相反，原地轉。」「圈是輪子轉的圈數。拿起車子，用手把輪子轉半圈給你看——這就是 0.5 圈。」可以請兩位學生手牽手當左右輪，現場演一次。</p><h4>官方怎麼說</h4><p>官方說明（簡體）只寫：轉向值 -100 到 100；「0」直線行駛；+99／-99 弧形路徑最明顯；100／-100 以自身為中心旋轉。官方沒有寫公式；速度條用的是常見的轉向比算法（外側輪照設定速度，內側輪＝設定速度 ×（1 − 轉向值 ÷ 50）），真車待確認。</p><h4>粉色積木還有</h4><p>「停止運動」今天在轉直角頁用來收尾，讓車確實停住再看角度。「開始移動」（一直走到叫停）之後感測器課會用到。</p><h4>單位</h4><p>「圈」那格點開還能選厘米、度、秒；今天轉彎都用「圈」。</p></div>
+</section>
+
+<section class="step" data-type="task" data-part="轉彎" data-sub="轉直角" data-title="試試看：幾圈是銳角、直角、鈍角" data-min="5" data-color="#16a34a">
+  <p class="goal">改圈數試試看，找出幾圈會轉成<b>銳角</b>、<b>直角</b>、<b>鈍角</b>。</p>
+  <div class="two">
+    <div>
+      <ol class="steps-do">
+        <li>照下面的範例排：<b>移動 → 轉 → 停止</b>。「轉」的圈數空著，自己填。</li>
+        <li>車子沿著地上的膠帶往前走，按 ▶。</li>
+        <li>看車頭轉完和膠帶夾成什麼角，填表。</li>
+        <li>圈數從 <b>0.2</b> 開始，每次多 0.2，試到 0.8。找到「銳角變鈍角」的地方，再試中間的數字。</li>
+      </ol>
+      <div class="blkstack"><span class="b b-ev hat">當程式啟動時</span><span class="b b-move">設定三塊（和剛才一樣）</span><span class="b b-move"><i class="m">↑</i> 移動 <i>20</i> <i class="m">厘米</i></span><span class="b b-move">向 <i class="m">右:100</i> 移動 <i>？</i> <i class="m">圈</i></span><span class="b b-move">停止運動</span></div>
+      <svg class="angles" viewBox="0 0 330 100" width="380" role="img" aria-label="三種角：銳角比直角小，直角像書本的角，鈍角比直角大">
+        <g stroke="#16a34a" stroke-width="4" fill="none" stroke-linecap="round"><path d="M20 76 H95 M20 76 L70 24"/><path d="M130 76 H205 M130 76 V14"/><path d="M240 76 H315 M240 76 L205 26"/></g>
+        <path d="M130 62 H144 V76" stroke="#16a34a" stroke-width="2" fill="none"/>
+        <g font-size="18" font-weight="700" fill="#15803d" text-anchor="middle"><text x="55" y="99">銳角</text><text x="168" y="99">直角</text><text x="278" y="99">鈍角</text></g>
+      </svg>
+      <div class="guess" data-key="g.turn"><p class="guess-q">先猜：輪子轉幾圈，車頭會轉成直角？</p><div class="guess-opts"><button type="button" data-v="less">不到 1 圈</button><button type="button" data-v="exact">剛好 1 圈</button><button type="button" data-v="more">超過 1 圈</button></div><div class="guess-after" hidden>試完再回來看。<button class="guess-reveal" type="button">看看為什麼</button></div><div class="guess-why" hidden>「圈」是輪子轉的量，不是車子轉的角度。車子轉多少，要看兩個輪子離多遠、地板滑不滑，所以要試出來。</div></div>
+    </div>
+    <div>
+      <table class="rec">
+        <tr><th>第幾次</th><th>圈數</th><th>車頭轉成</th></tr>
+        <tr><td>1</td><td><input type="number" step="0.01" data-key="t.n1" aria-label="第一次圈數"></td><td><select data-key="t.r1"><option value=""></option><option>銳角</option><option>直角</option><option>鈍角</option><option>比鈍角還多</option></select></td></tr>
+        <tr><td>2</td><td><input type="number" step="0.01" data-key="t.n2" aria-label="第二次圈數"></td><td><select data-key="t.r2"><option value=""></option><option>銳角</option><option>直角</option><option>鈍角</option><option>比鈍角還多</option></select></td></tr>
+        <tr><td>3</td><td><input type="number" step="0.01" data-key="t.n3" aria-label="第三次圈數"></td><td><select data-key="t.r3"><option value=""></option><option>銳角</option><option>直角</option><option>鈍角</option><option>比鈍角還多</option></select></td></tr>
+        <tr><td>4</td><td><input type="number" step="0.01" data-key="t.n4" aria-label="第四次圈數"></td><td><select data-key="t.r4"><option value=""></option><option>銳角</option><option>直角</option><option>鈍角</option><option>比鈍角還多</option></select></td></tr>
+        <tr><td>5</td><td><input type="number" step="0.01" data-key="t.n5" data-optional aria-label="第五次圈數"></td><td><select data-key="t.r5" data-optional><option value=""></option><option>銳角</option><option>直角</option><option>鈍角</option><option>比鈍角還多</option></select></td></tr>
+        <tr><td>6</td><td><input type="number" step="0.01" data-key="t.n6" data-optional aria-label="第六次圈數"></td><td><select data-key="t.r6" data-optional><option value=""></option><option>銳角</option><option>直角</option><option>鈍角</option><option>比鈍角還多</option></select></td></tr>
+      </table>
+      <table class="rec found-t">
+        <tr><th colspan="2">我們發現</th></tr>
+        <tr><td><b>銳角</b></td><td>圈數 <input type="number" step="0.01" data-key="f.a1" aria-label="銳角圈數從"> 到 <input type="number" step="0.01" data-key="f.a2" aria-label="銳角圈數到"></td></tr>
+        <tr><td><b>直角</b></td><td>圈數 <input type="number" step="0.01" data-key="sq.rot" aria-label="轉直角用的圈數"></td></tr>
+        <tr><td><b>鈍角</b></td><td>圈數 <input type="number" step="0.01" data-key="f.o1" aria-label="鈍角圈數從"> 到 <input type="number" step="0.01" data-key="f.o2" aria-label="鈍角圈數到"></td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="t"><h4>講法</h4><p>「一次只改圈數，其他不動。看車頭和膠帶夾的角：比書本的角小是銳角，一樣是直角，比較大是鈍角。」</p><h4>提問</h4><p>「0.4 是銳角、0.6 是鈍角，那直角會在哪裡？」讓學生自己決定試中間的數字。</p><h4>卡點</h4><ul><li>分不出是不是直角：拿課本的角或量角器靠在車頭旁比。</li><li>學生以為 100 是 100 度：官方說明「轉向值 0 直走、+99／-99 弧線最明顯、100／-100 以自身為中心旋轉」，100 不是角度；車轉幾度由圈數決定。</li><li>往左轉：轉向值方向待確認，照實際寫下來即可。</li><li>一次改很多：「只改圈數」。</li><li>時間不夠：試完 0.2、0.4、0.6、0.8 四次就填「我們發現」，直角填最接近的數字。</li></ul><h4>參考（不要直接給）</h4><p>官方驅動底座約 0.5 圈＝直角、1 圈＝轉半圈（一直線）。實機數字待確認。</p></div>
+</section>
+
+<section class="step" data-type="task" data-part="轉彎" data-sub="正方形" data-title="走出一個正方形" data-min="5" data-color="#16a34a">
+  <p class="goal">讓車走出一個正方形。<b>先想一想，選完再排。</b></p>
+  <div class="two">
+    <div>
+      <div class="pick"><p class="pick-q">1. 正方形有幾個邊、幾個角？</p><div class="pick-opts"><button type="button" data-fb="數數看正方形的邊，再數角。">3 邊 3 角</button><button type="button" data-ok="1" data-fb="對！4 個一樣長的邊、4 個直角。">4 邊 4 角</button><button type="button" data-fb="邊和角一樣多，再數一次角。">4 邊 2 角</button></div><p class="pick-fb" hidden></p></div>
+      <div class="pick"><p class="pick-q">2. 走完一個邊，要先做什麼，才能走下一個邊？</p><div class="pick-opts"><button type="button" data-ok="1" data-fb="對！轉一個直角，車頭才會對著下一個邊。一個邊＝「走一段＋轉一個直角」。">轉一個直角</button><button type="button" data-fb="後退會走回原來的邊上。想想車頭要對著哪裡。">後退</button><button type="button" data-fb="停下來車頭還是對著原來的方向。下一個邊在旁邊。">停下來</button></div><p class="pick-fb" hidden></p></div>
+      <div class="pick"><p class="pick-q">3. 如果一塊一塊排，「移動」和「轉」加起來要排幾塊？</p><div class="pick-opts"><button type="button" data-fb="這樣只走得完一個邊。正方形有幾個邊？">2 塊</button><button type="button" data-fb="每個邊要「移動」也要「轉」，各要幾塊？">4 塊</button><button type="button" data-ok="1" data-fb="對！4 個「移動」＋ 4 個「轉」＝ 8 塊，而且是同樣兩塊排了好幾遍。">8 塊</button></div><p class="pick-fb" hidden></p></div>
+      <div class="pick"><p class="pick-q">4. 同樣的事做好幾遍，用橘色「控制」的哪一塊最省事？</p><div class="pick-opts"><button type="button" data-ok="1" data-fb="對！「重複執行 ○ 次」可以自己定要做幾遍。">重複執行 ○ 次</button><button type="button" data-fb="「一直重複」停不下來，車會一直繞。要能定做幾遍的那塊。">一直重複</button><button type="button" data-fb="「如果」是判斷用的，不會重複做。">如果…那麼</button></div><p class="pick-fb" hidden></p></div>
+    </div>
+    <div>
+      <ol class="steps-do">
+        <li>拖出你選的積木，接在設定三塊下面。數字改成<b>要做幾遍</b>。</li>
+        <li>把<b>一個邊要做的事</b>放進開口裡。轉的圈數用上一頁找到的<b>直角</b>圈數。</li>
+        <li>車頭對齊起點，按 ▶。走完量車頭離起點幾公分。</li>
+      </ol>
+      <div class="blkstack"><span class="b b-ev hat">當程式啟動時</span><span class="b b-move">設定三塊（和剛才一樣）</span><span class="b b-ctl b-c">重複執行 <i>？</i> 次<span class="in"><span class="b b-ghost">？</span><span class="b b-ghost">？</span></span><span class="end"></span></span></div>
+      <table class="rec">
+        <tr><th class="l">走完以後</th><th>數字</th></tr>
+        <tr><td class="l">車頭離起點幾公分</td><td><input type="number" step="any" data-key="sq.dist" aria-label="離起點幾公分"></td></tr>
+      </table>
+      <div class="checklist">
+        <label class="chk"><input type="checkbox" data-key="sq.ok"><span>車走完一圈，回到起點附近</span></label>
+      </div>
+    </div>
+  </div>
+  <div class="adv"><h3>進階</h3><p>改成往<b>左</b>走正方形，要改哪一個地方？</p></div>
+  <div class="t"><h4>講法</h4><p>「先別急著排，四題選完再動手。」第 3 題選完問：「8 塊都一樣的兩塊，有沒有更省事的方法？」讓學生自己說出「重複」。參考：重複執行 4 次，裡面放「↑ 移動 20 厘米」＋「向 右:100 移動（直角圈數）圈」。走完沒剛好回到起點是正常的，不現場調，數字記下來下一節用。</p><h4>卡點</h4><ul><li>只走一邊就停：兩塊有沒有放進「重複」的開口裡。</li><li>走了很多圈：重複的次數是不是還是 10。</li><li>設定三塊被放進重複裡：拖出來放在重複上面。</li></ul></div>
+</section>
+
+<!-- ========== 5 挑戰：繞積木 ========== -->
+<section class="step" data-type="task" data-part="挑戰" data-sub="繞積木" data-title="挑戰：繞過積木到終點" data-min="8" data-color="#7c3aed">
+  <p class="goal">積木擋在路中間。<b>先寫計畫</b>，再排積木，讓車繞過去、停在終點線。</p>
+  <div class="two">
+    <div>
+      <svg class="field" viewBox="0 0 300 250" width="300" role="img" aria-label="場地：下方起點線，正前方 30 公分放一塊積木，60 公分處是終點線；虛線是從右邊繞過積木的一種走法">
+        <rect x="0" y="0" width="300" height="250" fill="#f8fafc"/>
+        <rect x="70" y="222" width="160" height="5" fill="#f59e0b"/><text x="236" y="230" font-size="13" fill="#92400e">起點</text>
+        <rect x="70" y="22" width="160" height="5" fill="#16a34a"/><text x="236" y="30" font-size="13" fill="#15803d">終點</text>
+        <rect x="136" y="110" width="28" height="28" rx="4" fill="#dc2626"/><text x="104" y="129" font-size="13" fill="#b91c1c">積木</text>
+        <path d="M150 220 V180 H215 V65 H150 V34" fill="none" stroke="#7c3aed" stroke-width="3" stroke-dasharray="6 5"/>
+        <path d="M144 42 L150 32 L156 42" fill="none" stroke="#7c3aed" stroke-width="3"/>
+        <path d="M60 222 V126" stroke="#94a3b8" stroke-width="2"/><text x="6" y="178" font-size="13" fill="#475569">30 公分</text>
+        <path d="M40 222 V26" stroke="#cbd5e1" stroke-width="2"/><text x="6" y="70" font-size="13" fill="#475569">60</text><text x="6" y="86" font-size="13" fill="#475569">公分</text>
+        <rect x="136" y="228" width="28" height="18" rx="4" fill="#22d3ee"/><text x="170" y="244" font-size="12" fill="#0e7490">車</text>
+      </svg>
+      <p class="say">虛線只是一種走法，你們可以想別的。</p>
+    </div>
+    <div>
+      <p><b>計畫</b>（照順序，一列一個動作）：</p>
+      <table class="plan">
+        <tr><th>#</th><th>動作</th><th>前進／後退幾公分</th></tr>
+        <tr><td>1</td><td><select data-key="c.a1"><option value=""></option><option>前進</option><option>後退</option><option>右轉直角</option><option>左轉直角</option></select></td><td><input type="number" step="any" data-key="c.n1" data-optional aria-label="第 1 步公分"></td></tr>
+        <tr><td>2</td><td><select data-key="c.a2"><option value=""></option><option>前進</option><option>後退</option><option>右轉直角</option><option>左轉直角</option></select></td><td><input type="number" step="any" data-key="c.n2" data-optional aria-label="第 2 步公分"></td></tr>
+        <tr><td>3</td><td><select data-key="c.a3"><option value=""></option><option>前進</option><option>後退</option><option>右轉直角</option><option>左轉直角</option></select></td><td><input type="number" step="any" data-key="c.n3" data-optional aria-label="第 3 步公分"></td></tr>
+        <tr><td>4</td><td><select data-key="c.a4" data-optional><option value=""></option><option>前進</option><option>後退</option><option>右轉直角</option><option>左轉直角</option></select></td><td><input type="number" step="any" data-key="c.n4" data-optional aria-label="第 4 步公分"></td></tr>
+        <tr><td>5</td><td><select data-key="c.a5" data-optional><option value=""></option><option>前進</option><option>後退</option><option>右轉直角</option><option>左轉直角</option></select></td><td><input type="number" step="any" data-key="c.n5" data-optional aria-label="第 5 步公分"></td></tr>
+        <tr><td>6</td><td><select data-key="c.a6" data-optional><option value=""></option><option>前進</option><option>後退</option><option>右轉直角</option><option>左轉直角</option></select></td><td><input type="number" step="any" data-key="c.n6" data-optional aria-label="第 6 步公分"></td></tr>
+        <tr><td>7</td><td><select data-key="c.a7" data-optional><option value=""></option><option>前進</option><option>後退</option><option>右轉直角</option><option>左轉直角</option></select></td><td><input type="number" step="any" data-key="c.n7" data-optional aria-label="第 7 步公分"></td></tr>
+      </table>
+      <p class="say">轉直角用 <span data-mirror="sq.rot" data-empty="（上一頁找到的數字）"></span> 圈：右轉「右:100」，左轉「左:100」。</p>
+    </div>
+  </div>
+  <ol class="steps-do">
+    <li>積木放在起點正前方 <b>30 公分</b>，終點線貼在 <b>60 公分</b>。</li>
+    <li>照計畫排積木（開頭一樣是設定三塊），按 ▶。</li>
+    <li>碰到積木或沒到終點：<b>只改計畫裡的一個數字</b>，再試。</li>
+  </ol>
+  <div class="goalcard">
+    <div><b>★ 過關</b>：沒碰到積木，車頭停在終點線前後 5 公分內。</div>
+    <div><b>★★ 進階</b>：繞過去以後，再回到起點線。</div>
+  </div>
+  <table class="rec">
+    <tr><th>第幾次</th><th>碰到積木？</th><th>車頭離終點線幾公分</th><th>這次改了什麼</th></tr>
+    <tr><td>1</td><td><select data-key="c.h1"><option value=""></option><option>沒碰到</option><option>碰到</option></select></td><td><input type="number" step="any" data-key="c.e1" aria-label="第一次離終點幾公分"></td><td>照計畫</td></tr>
+    <tr><td>2</td><td><select data-key="c.h2" data-optional><option value=""></option><option>沒碰到</option><option>碰到</option></select></td><td><input type="number" step="any" data-key="c.e2" data-optional aria-label="第二次離終點幾公分"></td><td><input type="text" data-key="c.c2" data-optional aria-label="第二次改了什麼" style="width:9em"></td></tr>
+    <tr><td>3</td><td><select data-key="c.h3" data-optional><option value=""></option><option>沒碰到</option><option>碰到</option></select></td><td><input type="number" step="any" data-key="c.e3" data-optional aria-label="第三次離終點幾公分"></td><td><input type="text" data-key="c.c3" data-optional aria-label="第三次改了什麼" style="width:9em"></td></tr>
+  </table>
+  <div class="checklist">
+    <label class="chk"><input type="checkbox" data-key="c.plan"><span>先寫了計畫，才排積木</span></label>
+    <label class="chk"><input type="checkbox" data-key="c.pass"><span>有一次沒碰到積木，停在終點線附近</span></label>
+  </div>
+  <div class="t"><h4>講法</h4><p>「先在表上用中文寫步驟，再排積木——先想清楚再寫程式（官方叫 pseudocode）。不成功就只改一個數字。」</p><h4>提問</h4><p>「為什麼第一次常常碰到？」（轉彎不是剛好直角、走的距離有誤差。）</p><h4>卡點</h4><ul><li>不知道從哪開始：指著虛線問「第一步車要往哪走、走多遠？」</li><li>排了 10 塊亂跑：先只放計畫第 1、2 列，按 ▶ 看對不對，再往下加。</li><li>桌面太小：積木改 20 公分、終點 40 公分，計畫數字照比例縮。</li></ul><h4>參考解（不要直接給）</h4><p>前進 10 → 右轉 → 前進 15 → 左轉 → 前進 50（5 步，從右邊繞過、終點在右側 15 公分處的延長線上，車頭過終點線即可）。照虛線完整繞回中線：前進 10 → 右轉 → 前進 15 → 左轉 → 前進 40 → 左轉 → 前進 15 → 右轉 → 前進 10（9 步，超過表格 7 列，可合併或寫在紙上）。</p></div>
+</section>
+
+<!-- ========== 6 收拾 ========== -->
+<section class="step" data-type="box" data-part="收拾" data-title="收拾" data-min="2" data-color="#64748b">
+  <p class="goal">車子不拆，整台放好。三個人一起收。</p>
+  <div class="checklist">
+    <label class="chk"><input type="checkbox" data-key="tidy.save"><span>程式存檔，名字用「隊名_繞積木」</span></label>
+    <label class="chk"><input type="checkbox" data-key="tidy.parts"><span>尺、膠帶、高積木放回盒子，桌上膠帶撕乾淨</span></label>
+    <label class="chk"><input type="checkbox" data-key="tidy.cable"><span>線整理好，沒有垂到輪子旁邊</span></label>
+    <label class="chk"><input type="checkbox" data-key="tidy.off"><span>主機關機（長按電源鍵），接上充電線</span></label>
+    <label class="chk"><input type="checkbox" data-key="tidy.box"><span>整台車輕輕放進箱子，蓋好</span></label>
+  </div>
+  <div class="t"><h4>講法</h4><p>「最後兩分鐘一起收：一個人唸清單，兩個人檢查。車不拆，下一節直接用。」</p><h4>下課後（老師）</h4><p>記下兩隊的 <code>sq.rot</code>（轉直角圈數）與 <code>sq.dist</code>（正方形離起點），下一節從這裡接「為什麼回不到起點」。</p></div>
+</section>
+
+</div>
+
+<script src="../assets/firebase-config.js"></script>
+<script src="../assets/course.js?v=29"></script>
+<script>
+/* 轉向值示意：轉向比算法（外側輪 100%，內側輪 = 1 - |s|/50：50 停、100 反轉）；車子沿路線動畫移動。 */
+(function () {
+  var svg = document.getElementById('st-svg'), r = document.getElementById('st-v');
+  if (!svg || !r) return;
+  var W = 19, poses = [], carEl = null, t0 = 0, raf = 0;
+  function tip(s) {
+    var a = Math.abs(s), side = s > 0 ? '右' : '左', other = s > 0 ? '左' : '右';
+    if (a === 0) return '0：兩個輪子一樣快，直直走。';
+    var lab = s + '（積木上是「' + side + ':' + a + '」）';
+    if (a < 50) return lab + '：' + side + '輪比' + other + '輪慢，車子往' + side + '彎。';
+    if (a === 50) return lab + '：' + side + '輪停住，車子繞著它轉。';
+    if (a < 100) return lab + '：' + side + '輪往後轉，車子彎得很急。';
+    return lab + '：兩個輪子一樣快、方向相反，車子在原地打轉。';
+  }
+  function car(p, op, id) {
+    var a = (p[2] + Math.PI / 2) * 180 / Math.PI;
+    return '<g' + (id ? ' id="' + id + '"' : '') + ' opacity="' + op + '" transform="translate(' + p[0].toFixed(1) + ',' + p[1].toFixed(1) + ') rotate(' + a.toFixed(1) + ')"><rect x="-8" y="-9" width="16" height="18" rx="3" fill="#22d3ee" stroke="#0e7490" stroke-width="1.5"/><rect x="-11" y="-5" width="3" height="10" fill="#0f172a"/><rect x="8" y="-5" width="3" height="10" fill="#0f172a"/><path d="M-4 -9 L0 -15 L4 -9" fill="#dc2626"/></g>';
+  }
+  function bar(el, tx, v) {
+    var pct = Math.round(v * 100);
+    el.style.left = v >= 0 ? '50%' : (50 + v * 50) + '%';
+    el.style.width = Math.abs(v) * 50 + '%';
+    el.style.background = v >= 0 ? '#16a34a' : '#dc2626';
+    tx.textContent = (pct > 0 ? '' : '') + pct + '%' + (pct < 0 ? ' 倒轉' : pct === 0 ? ' 停' : '');
+  }
+  function draw() {
+    var s = +r.value, k = 1 - Math.abs(s) / 50, vl, vr;
+    if (s >= 0) { vl = 1; vr = k; } else { vl = k; vr = 1; }
+    var x = 0, y = 0, th = -Math.PI / 2, pts = [], dt = 0.25, turned = 0, dist = 0;
+    poses = [];
+    for (var i = 0; i < 2000; i++) {
+      var v = (vl + vr) / 2, w = (vl - vr) / W;
+      x += v * Math.cos(th) * dt; y += v * Math.sin(th) * dt; th += w * dt;
+      turned += Math.abs(w * dt); dist += Math.max(Math.abs(vl), Math.abs(vr)) * dt;
+      if (i % 4 === 0) pts.push(x.toFixed(1) + ',' + y.toFixed(1));
+      poses.push([x, y, th]);
+      if (turned >= Math.PI || dist >= 100) break;
+    }
+    svg.innerHTML = car([0, 0, -Math.PI / 2], .25) + '<text x="0" y="26" text-anchor="middle" font-size="11" fill="#64748b">出發</text>' +
+      '<polyline points="0,0 ' + pts.join(' ') + '" fill="none" stroke="#e23db8" stroke-width="2.5" stroke-dasharray="5 4"/>' +
+      car(poses[poses.length - 1], .2) + car(poses[0], 1, 'st-car');
+    carEl = document.getElementById('st-car');
+    try { var b = svg.getBBox(); if (b.width) { var pad = 10, sz = Math.max(b.width, b.height * 1.37, 120) + pad * 2, h = sz / 1.37;
+      svg.setAttribute('viewBox', (b.x + b.width / 2 - sz / 2).toFixed(1) + ' ' + (b.y + b.height / 2 - h / 2).toFixed(1) + ' ' + sz.toFixed(1) + ' ' + h.toFixed(1)); } } catch (e) { }
+    document.getElementById('st-n').textContent = s;
+    document.getElementById('st-tip').textContent = tip(s);
+    bar(document.getElementById('st-wl'), document.getElementById('st-tl'), vl);
+    bar(document.getElementById('st-wr'), document.getElementById('st-tr'), vr);
+    t0 = performance.now();
+  }
+  function tick(now) {   // 3 秒走完路線，停 1 秒，再重來
+    raf = requestAnimationFrame(tick);
+    if (!carEl || !poses.length || svg.getBoundingClientRect().width === 0) return;
+    var u = (Math.max(0, now - t0) % 4000) / 3000; if (u > 1) u = 1;
+    var p = poses[Math.min(poses.length - 1, Math.floor(u * (poses.length - 1)))];
+    var a = (p[2] + Math.PI / 2) * 180 / Math.PI;
+    carEl.setAttribute('transform', 'translate(' + p[0].toFixed(1) + ',' + p[1].toFixed(1) + ') rotate(' + a.toFixed(1) + ')');
+  }
+  r.addEventListener('input', draw); draw(); raf = requestAnimationFrame(tick);
+  if (window.IntersectionObserver) new IntersectionObserver(function (es) { if (es[0].isIntersecting) draw(); }).observe(svg);
+})();
+/* 正方形引導題：選錯給提示可再選，選對顯示說明；不計星、不擋下一步。 */
+(function () {
+  [].forEach.call(document.querySelectorAll('.pick'), function (pk) {
+    var fb = pk.querySelector('.pick-fb');
+    [].forEach.call(pk.querySelectorAll('button'), function (b) {
+      b.addEventListener('click', function () {
+        if (pk.classList.contains('done')) return;
+        var ok = b.hasAttribute('data-ok');
+        b.classList.add(ok ? 'yes' : 'no');
+        fb.hidden = false; fb.textContent = b.getAttribute('data-fb'); fb.className = 'pick-fb ' + (ok ? 'ok' : 'ng');
+        if (ok) pk.classList.add('done');
+      });
+    });
+  });
+})();
+/* 官方影片：點畫面一下放大、再點一下縮回（不暫停）；點到下方控制列照原本行為。 */
+(function () {
+  [].forEach.call(document.querySelectorAll('video.offvid'), function (v) {
+    var wasPlaying = false;
+    v.addEventListener('pointerdown', function () { wasPlaying = !v.paused; });
+    v.addEventListener('click', function (e) {
+      var rect = v.getBoundingClientRect();
+      if (e.clientY > rect.bottom - 48) return;
+      e.preventDefault(); v.classList.toggle('big');
+      setTimeout(function () { if ((wasPlaying || v.classList.contains('big')) && v.paused) v.play(); }, 0);   // 放大時順便播放；播放中點畫面不暫停
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') v.classList.remove('big'); });
+  });
+})();
+</script>
+</body>
+</html>

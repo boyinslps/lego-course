@@ -12,7 +12,8 @@
 
   /* ---------- 積木／Python 模式：data-mode="block|py" 的內容只在對應模式顯示 ---------- */
   var MODE = 'block';
-  try { var qm = /[?&]mode=(py|block)/.exec(location.search); MODE = qm ? qm[1] : (localStorage.getItem('lc.mode') === 'py' ? 'py' : 'block'); if (qm) localStorage.setItem('lc.mode', MODE); } catch (e) { }
+  var NOPY = body.hasAttribute('data-nopy');   // <body data-nopy>：這節只用積木，固定積木模式、不顯示 Python 開關
+  try { var qm = /[?&]mode=(py|block)/.exec(location.search); MODE = qm ? qm[1] : (localStorage.getItem('lc.mode') === 'py' ? 'py' : 'block'); if (qm) localStorage.setItem('lc.mode', MODE); if (NOPY) MODE = 'block'; } catch (e) { }
   body.classList.toggle('mode-py', MODE === 'py');
   function inMode(el) { var m = el.closest('[data-mode]'); return !m || m.dataset.mode === MODE; }
   function attr(s, name) { var v = MODE === 'py' ? s.dataset[name + 'Py'] : null; return v != null ? v : s.dataset[name]; }
@@ -338,7 +339,8 @@
   }
   /* 切換積木／Python：換標題、小分頁名稱、下一步文字、分鐘數，再重算鎖定 */
   function setMode(m) {
-    MODE = m; try { localStorage.setItem('lc.mode', m); } catch (e) { }
+    if (NOPY) m = 'block';
+    MODE = m; if (!NOPY) try { localStorage.setItem('lc.mode', m); } catch (e) { }
     body.classList.toggle('mode-py', m === 'py');
     $$('.modesw button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.m === m ? 'true' : 'false'); b.classList.toggle('on', b.dataset.m === m); });
     steps.forEach(function (s, i) {
@@ -371,6 +373,7 @@
       '<span class="modesw" role="group" aria-label="用積木或 Python"><button type="button" data-m="block">積木</button><button type="button" data-m="py">Python</button></span>' +
       '<span class="btns"><button class="sm" id="btn-print" type="button">列印學習單</button><button class="sm" id="btn-teacher" type="button">老師模式</button></span>';
     cloudChip = $('#cloud-chip');
+    if (NOPY) { var sw = $('.modesw', bar); if (sw) sw.remove(); }
     var ti = $('#id-team'), ci = $('#id-cls'), si = $('#id-seat');
     ti.value = identity.team || ''; ci.value = identity.cls || ''; si.value = identity.seat || '';
     function changed() {
